@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Suvi - My Doctors</title>
+<!-- Google Fonts: Bodoni Moda (Headings) & Lexend (Body) -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&amp;family=Lexend:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Theme Configuration (Aura Wellness) -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-high": "#f6e5df",
+                        "background": "#fff8f6",
+                        "inverse-on-surface": "#ffede7",
+                        "tertiary": "#625b71",
+                        "error": "#ba1a1a",
+                        "secondary-fixed": "#ffdad9",
+                        "on-tertiary": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "on-tertiary-container": "#4a4459",
+                        "on-secondary-fixed": "#301214",
+                        "inverse-primary": "#ffb694",
+                        "tertiary-container": "#bbb2cb",
+                        "secondary-fixed-dim": "#efb9b9",
+                        "outline-variant": "#dac1b7",
+                        "surface-variant": "#f0dfd9",
+                        "primary": "#954921",
+                        "on-primary-container": "#77320b",
+                        "surface-container-highest": "#f0dfd9",
+                        "on-background": "#221a16",
+                        "on-tertiary-fixed-variant": "#4a4458",
+                        "surface-dim": "#e8d6d1",
+                        "secondary-container": "#fec7c7",
+                        "primary-fixed": "#ffdbcc",
+                        "on-error-container": "#93000a",
+                        "on-primary-fixed": "#351000",
+                        "surface-tint": "#954921",
+                        "inverse-surface": "#382e2a",
+                        "on-surface-variant": "#54433b",
+                        "secondary": "#7d5354",
+                        "tertiary-fixed-dim": "#ccc2dc",
+                        "on-error": "#ffffff",
+                        "on-tertiary-fixed": "#1e192b",
+                        "surface-container": "#fceae4",
+                        "tertiary-fixed": "#e8def8",
+                        "surface-container-low": "#fff1ec",
+                        "surface-bright": "#fff8f6",
+                        "on-primary-fixed-variant": "#77320b",
+                        "surface-container-lowest": "#ffffff",
+                        "primary-fixed-dim": "#ffb694",
+                        "primary-container": "#ff9d6e",
+                        "outline": "#87736a",
+                        "on-surface": "#221a16",
+                        "on-secondary-container": "#7a5051",
+                        "error-container": "#ffdad6",
+                        "on-secondary-fixed-variant": "#633c3d",
+                        "surface": "#fff8f6",
+                        "on-secondary": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px",
+                        "2xl": "1.25rem",
+                        "3xl": "1.75rem"
+                    },
+                    "spacing": {
+                        "stack-sm": "8px",
+                        "stack-lg": "32px",
+                        "gutter": "16px",
+                        "stack-md": "16px",
+                        "container-padding": "24px",
+                        "unit": "4px"
+                    },
+                    "fontFamily": {
+                        "headline-lg": ["Bodoni Moda"],
+                        "body-lg": ["Lexend"],
+                        "headline-md": ["Bodoni Moda"],
+                        "headline-lg-mobile": ["Bodoni Moda"],
+                        "display-lg": ["Bodoni Moda"],
+                        "body-md": ["Lexend"],
+                        "label-sm": ["Lexend"]
+                    },
+                    "fontSize": {
+                        "headline-lg": ["32px", {"lineHeight": "1.2", "fontWeight": "500"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "500"}],
+                        "headline-lg-mobile": ["28px", {"lineHeight": "1.2", "fontWeight": "500"}],
+                        "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "label-sm": ["12px", {"lineHeight": "1.4", "letterSpacing": "0.05em", "fontWeight": "500"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        /* Base styles to ensure proper rendering of the soft aesthetic */
+        body {
+            background-color: #fff8f6; /* background color */
+            /* "Sunset Core" ambient background effect */
+            background-image: 
+                radial-gradient(circle at 50% -20%, rgba(255, 157, 110, 0.15) 0%, transparent 60%),
+                radial-gradient(circle at -20% 50%, rgba(255, 218, 217, 0.2) 0%, transparent 50%);
+            background-attachment: fixed;
+        }
+        
+        /* Inner glow utility for glass cards */
+        .glass-card-glow {
+            box-shadow: inset 1px 1px 0px 0px rgba(255, 255, 255, 0.4),
+                        0 20px 40px -10px rgba(149, 73, 33, 0.05); /* very soft primary tinted shadow */
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="text-on-background min-h-screen pb-32">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 flex justify-between items-center px-container-padding h-16 bg-white/40 backdrop-blur-xl shadow-[0_30px_60px_-5px_rgba(255,157,110,0.15)] transition-all">
+<!-- Leading Icon -->
+<button class="text-primary hover:opacity-80 transition-opacity p-2 -ml-2 rounded-full focus:outline-none focus:ring-2 focus:ring-primary-container">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">spa</span>
+</button>
+<!-- Headline / Brand -->
+<h1 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary italic font-bold">
+            Suvi
+        </h1>
+<!-- Trailing Icon -->
+<button class="text-primary hover:opacity-80 transition-opacity p-2 -mr-2 rounded-full focus:outline-none focus:ring-2 focus:ring-primary-container">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+</header>
+<!-- Main Content Canvas -->
+<main class="pt-24 px-container-padding max-w-[1200px] mx-auto md:px-12 lg:px-24">
+<!-- Page Header -->
+<div class="mb-stack-lg mt-stack-md text-center md:text-left">
+<h2 class="font-display-lg text-display-lg text-primary mb-stack-sm">My Care Team</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">Access your trusted medical professionals, manage appointments, and connect instantly.</p>
+</div>
+<!-- Doctors Grid (Bento/Card Layout) -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter md:gap-stack-lg">
+<!-- Doctor Card 1 -->
+<article class="relative bg-white/40 backdrop-blur-[40px] rounded-3xl p-6 ring-1 ring-white/30 glass-card-glow flex flex-col h-full group hover:-translate-y-1 transition-transform duration-300">
+<div class="flex items-start gap-stack-md mb-stack-md">
+<!-- Avatar -->
+<div class="w-16 h-16 rounded-full overflow-hidden flex-shrink-0 ring-2 ring-primary-container shadow-sm">
+<img alt="Portrait of Dr. Sarah Chen" class="w-full h-full object-cover" data-alt="A professional headshot of a confident female doctor of Asian descent wearing a white coat and stethoscope. She is smiling warmly in a bright, modern clinic setting. The lighting is soft and airy, fitting a high-end wellness brand aesthetic with warm peach and neutral tones in the blurred background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB7SANsHGZI3QLxUULnRmjdj9KX8azSi4OtINLu9Hrg169SgWMXo4ZVe4ANkGiqKKPd4N1UHA4qss5acM0u_Ji4QZCICnauQ2MLtBG2ZKgCcWuIYCRil2JtowlTWlBEfSVEtfyURxwZiN--Xvo2ytA7QyKltEXgvIPxBasr5QpgahswDIT9jRnpSE2VeZtWySBrIy7jpEtHljoorR-7zc4pCkzLQ8jvPHQgIYda2-Z-7lM1gWua0AwgIvfzUHWlk32exg2G5wMMLzI"/>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md text-on-background">Dr. Sarah Chen</h3>
+<p class="font-body-md text-body-md text-primary font-medium">Cardiologist</p>
+<div class="flex items-center gap-1 text-on-surface-variant mt-1">
+<span class="material-symbols-outlined text-[16px]">local_hospital</span>
+<span class="font-label-sm text-label-sm">Apollo Heart Institute</span>
+</div>
+</div>
+</div>
+<div class="bg-surface-container/50 rounded-xl p-4 mb-stack-md flex-grow">
+<p class="font-label-sm text-label-sm text-on-surface-variant mb-2 font-semibold">Latest Note</p>
+<p class="font-body-md text-body-md text-on-background">"Cholesterol levels improving. Continue current Mediterranean diet plan and daily 30-min walks. Next follow-up in 3 months."</p>
+</div>
+<!-- Actions -->
+<div class="mt-auto flex items-center justify-between gap-stack-sm pt-2">
+<button class="flex-grow flex items-center justify-center gap-2 bg-primary text-on-primary font-body-md text-body-md py-3 px-6 rounded-full shadow-[0_8px_16px_rgba(149,73,33,0.2)] hover:opacity-90 transition-opacity">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">call</span>
+                        Quick-tap to call
+                    </button>
+<button aria-label="More options" class="w-12 h-12 flex items-center justify-center rounded-full bg-transparent ring-1 ring-outline-variant text-primary hover:bg-surface-variant transition-colors">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</div>
+</article>
+<!-- Doctor Card 2 -->
+<article class="relative bg-white/40 backdrop-blur-[40px] rounded-3xl p-6 ring-1 ring-white/30 glass-card-glow flex flex-col h-full group hover:-translate-y-1 transition-transform duration-300">
+<div class="flex items-start gap-stack-md mb-stack-md">
+<!-- Avatar -->
+<div class="w-16 h-16 rounded-full overflow-hidden flex-shrink-0 ring-2 ring-primary-container shadow-sm">
+<div class="w-full h-full bg-surface-container-high flex items-center justify-center text-primary font-headline-md text-headline-md">
+                            MR
+                        </div>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md text-on-background">Dr. Marcus Reed</h3>
+<p class="font-body-md text-body-md text-primary font-medium">Endocrinologist</p>
+<div class="flex items-center gap-1 text-on-surface-variant mt-1">
+<span class="material-symbols-outlined text-[16px]">local_hospital</span>
+<span class="font-label-sm text-label-sm">Wellness Central Clinic</span>
+</div>
+</div>
+</div>
+<div class="bg-surface-container/50 rounded-xl p-4 mb-stack-md flex-grow">
+<p class="font-label-sm text-label-sm text-on-surface-variant mb-2 font-semibold">Latest Note</p>
+<p class="font-body-md text-body-md text-on-background">"Thyroid panels are stable. Prescription renewed for 6 months. Please report any changes in energy levels."</p>
+</div>
+<!-- Actions -->
+<div class="mt-auto flex items-center justify-between gap-stack-sm pt-2">
+<button class="flex-grow flex items-center justify-center gap-2 bg-primary text-on-primary font-body-md text-body-md py-3 px-6 rounded-full shadow-[0_8px_16px_rgba(149,73,33,0.2)] hover:opacity-90 transition-opacity">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">call</span>
+                        Quick-tap to call
+                    </button>
+<button aria-label="More options" class="w-12 h-12 flex items-center justify-center rounded-full bg-transparent ring-1 ring-outline-variant text-primary hover:bg-surface-variant transition-colors">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</div>
+</article>
+<!-- Doctor Card 3 -->
+<article class="relative bg-white/40 backdrop-blur-[40px] rounded-3xl p-6 ring-1 ring-white/30 glass-card-glow flex flex-col h-full group hover:-translate-y-1 transition-transform duration-300">
+<div class="flex items-start gap-stack-md mb-stack-md">
+<!-- Avatar -->
+<div class="w-16 h-16 rounded-full overflow-hidden flex-shrink-0 ring-2 ring-primary-container shadow-sm">
+<img alt="Portrait of Dr. Elena Rostova" class="w-full h-full object-cover" data-alt="A portrait of a male doctor in his 40s with a warm, reassuring smile. He is wearing a light blue scrub top under a pristine white coat. The background is a soft-focus modern office with warm, diffused sunlight streaming in, complementing a peach and warm neutral color palette." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC9UTSWkSIGAeOpUHvG0QQlYPXzyUt9GWNT9auPfRvuuFrzcE_9uGxNv2Q3AQm-Qd-QHvAlleHmyXpLEUWmDIXyhp0W7HHN1NWGCZkc21FW-eTUUZlRqFM5GYd0dnpQv1H-DLG8FR1J2jq2MJq_MVSVZa1i8fYyaTwPGNVXlUFguEd0VUqaieKtam9PaDq5OOTueanVMQc_J4lndBvQyg_zGXS61DfstlZ8nyPxbi8aa4G4y9GzHQ5MCEi-f447c2AtAxx4FuSyLZk"/>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md text-on-background">Dr. Elena Rostova</h3>
+<p class="font-body-md text-body-md text-primary font-medium">Primary Care</p>
+<div class="flex items-center gap-1 text-on-surface-variant mt-1">
+<span class="material-symbols-outlined text-[16px]">local_hospital</span>
+<span class="font-label-sm text-label-sm">Sunrise Family Practice</span>
+</div>
+</div>
+</div>
+<div class="bg-surface-container/50 rounded-xl p-4 mb-stack-md flex-grow">
+<p class="font-label-sm text-label-sm text-on-surface-variant mb-2 font-semibold">Latest Note</p>
+<p class="font-body-md text-body-md text-on-background">"Annual physical completed. All vitals within optimal ranges. Scheduled flu vaccination for next month."</p>
+</div>
+<!-- Actions -->
+<div class="mt-auto flex items-center justify-between gap-stack-sm pt-2">
+<button class="flex-grow flex items-center justify-center gap-2 bg-primary text-on-primary font-body-md text-body-md py-3 px-6 rounded-full shadow-[0_8px_16px_rgba(149,73,33,0.2)] hover:opacity-90 transition-opacity">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">call</span>
+                        Quick-tap to call
+                    </button>
+<button aria-label="More options" class="w-12 h-12 flex items-center justify-center rounded-full bg-transparent ring-1 ring-outline-variant text-primary hover:bg-surface-variant transition-colors">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</div>
+</article>
+</div>
+</main>
+<!-- Floating Action Button (FAB) -->
+<button class="fixed bottom-24 right-container-padding md:bottom-12 md:right-12 bg-primary text-on-primary rounded-2xl p-4 shadow-[0_12px_24px_-4px_rgba(149,73,33,0.3)] hover:scale-105 transition-transform duration-300 flex items-center gap-2 z-40 group">
+<span class="material-symbols-outlined text-[28px] group-hover:rotate-90 transition-transform duration-300">add</span>
+<span class="font-label-sm text-label-sm pr-2 hidden sm:block">Add New Doctor</span>
+</button>
+<!-- BottomNavBar (Mobile Shell - Hidden on Desktop typically, but per prompt instruction we render the predicted JSON structure) -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-3 pb-safe bg-white/40 dark:bg-surface-container/40 backdrop-blur-2xl shadow-2xl rounded-t-xl md:hidden">
+<!-- Tab: Today (Inactive) -->
+<button class="flex flex-col items-center justify-center text-on-surface-variant transition-all duration-300 hover:bg-primary-fixed-dim/20 rounded-full px-4 py-1.5 w-16">
+<span class="material-symbols-outlined mb-1">calendar_today</span>
+<span class="font-label-sm text-label-sm text-[10px]">Today</span>
+</button>
+<!-- Tab: Goals (Inactive) -->
+<button class="flex flex-col items-center justify-center text-on-surface-variant transition-all duration-300 hover:bg-primary-fixed-dim/20 rounded-full px-4 py-1.5 w-16">
+<span class="material-symbols-outlined mb-1">target</span>
+<span class="font-label-sm text-label-sm text-[10px]">Goals</span>
+</button>
+<!-- Tab: Chat (Inactive) -->
+<button class="flex flex-col items-center justify-center text-on-surface-variant transition-all duration-300 hover:bg-primary-fixed-dim/20 rounded-full px-4 py-1.5 w-16">
+<span class="material-symbols-outlined mb-1">chat_bubble</span>
+<span class="font-label-sm text-label-sm text-[10px]">Chat</span>
+</button>
+<!-- Tab: Profile (ACTIVE) -->
+<button class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-full px-4 py-1.5 transition-all duration-300 scale-90 ease-out w-16">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 1;">person</span>
+<span class="font-label-sm text-label-sm text-[10px] font-bold">Profile</span>
+</button>
+</nav>
+</body></html>

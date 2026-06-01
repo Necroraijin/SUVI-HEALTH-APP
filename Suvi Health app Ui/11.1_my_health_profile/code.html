@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>User Profile - Suvi</title>
+<!-- Google Fonts: Bodoni Moda and Lexend -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&amp;family=Lexend:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-primary": "#ffffff",
+                      "inverse-surface": "#382e2a",
+                      "primary-fixed-dim": "#ffb694",
+                      "on-secondary-container": "#7a5051",
+                      "tertiary-fixed-dim": "#ccc2dc",
+                      "primary": "#954921",
+                      "on-primary-fixed-variant": "#77320b",
+                      "surface-container-lowest": "#ffffff",
+                      "on-surface-variant": "#54433b",
+                      "on-error-container": "#93000a",
+                      "on-secondary-fixed-variant": "#633c3d",
+                      "on-background": "#221a16",
+                      "error-container": "#ffdad6",
+                      "surface-container-highest": "#f0dfd9",
+                      "surface-container-high": "#f6e5df",
+                      "surface-container-low": "#fff1ec",
+                      "on-secondary-fixed": "#301214",
+                      "inverse-primary": "#ffb694",
+                      "secondary-fixed-dim": "#efb9b9",
+                      "surface-tint": "#954921",
+                      "tertiary-container": "#bbb2cb",
+                      "surface-container": "#fceae4",
+                      "on-tertiary-container": "#4a4459",
+                      "on-tertiary": "#ffffff",
+                      "secondary-fixed": "#ffdad9",
+                      "background": "#fff8f6",
+                      "on-error": "#ffffff",
+                      "tertiary-fixed": "#e8def8",
+                      "outline": "#87736a",
+                      "primary-fixed": "#ffdbcc",
+                      "on-primary-container": "#77320b",
+                      "secondary-container": "#fec7c7",
+                      "on-secondary": "#ffffff",
+                      "tertiary": "#625b71",
+                      "on-surface": "#221a16",
+                      "surface-variant": "#f0dfd9",
+                      "on-primary-fixed": "#351000",
+                      "surface-bright": "#fff8f6",
+                      "surface": "#fff8f6",
+                      "inverse-on-surface": "#ffede7",
+                      "secondary": "#7d5354",
+                      "error": "#ba1a1a",
+                      "surface-dim": "#e8d6d1",
+                      "on-tertiary-fixed": "#1e192b",
+                      "outline-variant": "#dac1b7",
+                      "primary-container": "#ff9d6e",
+                      "on-tertiary-fixed-variant": "#4a4458"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "stack-sm": "8px",
+                      "stack-lg": "32px",
+                      "container-padding": "24px",
+                      "stack-md": "16px",
+                      "gutter": "24px",
+                      "unit": "4px"
+              },
+              "fontFamily": {
+                      "headline-lg-mobile": ["Bodoni Moda"],
+                      "body-md": ["Lexend"],
+                      "label-sm": ["Lexend"],
+                      "body-lg": ["Lexend"],
+                      "headline-lg": ["Bodoni Moda"],
+                      "headline-md": ["Bodoni Moda"],
+                      "display-lg": ["Bodoni Moda"]
+              },
+              "fontSize": {
+                      "headline-lg-mobile": ["28px", { "lineHeight": "1.2", "fontWeight": "500" }],
+                      "body-md": ["16px", { "lineHeight": "1.5", "fontWeight": "400" }],
+                      "label-sm": ["12px", { "lineHeight": "1.4", "letterSpacing": "0.05em", "fontWeight": "500" }],
+                      "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                      "headline-lg": ["32px", { "lineHeight": "1.2", "fontWeight": "500" }],
+                      "headline-md": ["24px", { "lineHeight": "1.3", "fontWeight": "500" }],
+                      "display-lg": ["48px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "600" }]
+              }
+            }
+          }
+        }
+    </script>
+<style>
+        /* Base Glassmorphism Class for Cards */
+        .glass-card {
+            background-color: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(40px);
+            -webkit-backdrop-filter: blur(40px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 10px 30px -5px rgba(149, 73, 33, 0.05);
+            position: relative;
+            overflow: hidden;
+        }
+        /* Inner glow to simulate physical volume (pebble effect) */
+        .glass-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            box-shadow: inset 1px 1px 0 0 rgba(255, 255, 255, 0.2), inset -1px -1px 0 0 rgba(0,0,0,0.02);
+            pointer-events: none;
+        }
+
+        /* Material Symbols Outline Base */
+        .material-symbols-outlined {
+            font-family: 'Material Symbols Outlined';
+            font-weight: normal;
+            font-style: normal;
+            font-size: 24px;
+            line-height: 1;
+            letter-spacing: normal;
+            text-transform: none;
+            display: inline-block;
+            white-space: nowrap;
+            word-wrap: normal;
+            direction: ltr;
+            -webkit-font-feature-settings: 'liga';
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        body {
+            /* Warm, optimistic gradient background */
+            background: radial-gradient(circle at top left, var(--color-surface-container-low), var(--color-surface) 60%, var(--color-surface-container-high));
+            background-attachment: fixed;
+        }
+
+        /* Decorative blur orbs for depth */
+        .ambient-orb-1 {
+            position: fixed;
+            top: -10%;
+            left: -10%;
+            width: 50vw;
+            height: 50vw;
+            border-radius: 50%;
+            background: radial-gradient(circle, var(--color-primary-container) 0%, transparent 70%);
+            opacity: 0.15;
+            filter: blur(60px);
+            z-index: -1;
+            pointer-events: none;
+        }
+        .ambient-orb-2 {
+            position: fixed;
+            bottom: 10%;
+            right: -20%;
+            width: 60vw;
+            height: 60vw;
+            border-radius: 50%;
+            background: radial-gradient(circle, var(--color-secondary-container) 0%, transparent 70%);
+            opacity: 0.15;
+            filter: blur(80px);
+            z-index: -1;
+            pointer-events: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="text-on-surface font-body-md pt-20 pb-28 min-h-screen relative md:pb-12 selection:bg-primary-container selection:text-on-primary-container">
+<!-- Ambient Background Depth -->
+<div class="ambient-orb-1"></div>
+<div class="ambient-orb-2"></div>
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-surface/40 backdrop-blur-3xl border-b border-white/20 shadow-sm shadow-primary/5">
+<div class="flex justify-between items-center px-gutter py-4 w-full max-w-7xl mx-auto">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full overflow-hidden border border-white/50 shadow-sm">
+<img alt="User profile photo" class="w-full h-full object-cover" data-alt="A close-up portrait of a woman in her early thirties, bathed in warm, soft, natural light reminiscent of a late afternoon sun. She has a serene, approachable expression, complementing the refined wellness aesthetic of the app. The background is softly out of focus in gentle pastel tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCdwuFt9XM8W3ZvW0EdEcBzgCVfyHbxcOJFNC8Ki54G4JSJFrHxtWX8cPuS0ROUF1v9NFnnKWOw6ZvVJ2Di02WCArkM56dy7J1SU3NhM9_3MVNxmLXsyQcquo2MhfAOLLAjtB9o3iMZDavx3nIP40xQz2SBZKQWM90MG_bjBU_hae6Ef_ciepEVxc9KiOa10W6KY3yKezGRZ-3jsgLLZKZLo5uq27TqP0OobmYgoD-p_xMInR0GkGEQ5wo3XqfunTllxVoEeFgXhfo"/>
+</div>
+<span class="font-headline-lg-mobile text-headline-lg-mobile text-primary tracking-tight">Suvi</span>
+</div>
+<button aria-label="Notifications" class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-white/10 transition-colors active:scale-95 duration-200 text-on-surface-variant group relative">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<!-- Unread indicator -->
+<span class="absolute top-2 right-2 w-2 h-2 bg-primary rounded-full shadow-sm"></span>
+</button>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="max-w-7xl mx-auto px-gutter flex flex-col gap-stack-lg relative z-10">
+<!-- Profile Header Section -->
+<section class="flex flex-col items-center text-center mt-6">
+<div class="relative group cursor-pointer mb-stack-md">
+<!-- Outer Soft Ring -->
+<div class="absolute -inset-2 bg-gradient-to-tr from-primary-container to-secondary-container rounded-full opacity-20 blur-md group-hover:opacity-40 transition-opacity duration-500"></div>
+<div class="w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-2 border-white/60 shadow-[0_15px_35px_-10px_rgba(149,73,33,0.15)] relative z-10 bg-surface-container">
+<img alt="Sarah's Profile Picture" class="w-full h-full object-cover" data-alt="A portrait of a serene woman in her thirties, standing indoors near a large window. The lighting is bright and warm, casting a soft glow that embodies a refined, optimistic wellness aesthetic. She wears comfortable, elegant clothing in neutral tones. The background is a minimalist, airy room with hints of indoor plants." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDznBdRxibLJr_frFkoJI6wI5x-W7YUGnqfKVqzkf_h_imC6giJ0MyBj0yJcLzZTZh9rr6YHAEHuhC7HaxAHMqXUTw3K_5XGvONc-m4OQfy6hSbpJfNpGKUd-kMj0WpOnMn8dZbXtXrER_bgAub6nEMlzHyW_y4gWatea-75rBJUmpJ0bll1dtyM_wUbYc3fOfaI19y13b9C77H78smuVlm9qmge76LTd8hP_nTGT_L9Zkk2ykJyZHofVCZ6zke3d6ZbMNSbYmrut0"/>
+</div>
+<!-- Edit Avatar Button -->
+<button aria-label="Edit Profile Picture" class="absolute bottom-1 right-1 z-20 bg-surface backdrop-blur-md border border-white/50 w-10 h-10 rounded-full shadow-lg flex items-center justify-center text-primary hover:scale-105 active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-[20px]" data-icon="edit" style="font-variation-settings: 'FILL' 1;">edit</span>
+</button>
+</div>
+<h1 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary mb-1">Sarah Jenkins</h1>
+<p class="font-body-md text-body-md text-on-surface-variant opacity-80">32 YRS • Female</p>
+</section>
+<!-- Essential Health Section -->
+<section class="flex flex-col gap-stack-sm">
+<div class="flex justify-between items-end mb-2">
+<h2 class="font-headline-md text-headline-md text-primary">Essential Health</h2>
+<button class="font-label-sm text-label-sm text-primary uppercase tracking-wider hover:text-primary-container transition-colors">Edit All</button>
+</div>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<!-- Conditions Card -->
+<div class="glass-card rounded-xl p-6 flex flex-col gap-4">
+<div class="flex justify-between items-start">
+<div class="flex items-center gap-2 text-primary">
+<span class="material-symbols-outlined p-2 bg-primary-container/20 rounded-full" data-icon="favorite">favorite</span>
+<h3 class="font-body-lg text-body-lg font-medium text-on-surface">Conditions</h3>
+</div>
+<button aria-label="Edit Conditions" class="text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[20px]" data-icon="edit_square">edit_square</span>
+</button>
+</div>
+<div class="flex flex-wrap gap-2 mt-2">
+<!-- Chips -->
+<span class="inline-flex items-center px-3 py-1.5 rounded-full bg-secondary-container/30 text-on-surface font-label-sm text-label-sm border border-secondary-container/50">
+                            Migraines
+                        </span>
+<span class="inline-flex items-center px-3 py-1.5 rounded-full bg-secondary-container/30 text-on-surface font-label-sm text-label-sm border border-secondary-container/50">
+                            Mild Asthma
+                        </span>
+</div>
+</div>
+<!-- Allergies Card -->
+<div class="glass-card rounded-xl p-6 flex flex-col gap-4">
+<div class="flex justify-between items-start">
+<div class="flex items-center gap-2 text-secondary">
+<span class="material-symbols-outlined p-2 bg-secondary-container/20 rounded-full text-secondary" data-icon="water_drop">water_drop</span>
+<h3 class="font-body-lg text-body-lg font-medium text-on-surface">Allergies</h3>
+</div>
+<button aria-label="Edit Allergies" class="text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[20px]" data-icon="edit_square">edit_square</span>
+</button>
+</div>
+<div class="flex flex-wrap gap-2 mt-2">
+<span class="inline-flex items-center px-3 py-1.5 rounded-full bg-error-container/40 text-on-error-container font-label-sm text-label-sm border border-error-container/60">
+<span class="material-symbols-outlined text-[14px] mr-1" data-icon="warning">warning</span>
+                            Penicillin
+                        </span>
+<span class="inline-flex items-center px-3 py-1.5 rounded-full bg-surface-container-high text-on-surface font-label-sm text-label-sm border border-white/40">
+                            Dust Mites
+                        </span>
+</div>
+</div>
+<!-- Medications Summary Card (Spans full width on larger screens) -->
+<div class="glass-card rounded-xl p-6 flex flex-col gap-4 md:col-span-2">
+<div class="flex justify-between items-start mb-2">
+<div class="flex items-center gap-2 text-primary">
+<span class="material-symbols-outlined p-2 bg-primary-container/20 rounded-full" data-icon="medication">medication</span>
+<h3 class="font-body-lg text-body-lg font-medium text-on-surface">Medications</h3>
+</div>
+<button aria-label="Edit Medications" class="text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[20px]" data-icon="edit_square">edit_square</span>
+</button>
+</div>
+<div class="space-y-3">
+<!-- Medication Item 1 -->
+<div class="flex justify-between items-center p-3 rounded-lg bg-white/30 border border-white/40 hover:bg-white/50 transition-colors cursor-pointer group">
+<div class="flex flex-col">
+<span class="font-body-md text-body-md font-medium text-on-surface">Sumatriptan</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">50mg • As needed for migraines</span>
+</div>
+<span class="material-symbols-outlined text-outline group-hover:text-primary transition-colors" data-icon="chevron_right">chevron_right</span>
+</div>
+<!-- Medication Item 2 -->
+<div class="flex justify-between items-center p-3 rounded-lg bg-white/30 border border-white/40 hover:bg-white/50 transition-colors cursor-pointer group">
+<div class="flex flex-col">
+<span class="font-body-md text-body-md font-medium text-on-surface">Albuterol Inhaler</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">90mcg • Before exercise</span>
+</div>
+<span class="material-symbols-outlined text-outline group-hover:text-primary transition-colors" data-icon="chevron_right">chevron_right</span>
+</div>
+</div>
+<button class="mt-2 w-full py-3 rounded-full bg-surface-container border border-primary/20 text-primary font-label-sm text-label-sm uppercase tracking-widest hover:bg-primary-container/20 transition-colors flex justify-center items-center gap-2">
+<span class="material-symbols-outlined text-[18px]" data-icon="add">add</span>
+                        Add Medication
+                    </button>
+</div>
+</div>
+</section>
+<!-- Bottom spacing for nav -->
+<div class="h-8"></div>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="fixed bottom-0 w-full rounded-t-xl z-50 bg-surface/60 backdrop-blur-3xl border-t border-white/30 shadow-[0_-10px_30px_-5px_rgba(149,73,33,0.1)] flex justify-around items-center h-20 px-4 pb-safe md:hidden">
+<!-- Inactive Tab: Today -->
+<button class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:text-primary transition-all active:scale-90 duration-300 ease-out flex-1">
+<span class="material-symbols-outlined mb-1" data-icon="calendar_today">calendar_today</span>
+<span class="font-label-sm text-label-sm">Today</span>
+</button>
+<!-- Inactive Tab: Goals -->
+<button class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:text-primary transition-all active:scale-90 duration-300 ease-out flex-1">
+<span class="material-symbols-outlined mb-1" data-icon="target">target</span>
+<span class="font-label-sm text-label-sm">Goals</span>
+</button>
+<!-- Inactive Tab: Chat -->
+<button class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:text-primary transition-all active:scale-90 duration-300 ease-out flex-1">
+<span class="material-symbols-outlined mb-1" data-icon="auto_awesome">auto_awesome</span>
+<span class="font-label-sm text-label-sm">Chat</span>
+</button>
+<!-- Active Tab: Profile -->
+<button class="flex flex-col items-center justify-center bg-primary-container/80 text-on-primary-container rounded-full px-4 py-1 hover:text-primary transition-all active:scale-90 duration-300 ease-out flex-1 min-w-[80px]">
+<span class="material-symbols-outlined mb-1" data-icon="person" style="font-variation-settings: 'FILL' 1;">person</span>
+<span class="font-label-sm text-label-sm">Profile</span>
+</button>
+</nav>
+</body></html>

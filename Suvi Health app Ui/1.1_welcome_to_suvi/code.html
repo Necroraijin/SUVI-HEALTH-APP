@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Welcome to SUVI</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600&amp;family=Inter:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "tertiary-fixed-dim": "#aecbd9",
+                      "on-surface-variant": "#b9cacb",
+                      "on-tertiary-fixed-variant": "#2f4a56",
+                      "tertiary-fixed": "#cae7f6",
+                      "on-tertiary": "#17343f",
+                      "surface": "#101415",
+                      "outline": "#849495",
+                      "error": "#ffb4ab",
+                      "on-surface": "#e0e3e5",
+                      "on-primary": "#00363a",
+                      "surface-bright": "#363a3b",
+                      "primary": "#e1fdff",
+                      "on-tertiary-fixed": "#001f29",
+                      "inverse-primary": "#00696f",
+                      "outline-variant": "#3a494b",
+                      "surface-container-high": "#272a2c",
+                      "surface-dim": "#101415",
+                      "inverse-on-surface": "#2d3133",
+                      "secondary-container": "#cf5cff",
+                      "error-container": "#93000a",
+                      "surface-container-highest": "#323537",
+                      "on-primary-fixed-variant": "#004f54",
+                      "on-secondary": "#520071",
+                      "on-background": "#e0e3e5",
+                      "surface-container": "#1d2022",
+                      "surface-container-low": "#191c1e",
+                      "inverse-surface": "#e0e3e5",
+                      "secondary-fixed": "#f8d8ff",
+                      "on-primary-container": "#006a71",
+                      "on-secondary-fixed": "#320047",
+                      "surface-tint": "#00dbe7",
+                      "on-secondary-container": "#480063",
+                      "primary-container": "#00f2ff",
+                      "surface-container-lowest": "#0b0f10",
+                      "secondary-fixed-dim": "#ecb2ff",
+                      "background": "#101415",
+                      "surface-variant": "#323537",
+                      "on-error": "#690005",
+                      "on-primary-fixed": "#002022",
+                      "on-secondary-fixed-variant": "#74009f",
+                      "on-error-container": "#ffdad6",
+                      "primary-fixed": "#74f5ff",
+                      "tertiary-container": "#c3e0ee",
+                      "on-tertiary-container": "#486470",
+                      "secondary": "#ecb2ff",
+                      "primary-fixed-dim": "#00dbe7",
+                      "tertiary": "#f0f9ff"
+              },
+              "borderRadius": {
+                      "DEFAULT": "1rem",
+                      "lg": "2rem",
+                      "xl": "3rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "gutter": "16px",
+                      "container-margin-mobile": "20px",
+                      "stack-md": "24px",
+                      "unit": "8px",
+                      "container-margin-desktop": "40px",
+                      "stack-sm": "12px",
+                      "stack-lg": "48px"
+              },
+              "fontFamily": {
+                      "display-lg": [
+                              "Lexend"
+                      ],
+                      "headline-lg": [
+                              "Lexend"
+                      ],
+                      "headline-md": [
+                              "Lexend"
+                      ],
+                      "caption": [
+                              "Inter"
+                      ],
+                      "headline-lg-mobile": [
+                              "Lexend"
+                      ],
+                      "body-md": [
+                              "Inter"
+                      ],
+                      "label-md": [
+                              "Inter"
+                      ],
+                      "body-lg": [
+                              "Inter"
+                      ]
+              },
+              "fontSize": {
+                      "display-lg": [
+                              "48px",
+                              {
+                                      "lineHeight": "56px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-lg": [
+                              "32px",
+                              {
+                                      "lineHeight": "40px",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "headline-md": [
+                              "24px",
+                              {
+                                      "lineHeight": "32px",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "caption": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-lg-mobile": [
+                              "28px",
+                              {
+                                      "lineHeight": "36px",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "label-md": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "400"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+    </script>
+<style>
+        body {
+            background-color: #101415; /* surface */
+            color: #e0e3e5; /* on-surface */
+            overflow: hidden;
+        }
+
+        /* Liquid Aurora Background */
+        .aurora-bg {
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: 
+                radial-gradient(circle at 50% 50%, rgba(0, 219, 231, 0.15) 0%, transparent 50%), /* primary-fixed-dim tint */
+                radial-gradient(circle at 20% 80%, rgba(236, 178, 255, 0.1) 0%, transparent 40%), /* secondary tint */
+                radial-gradient(circle at 80% 20%, rgba(0, 242, 255, 0.1) 0%, transparent 40%); /* primary-container tint */
+            filter: blur(60px);
+            animation: rotateAurora 30s linear infinite;
+            z-index: -1;
+        }
+
+        @keyframes rotateAurora {
+            0% { transform: rotate(0deg) scale(1); }
+            50% { transform: rotate(180deg) scale(1.1); }
+            100% { transform: rotate(360deg) scale(1); }
+        }
+
+        /* Breathing Orb */
+        .orb-container {
+            position: relative;
+            width: 240px;
+            height: 240px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto;
+        }
+
+        .orb-core {
+            position: absolute;
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: radial-gradient(circle at 30% 30%, #e1fdff 0%, #00f2ff 50%, #00696f 100%);
+            box-shadow: 
+                0 0 40px rgba(0, 242, 255, 0.6),
+                inset -10px -10px 20px rgba(0, 54, 58, 0.5),
+                inset 10px 10px 20px rgba(255, 255, 255, 0.8);
+            animation: breatheCore 6s ease-in-out infinite;
+            z-index: 2;
+        }
+
+        .orb-aura-1 {
+            position: absolute;
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(0, 219, 231, 0.3) 0%, transparent 70%);
+            animation: breatheAura1 6s ease-in-out infinite;
+            z-index: 1;
+        }
+
+        .orb-aura-2 {
+            position: absolute;
+            width: 220px;
+            height: 220px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(236, 178, 255, 0.15) 0%, transparent 70%);
+            animation: breatheAura2 6s ease-in-out infinite reverse;
+            z-index: 0;
+        }
+
+        @keyframes breatheCore {
+            0%, 100% { transform: scale(1); filter: brightness(1); }
+            50% { transform: scale(1.05); filter: brightness(1.2); }
+        }
+
+        @keyframes breatheAura1 {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.2); opacity: 0.8; }
+        }
+
+        @keyframes breatheAura2 {
+            0%, 100% { transform: scale(1); opacity: 0.3; }
+            50% { transform: scale(1.15); opacity: 0.6; }
+        }
+
+        /* Glass Surface */
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-top-color: rgba(255, 255, 255, 0.2);
+            border-left-color: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Luminescent Button */
+        .btn-luminescent {
+            background: linear-gradient(135deg, #00f2ff, #cf5cff);
+            color: #002022; /* on-primary-fixed */
+            box-shadow: 0 0 20px rgba(0, 242, 255, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.5);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .btn-luminescent:hover {
+            box-shadow: 0 0 30px rgba(0, 242, 255, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.6);
+            transform: translateY(-2px);
+            filter: brightness(1.1);
+        }
+        
+        .btn-luminescent:active {
+            transform: scale(0.98);
+        }
+
+        /* Entrance Animation */
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 1s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        }
+
+        .delay-100 { animation-delay: 0.1s; }
+        .delay-200 { animation-delay: 0.2s; }
+        .delay-300 { animation-delay: 0.3s; }
+        .delay-400 { animation-delay: 0.4s; }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="antialiased min-h-screen flex flex-col items-center justify-center relative">
+<!-- Background -->
+<div class="aurora-bg"></div>
+<!-- Main Content Canvas (Onboarding/Splash screen - no nav bars per rules) -->
+<main class="w-full max-w-md px-container-margin-mobile flex flex-col items-center text-center z-10 h-[884px] justify-between py-12">
+<!-- Top Spacer -->
+<div class="flex-1 w-full"></div>
+<!-- Center Content -->
+<div class="flex flex-col items-center w-full space-y-stack-md flex-none">
+<!-- Animated Orb Avatar -->
+<div class="orb-container fade-in-up">
+<div class="orb-aura-2"></div>
+<div class="orb-aura-1"></div>
+<div class="orb-core"></div>
+</div>
+<!-- Text Content -->
+<div class="space-y-stack-sm w-full max-w-xs mx-auto glass-panel p-6 rounded-xl fade-in-up delay-200">
+<h1 class="font-display-lg text-display-lg bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+                    Hi, I'm Suvi.
+                </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant">
+                    I'm here to help you feel better — not just track you.
+                </p>
+</div>
+</div>
+<!-- Bottom Action -->
+<div class="flex-1 w-full flex flex-col justify-end pb-8">
+<button class="w-full btn-luminescent rounded-full py-4 px-8 font-label-md text-label-md flex items-center justify-center space-x-2 fade-in-up delay-400 group">
+<span>Let's begin</span>
+<span class="material-symbols-outlined group-hover:translate-x-1 transition-transform" style="font-variation-settings: 'FILL' 0;">arrow_forward</span>
+</button>
+</div>
+</main>
+</body></html>

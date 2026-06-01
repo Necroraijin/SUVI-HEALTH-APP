@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Suvi - Your Goals</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&amp;family=Lexend:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Configuration -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary-fixed": "#ffdbcc",
+                    "surface-container-lowest": "#ffffff",
+                    "outline": "#87736a",
+                    "on-error": "#ffffff",
+                    "inverse-on-surface": "#ffede7",
+                    "inverse-surface": "#382e2a",
+                    "on-primary-fixed": "#351000",
+                    "background": "#fff8f6",
+                    "surface-container": "#fceae4",
+                    "outline-variant": "#dac1b7",
+                    "on-tertiary": "#ffffff",
+                    "on-secondary-fixed-variant": "#633c3d",
+                    "error-container": "#ffdad6",
+                    "inverse-primary": "#ffb694",
+                    "on-tertiary-fixed": "#1e192b",
+                    "surface-tint": "#954921",
+                    "on-tertiary-fixed-variant": "#4a4458",
+                    "surface-container-highest": "#f0dfd9",
+                    "tertiary-container": "#bbb2cb",
+                    "secondary-fixed-dim": "#efb9b9",
+                    "surface-container-high": "#f6e5df",
+                    "primary-fixed-dim": "#ffb694",
+                    "surface": "#fff8f6",
+                    "tertiary": "#625b71",
+                    "on-surface-variant": "#54433b",
+                    "tertiary-fixed-dim": "#ccc2dc",
+                    "secondary": "#7d5354",
+                    "surface-bright": "#fff8f6",
+                    "on-surface": "#221a16",
+                    "primary-container": "#ff9d6e",
+                    "on-primary-container": "#77320b",
+                    "surface-variant": "#f0dfd9",
+                    "tertiary-fixed": "#e8def8",
+                    "on-primary": "#ffffff",
+                    "primary": "#954921",
+                    "secondary-container": "#fec7c7",
+                    "on-error-container": "#93000a",
+                    "surface-dim": "#e8d6d1",
+                    "on-secondary-container": "#7a5051",
+                    "secondary-fixed": "#ffdad9",
+                    "on-secondary-fixed": "#301214",
+                    "on-background": "#221a16",
+                    "on-primary-fixed-variant": "#77320b",
+                    "surface-container-low": "#fff1ec",
+                    "error": "#ba1a1a",
+                    "on-tertiary-container": "#4a4459",
+                    "on-secondary": "#ffffff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "stack-md": "16px",
+                    "gutter": "16px",
+                    "unit": "4px",
+                    "stack-sm": "8px",
+                    "stack-lg": "32px",
+                    "container-padding": "24px"
+            },
+            "fontFamily": {
+                    "body-md": [
+                            "Lexend"
+                    ],
+                    "label-sm": [
+                            "Lexend"
+                    ],
+                    "headline-md": [
+                            "Bodoni Moda"
+                    ],
+                    "display-lg": [
+                            "Bodoni Moda"
+                    ],
+                    "headline-lg-mobile": [
+                            "Bodoni Moda"
+                    ],
+                    "headline-lg": [
+                            "Bodoni Moda"
+                    ],
+                    "body-lg": [
+                            "Lexend"
+                    ]
+            },
+            "fontSize": {
+                    "body-md": [
+                            "16px",
+                            {
+                                    "lineHeight": "1.5",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "label-sm": [
+                            "12px",
+                            {
+                                    "lineHeight": "1.4",
+                                    "letterSpacing": "0.05em",
+                                    "fontWeight": "500"
+                            }
+                    ],
+                    "headline-md": [
+                            "24px",
+                            {
+                                    "lineHeight": "1.3",
+                                    "fontWeight": "500"
+                            }
+                    ],
+                    "display-lg": [
+                            "48px",
+                            {
+                                    "lineHeight": "1.1",
+                                    "letterSpacing": "-0.02em",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "headline-lg-mobile": [
+                            "28px",
+                            {
+                                    "lineHeight": "1.2",
+                                    "fontWeight": "500"
+                            }
+                    ],
+                    "headline-lg": [
+                            "32px",
+                            {
+                                    "lineHeight": "1.2",
+                                    "fontWeight": "500"
+                            }
+                    ],
+                    "body-lg": [
+                            "18px",
+                            {
+                                    "lineHeight": "1.6",
+                                    "fontWeight": "400"
+                            }
+                    ]
+            }
+    },
+        },
+      }
+    </script>
+<style>
+        /* Aura Wellness Custom Styles */
+        body {
+            background-color: #fff8f6;
+            background-image: 
+                radial-gradient(circle at 15% 50%, rgba(255, 219, 204, 0.4) 0%, transparent 50%),
+                radial-gradient(circle at 85% 30%, rgba(255, 182, 148, 0.3) 0%, transparent 50%);
+            background-attachment: fixed;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(40px);
+            -webkit-backdrop-filter: blur(40px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 
+                inset 1px 1px 0px rgba(255, 255, 255, 0.2),
+                0 30px 30px -5px rgba(255, 182, 148, 0.1);
+        }
+
+        .sunset-core-icon {
+            background: radial-gradient(circle, #FFD2A8 0%, rgba(255, 157, 110, 0.6) 100%);
+            box-shadow: 0 0 15px rgba(255, 157, 110, 0.4);
+        }
+
+        .progress-ring {
+            transition: stroke-dashoffset 1s ease-in-out;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-body-md text-body-md text-on-surface antialiased min-h-screen pb-24 md:pb-0">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-white/40 dark:bg-black/20 backdrop-blur-3xl shadow-[0_30px_30px_-5px_rgba(255,219,204,0.3)] border-b border-white/30 hidden md:flex">
+<div class="flex justify-between items-center px-gutter py-4 w-full max-w-7xl mx-auto">
+<div class="flex items-center gap-4 hover:opacity-80 transition-opacity cursor-pointer">
+<div class="w-10 h-10 rounded-full bg-surface-container overflow-hidden">
+<img alt="User Profile" class="w-full h-full object-cover" data-alt="A close-up portrait of a serene woman with a natural, warm glow, soft natural lighting, consistent with a premium wellness aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBpo9Z_TXAmSoOW2ShQvEpwdGILQ1reg6gU-dCvL5kgqwt5BBPGm_LdadKgbaXeevOkCRnNnsfwhJ3TOlZv35YZR_Mgkfuoc6br4UhmRsqjU50sEJ-RLUe6nbLDgqrqvTnoITKuZ8xaqWysVywQCDIkw5y4OKDJcmsHqSnkcvuRXbRmp7RU8Mh6eUnimUclr4gq61ETJH5XT0gMTOwZanb6cxMYl_4oyQUqIcNfEC517UgN3vswbiQUNjddthByM6gdAMsRaYU7LE8"/>
+</div>
+</div>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-lg md:text-headline-lg text-primary dark:text-primary-fixed font-bold tracking-tight">Suvi</h1>
+<button aria-label="Notifications" class="w-10 h-10 rounded-full flex items-center justify-center text-on-surface hover:opacity-80 transition-opacity">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">notifications</span>
+</button>
+</div>
+</header>
+<!-- Mobile TopAppBar Shell -->
+<header class="fixed top-0 w-full z-50 bg-white/40 backdrop-blur-3xl md:hidden border-b border-white/30">
+<div class="flex justify-between items-center px-gutter py-4 w-full">
+<div class="w-8 h-8 rounded-full bg-surface-container overflow-hidden">
+<img alt="User Profile" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDcdhGmyOlUJ4dh6hz39tBxewM1R6ntS-skoXkrcP5ElvZg4SFgm2akiB2NCqraFLW3CCPxAq5qlGmmARC8synqGmfq33s-o0NR05tBPJHqBNTf_I8VhsdO44iWV_6ZZ1I4AE0g3ziIL2T1SfKfDxl7ES1oQNtd1btsklT1TAlFwM03i6vTyutQr_eq6tC0w37QjgpO8iYDFxXVWF_L3vreZiJUhMzbZMnwl_cH3_hfjNoT6evPRjccqPk7QUjDzQ9Alo38afu3CPA"/>
+</div>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-primary font-bold">Suvi</h1>
+<button aria-label="Notifications" class="text-on-surface">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+</div>
+</header>
+<!-- Main Canvas -->
+<main class="max-w-7xl mx-auto px-gutter md:px-container-padding pt-24 md:pt-32 pb-stack-lg">
+<!-- Header Section -->
+<section class="mb-stack-lg md:mb-12 max-w-2xl text-center mx-auto md:text-left md:mx-0 pt-4">
+<h2 class="font-display-lg text-display-lg text-primary mb-unit">Your Goals</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Suvi has personalized your journey across these key areas.</p>
+</section>
+<!-- Goals Grid/List -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-stack-md md:gap-stack-lg max-w-5xl mx-auto md:mx-0">
+<!-- Goal Card 1: Weight Management -->
+<article class="glass-card rounded-xl p-container-padding flex flex-col justify-between hover:-translate-y-1 transition-transform duration-300 cursor-pointer group">
+<div class="flex justify-between items-start mb-stack-sm">
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 rounded-full sunset-core-icon flex items-center justify-center text-on-primary-container">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">monitor_weight</span>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface">Weight Management</h3>
+<p class="font-label-sm text-label-sm text-primary uppercase">Active Plan: Healthy Loss</p>
+</div>
+</div>
+</div>
+<div class="mt-stack-md flex flex-col gap-unit">
+<div class="flex justify-between items-center bg-surface-container-low/50 rounded-lg px-3 py-2">
+<span class="font-body-md text-body-md text-on-surface-variant">Status</span>
+<span class="font-body-md text-body-md text-on-surface font-semibold">2.4kg to go</span>
+</div>
+<div class="flex justify-between items-center bg-surface-container-low/50 rounded-lg px-3 py-2">
+<span class="font-body-md text-body-md text-on-surface-variant">Next</span>
+<span class="font-body-md text-body-md text-on-surface">Log Lunch</span>
+</div>
+<div class="flex justify-between items-center mt-2">
+<span class="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-primary">local_fire_department</span>
+                            12 days streak
+                        </span>
+<button class="text-primary group-hover:translate-x-1 transition-transform">
+<span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Goal Card 2: Hypertension -->
+<article class="glass-card rounded-xl p-container-padding flex flex-col justify-between hover:-translate-y-1 transition-transform duration-300 cursor-pointer group">
+<div class="flex justify-between items-start mb-stack-sm">
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 rounded-full sunset-core-icon flex items-center justify-center text-on-primary-container">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">favorite</span>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface">Hypertension Recovery</h3>
+<p class="font-label-sm text-label-sm text-primary uppercase">Active Plan: Heart Health</p>
+</div>
+</div>
+</div>
+<div class="mt-stack-md flex flex-col gap-unit">
+<div class="flex justify-between items-center bg-surface-container-low/50 rounded-lg px-3 py-2">
+<span class="font-body-md text-body-md text-on-surface-variant">Status</span>
+<span class="font-body-md text-body-md text-on-surface font-semibold">BP trending normal</span>
+</div>
+<div class="flex justify-between items-center bg-surface-container-low/50 rounded-lg px-3 py-2">
+<span class="font-body-md text-body-md text-on-surface-variant">Next</span>
+<span class="font-body-md text-body-md text-on-surface">8pm Medication</span>
+</div>
+<div class="flex justify-between items-center mt-2">
+<span class="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-primary">local_fire_department</span>
+                            30 days streak
+                        </span>
+<button class="text-primary group-hover:translate-x-1 transition-transform">
+<span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Goal Card 3: Strength -->
+<article class="glass-card rounded-xl p-container-padding flex flex-col justify-between hover:-translate-y-1 transition-transform duration-300 cursor-pointer group">
+<div class="flex justify-between items-start mb-stack-sm">
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 rounded-full sunset-core-icon flex items-center justify-center text-on-primary-container">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">fitness_center</span>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface">Strength &amp; Vitality</h3>
+<p class="font-label-sm text-label-sm text-primary uppercase">Active Plan: Build Muscle</p>
+</div>
+</div>
+</div>
+<div class="mt-stack-md flex flex-col gap-unit">
+<div class="flex justify-between items-center bg-surface-container-low/50 rounded-lg px-3 py-2">
+<span class="font-body-md text-body-md text-on-surface-variant">Status</span>
+<span class="font-body-md text-body-md text-on-surface font-semibold">Week 3 of 8</span>
+</div>
+<div class="flex justify-between items-center bg-surface-container-low/50 rounded-lg px-3 py-2">
+<span class="font-body-md text-body-md text-on-surface-variant">Next</span>
+<span class="font-body-md text-body-md text-on-surface">Upper Body Workout</span>
+</div>
+<div class="flex justify-between items-center mt-2">
+<span class="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-primary">local_fire_department</span>
+                            3 days streak
+                        </span>
+<button class="text-primary group-hover:translate-x-1 transition-transform">
+<span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Goal Card 4: Deep Rest -->
+<article class="glass-card rounded-xl p-container-padding flex flex-col justify-between hover:-translate-y-1 transition-transform duration-300 cursor-pointer group">
+<div class="flex justify-between items-start mb-stack-sm">
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 rounded-full sunset-core-icon flex items-center justify-center text-on-primary-container">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">bedtime</span>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface">Deep Rest</h3>
+<p class="font-label-sm text-label-sm text-primary uppercase">Active Plan: Sleep Hygiene</p>
+</div>
+</div>
+</div>
+<div class="mt-stack-md flex flex-col gap-unit">
+<div class="flex justify-between items-center bg-surface-container-low/50 rounded-lg px-3 py-2">
+<span class="font-body-md text-body-md text-on-surface-variant">Status</span>
+<span class="font-body-md text-body-md text-on-surface font-semibold">Avg 7.2h sleep</span>
+</div>
+<div class="flex justify-between items-center bg-surface-container-low/50 rounded-lg px-3 py-2">
+<span class="font-body-md text-body-md text-on-surface-variant">Next</span>
+<span class="font-body-md text-body-md text-on-surface">Wind-down at 10pm</span>
+</div>
+<div class="flex justify-between items-center mt-2">
+<span class="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-primary">local_fire_department</span>
+                            5 days streak
+                        </span>
+<button class="text-primary group-hover:translate-x-1 transition-transform">
+<span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</div>
+</article>
+</div>
+<!-- Start New Goal Action -->
+<div class="mt-stack-lg flex justify-center pb-8">
+<button class="bg-primary text-on-primary font-body-md text-body-md rounded-full px-8 py-4 flex items-center gap-2 shadow-[0_10px_20px_-5px_rgba(149,73,33,0.3)] hover:-translate-y-0.5 transition-transform">
+<span class="material-symbols-outlined">add</span>
+                Start a New Goal
+            </button>
+</div>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full flex justify-around items-center px-4 pb-6 pt-3 bg-surface-container-low/60 dark:bg-surface-container-highest/20 backdrop-blur-3xl z-50 rounded-t-xl shadow-[0_-10px_30px_-5px_rgba(255,182,148,0.2)]">
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant px-4 py-1 hover:text-primary dark:hover:text-primary-fixed transition-colors" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">calendar_today</span>
+<span class="font-label-sm text-label-sm mt-1">Today</span>
+</a>
+<!-- Active Navigation Logic: "Goals" intent matches this screen -->
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-full px-6 py-1 hover:text-primary transition-colors scale-90 transition-transform duration-300 ease-out" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">target</span>
+<span class="font-label-sm text-label-sm mt-1">Goals</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant px-4 py-1 hover:text-primary dark:hover:text-primary-fixed transition-colors" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">auto_awesome</span>
+<span class="font-label-sm text-label-sm mt-1">Chat</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant px-4 py-1 hover:text-primary dark:hover:text-primary-fixed transition-colors" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">person</span>
+<span class="font-label-sm text-label-sm mt-1">Profile</span>
+</a>
+</nav>
+</body></html>

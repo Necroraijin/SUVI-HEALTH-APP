@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Heart Health Recovery</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&amp;family=Lexend:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-fixed": "#ffdbcc",
+                        "surface-container-lowest": "#ffffff",
+                        "outline": "#87736a",
+                        "on-error": "#ffffff",
+                        "inverse-on-surface": "#ffede7",
+                        "inverse-surface": "#382e2a",
+                        "on-primary-fixed": "#351000",
+                        "background": "#fff8f6",
+                        "surface-container": "#fceae4",
+                        "outline-variant": "#dac1b7",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-fixed-variant": "#633c3d",
+                        "error-container": "#ffdad6",
+                        "inverse-primary": "#ffb694",
+                        "on-tertiary-fixed": "#1e192b",
+                        "surface-tint": "#954921",
+                        "on-tertiary-fixed-variant": "#4a4458",
+                        "surface-container-highest": "#f0dfd9",
+                        "tertiary-container": "#bbb2cb",
+                        "secondary-fixed-dim": "#efb9b9",
+                        "surface-container-high": "#f6e5df",
+                        "primary-fixed-dim": "#ffb694",
+                        "surface": "#fff8f6",
+                        "tertiary": "#625b71",
+                        "on-surface-variant": "#54433b",
+                        "tertiary-fixed-dim": "#ccc2dc",
+                        "secondary": "#7d5354",
+                        "surface-bright": "#fff8f6",
+                        "on-surface": "#221a16",
+                        "primary-container": "#ff9d6e",
+                        "on-primary-container": "#77320b",
+                        "surface-variant": "#f0dfd9",
+                        "tertiary-fixed": "#e8def8",
+                        "on-primary": "#ffffff",
+                        "primary": "#954921",
+                        "secondary-container": "#fec7c7",
+                        "on-error-container": "#93000a",
+                        "surface-dim": "#e8d6d1",
+                        "on-secondary-container": "#7a5051",
+                        "secondary-fixed": "#ffdad9",
+                        "on-secondary-fixed": "#301214",
+                        "on-background": "#221a16",
+                        "on-primary-fixed-variant": "#77320b",
+                        "surface-container-low": "#fff1ec",
+                        "error": "#ba1a1a",
+                        "on-tertiary-container": "#4a4459",
+                        "on-secondary": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-md": "16px",
+                        "gutter": "16px",
+                        "unit": "4px",
+                        "stack-sm": "8px",
+                        "stack-lg": "32px",
+                        "container-padding": "24px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Lexend"],
+                        "label-sm": ["Lexend"],
+                        "headline-md": ["Bodoni Moda"],
+                        "display-lg": ["Bodoni Moda"],
+                        "headline-lg-mobile": ["Bodoni Moda"],
+                        "headline-lg": ["Bodoni Moda"],
+                        "body-lg": ["Lexend"]
+                    },
+                    "fontSize": {
+                        "body-md": ["16px", { "lineHeight": "1.5", "fontWeight": "400" }],
+                        "label-sm": ["12px", { "lineHeight": "1.4", "letterSpacing": "0.05em", "fontWeight": "500" }],
+                        "headline-md": ["24px", { "lineHeight": "1.3", "fontWeight": "500" }],
+                        "display-lg": ["48px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+                        "headline-lg-mobile": ["28px", { "lineHeight": "1.2", "fontWeight": "500" }],
+                        "headline-lg": ["32px", { "lineHeight": "1.2", "fontWeight": "500" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            background-color: theme('colors.background');
+            background-image: radial-gradient(at 0% 0%, hsla(24, 100%, 85%, 0.4) 0px, transparent 50%),
+                              radial-gradient(at 100% 0%, hsla(355, 60%, 85%, 0.3) 0px, transparent 50%),
+                              radial-gradient(at 50% 100%, hsla(22, 100%, 75%, 0.2) 0px, transparent 50%);
+            background-attachment: fixed;
+        }
+        .soft-glass-card {
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(40px);
+            -webkit-backdrop-filter: blur(40px);
+            border-top: 1px solid rgba(255, 255, 255, 0.3);
+            border-left: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 30px 30px -5px rgba(255, 219, 204, 0.3);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="text-on-background min-h-screen pb-24 md:pb-0">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-white/40 dark:bg-black/20 backdrop-blur-3xl border-b border-white/30 shadow-[0_30px_30px_-5px_rgba(255,219,204,0.3)]">
+<div class="flex justify-between items-center px-gutter py-4 w-full max-w-7xl mx-auto">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center overflow-hidden">
+<img alt="User profile photo" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDH5nIbSl6ke2SZZjQu_e8IkWMVqOnVE7QS2pffst_XIMpkfoOiYHuZ0FBoBTRLKNftMwtB-hLtcFujTBCgfOZ2im3XJO3YdqI-ZgzvhQBZjm9aCvcdvDrm4Cpl_O3n4tF5eMytsmd6uMyw-QNIcjadqCb_1vxxTGsEOdwr9GZrdxsOqiZen-x43tYxt4CSXSwzidAbaX5gDS0HAhp4GiGGshDJa3tyZz9Y8NXwCEIgC9u66UVfw3MVipVHpgrXuNL3Y2NzUbc-tnM"/>
+</div>
+</div>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-lg md:text-headline-lg text-primary dark:text-primary-fixed">Suvi</h1>
+<button class="hover:opacity-80 transition-opacity p-2 text-on-surface dark:text-on-surface">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">notifications</span>
+</button>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="pt-24 px-gutter max-w-7xl mx-auto flex flex-col gap-stack-lg">
+<!-- Header Section -->
+<section class="flex flex-col items-center text-center mt-stack-md">
+<h2 class="font-display-lg text-display-lg text-primary mb-2">Heart Health Recovery</h2>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-md mx-auto">Tracking your journey to stabilized blood pressure and overall cardiovascular wellness.</p>
+</section>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-stack-md">
+<!-- Progress Metrics -->
+<div class="soft-glass-card rounded-[24px] p-container-padding md:col-span-8 flex flex-col justify-between">
+<div class="flex justify-between items-start mb-stack-md">
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface">Blood Pressure Trend</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Last recording: 128/82 mmHg</p>
+</div>
+<span class="material-symbols-outlined text-primary text-3xl">monitor_heart</span>
+</div>
+<!-- Placeholder for Chart -->
+<div class="h-48 w-full bg-gradient-to-r from-surface-container to-surface-container-highest rounded-xl flex items-end p-4 relative overflow-hidden">
+<!-- Simple CSS Graph representation -->
+<div class="absolute bottom-0 left-0 w-full h-full">
+<svg class="w-full h-full opacity-50 stroke-primary fill-primary-fixed" preserveaspectratio="none" viewbox="0 0 100 50">
+<path d="M0,40 L10,35 L20,38 L30,30 L40,32 L50,25 L60,28 L70,20 L80,22 L90,15 L100,18 L100,50 L0,50 Z" stroke-width="1"></path>
+</svg>
+</div>
+<div class="relative z-10 w-full flex justify-between items-end h-full pt-8">
+<div class="w-1 bg-primary/20 h-full rounded-t-full relative"><div class="absolute bottom-0 w-full bg-primary h-[40%] rounded-t-full"></div></div>
+<div class="w-1 bg-primary/20 h-full rounded-t-full relative"><div class="absolute bottom-0 w-full bg-primary h-[50%] rounded-t-full"></div></div>
+<div class="w-1 bg-primary/20 h-full rounded-t-full relative"><div class="absolute bottom-0 w-full bg-primary h-[45%] rounded-t-full"></div></div>
+<div class="w-1 bg-primary/20 h-full rounded-t-full relative"><div class="absolute bottom-0 w-full bg-primary h-[60%] rounded-t-full"></div></div>
+<div class="w-1 bg-primary/20 h-full rounded-t-full relative"><div class="absolute bottom-0 w-full bg-primary h-[55%] rounded-t-full"></div></div>
+<div class="w-1 bg-primary/20 h-full rounded-t-full relative"><div class="absolute bottom-0 w-full bg-primary h-[70%] rounded-t-full"></div></div>
+<div class="w-1 bg-primary/20 h-full rounded-t-full relative"><div class="absolute bottom-0 w-full bg-primary h-[65%] rounded-t-full"></div></div>
+</div>
+</div>
+</div>
+<!-- AI Coach Notes -->
+<div class="soft-glass-card rounded-[24px] p-container-padding md:col-span-4 flex flex-col justify-center items-center text-center relative overflow-hidden">
+<div class="absolute -top-10 -right-10 w-32 h-32 bg-primary-container rounded-full blur-[40px] opacity-50"></div>
+<div class="w-16 h-16 rounded-full bg-primary-container/30 flex items-center justify-center mb-stack-md">
+<span class="material-symbols-outlined text-primary text-3xl">psychiatry</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-stack-sm">Coach Notes</h3>
+<p class="font-body-md text-body-md text-on-surface-variant italic">"Your sodium intake was slightly high yesterday. Stick to the meal plan today to help stabilize your pressure."</p>
+</div>
+<!-- This Week's Plan -->
+<div class="soft-glass-card rounded-[24px] p-container-padding md:col-span-4">
+<div class="flex items-center gap-3 mb-stack-md">
+<span class="material-symbols-outlined text-secondary text-2xl">event_upcoming</span>
+<h3 class="font-headline-md text-headline-md text-on-surface">This Week's Plan</h3>
+</div>
+<ul class="flex flex-col gap-stack-sm">
+<li class="flex items-start gap-3 bg-surface-container-low rounded-xl p-3">
+<span class="material-symbols-outlined text-primary mt-1">medication</span>
+<div>
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Priority</p>
+<p class="font-body-md text-body-md text-on-surface">Medication Adherence</p>
+</div>
+</li>
+<li class="flex items-start gap-3 bg-surface-container-low rounded-xl p-3">
+<span class="material-symbols-outlined text-primary mt-1">restaurant_menu</span>
+<div>
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Dietary</p>
+<p class="font-body-md text-body-md text-on-surface">Low-Sodium Meals</p>
+</div>
+</li>
+</ul>
+</div>
+<!-- Today's Action -->
+<div class="soft-glass-card rounded-[24px] p-container-padding md:col-span-4 bg-gradient-to-br from-white/40 to-primary-container/10">
+<div class="flex items-center gap-3 mb-stack-md">
+<span class="material-symbols-outlined text-primary text-2xl">check_circle</span>
+<h3 class="font-headline-md text-headline-md text-on-surface">Today's Action</h3>
+</div>
+<div class="space-y-4">
+<div class="flex items-center gap-4 bg-white/50 p-4 rounded-xl shadow-sm border border-white/40">
+<div class="w-10 h-10 rounded-full bg-primary text-on-primary flex items-center justify-center font-label-sm text-label-sm">8PM</div>
+<p class="font-body-md text-body-md text-on-surface font-medium">Take Amlodipine</p>
+</div>
+<div class="flex items-center gap-4 bg-error-container/30 p-4 rounded-xl shadow-sm border border-error-container/50">
+<div class="w-10 h-10 rounded-full bg-error-container text-on-error-container flex items-center justify-center">
+<span class="material-symbols-outlined">block</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface font-medium">Avoid processed snacks for dinner</p>
+</div>
+</div>
+</div>
+<!-- Symptoms to Watch -->
+<div class="soft-glass-card rounded-[24px] p-container-padding md:col-span-4 border-l-4 border-l-secondary">
+<div class="flex items-center gap-3 mb-stack-md">
+<span class="material-symbols-outlined text-secondary text-2xl">visibility</span>
+<h3 class="font-headline-md text-headline-md text-on-surface">Symptoms to Watch</h3>
+</div>
+<div class="flex flex-wrap gap-2">
+<span class="px-4 py-2 bg-secondary-fixed-dim/20 text-on-surface rounded-full font-label-sm text-label-sm border border-secondary/10">Headache</span>
+<span class="px-4 py-2 bg-secondary-fixed-dim/20 text-on-surface rounded-full font-label-sm text-label-sm border border-secondary/10">Blurred vision</span>
+<span class="px-4 py-2 bg-secondary-fixed-dim/20 text-on-surface rounded-full font-label-sm text-label-sm border border-secondary/10">Dizziness</span>
+</div>
+<p class="mt-4 font-label-sm text-label-sm text-on-surface-variant">Log any of these immediately if they occur.</p>
+</div>
+</div>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 w-full z-50 rounded-t-xl bg-surface-container-low/60 dark:bg-surface-container-highest/20 backdrop-blur-3xl border-t border-white/20 shadow-[0_-10px_30px_-5px_rgba(255,182,148,0.2)]">
+<div class="fixed bottom-0 left-0 w-full flex justify-around items-center px-4 pb-6 pt-3">
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant px-4 py-1 hover:text-primary dark:hover:text-primary-fixed transition-colors" href="#">
+<span class="material-symbols-outlined mb-1">calendar_today</span>
+<span class="font-label-sm text-label-sm">Today</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-full px-6 py-1 hover:text-primary dark:hover:text-primary-fixed transition-colors scale-90 transition-transform duration-300 ease-out" href="#">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 1;">target</span>
+<span class="font-label-sm text-label-sm">Goals</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant px-4 py-1 hover:text-primary dark:hover:text-primary-fixed transition-colors" href="#">
+<span class="material-symbols-outlined mb-1">auto_awesome</span>
+<span class="font-label-sm text-label-sm">Chat</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant px-4 py-1 hover:text-primary dark:hover:text-primary-fixed transition-colors" href="#">
+<span class="material-symbols-outlined mb-1">person</span>
+<span class="font-label-sm text-label-sm">Profile</span>
+</a>
+</div>
+</nav>
+</body></html>

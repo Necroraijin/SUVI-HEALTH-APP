@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Privacy &amp; Safety - Suvi</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&amp;family=Lexend:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-primary": "#ffffff",
+                    "inverse-surface": "#382e2a",
+                    "primary-fixed-dim": "#ffb694",
+                    "on-secondary-container": "#7a5051",
+                    "tertiary-fixed-dim": "#ccc2dc",
+                    "primary": "#954921",
+                    "on-primary-fixed-variant": "#77320b",
+                    "surface-container-lowest": "#ffffff",
+                    "on-surface-variant": "#54433b",
+                    "on-error-container": "#93000a",
+                    "on-secondary-fixed-variant": "#633c3d",
+                    "on-background": "#221a16",
+                    "error-container": "#ffdad6",
+                    "surface-container-highest": "#f0dfd9",
+                    "surface-container-high": "#f6e5df",
+                    "surface-container-low": "#fff1ec",
+                    "on-secondary-fixed": "#301214",
+                    "inverse-primary": "#ffb694",
+                    "secondary-fixed-dim": "#efb9b9",
+                    "surface-tint": "#954921",
+                    "tertiary-container": "#bbb2cb",
+                    "surface-container": "#fceae4",
+                    "on-tertiary-container": "#4a4459",
+                    "on-tertiary": "#ffffff",
+                    "secondary-fixed": "#ffdad9",
+                    "background": "#fff8f6",
+                    "on-error": "#ffffff",
+                    "tertiary-fixed": "#e8def8",
+                    "outline": "#87736a",
+                    "primary-fixed": "#ffdbcc",
+                    "on-primary-container": "#77320b",
+                    "secondary-container": "#fec7c7",
+                    "on-secondary": "#ffffff",
+                    "tertiary": "#625b71",
+                    "on-surface": "#221a16",
+                    "surface-variant": "#f0dfd9",
+                    "on-primary-fixed": "#351000",
+                    "surface-bright": "#fff8f6",
+                    "surface": "#fff8f6",
+                    "inverse-on-surface": "#ffede7",
+                    "secondary": "#7d5354",
+                    "error": "#ba1a1a",
+                    "surface-dim": "#e8d6d1",
+                    "on-tertiary-fixed": "#1e192b",
+                    "outline-variant": "#dac1b7",
+                    "primary-container": "#ff9d6e",
+                    "on-tertiary-fixed-variant": "#4a4458"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "stack-sm": "8px",
+                    "stack-lg": "32px",
+                    "container-padding": "24px",
+                    "stack-md": "16px",
+                    "gutter": "16px",
+                    "unit": "4px"
+            },
+            "fontFamily": {
+                    "headline-lg-mobile": ["Bodoni Moda"],
+                    "body-md": ["Lexend"],
+                    "label-sm": ["Lexend"],
+                    "body-lg": ["Lexend"],
+                    "headline-lg": ["Bodoni Moda"],
+                    "headline-md": ["Bodoni Moda"],
+                    "display-lg": ["Bodoni Moda"]
+            },
+            "fontSize": {
+                    "headline-lg-mobile": ["28px", {"lineHeight": "1.2", "fontWeight": "500"}],
+                    "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "label-sm": ["12px", {"lineHeight": "1.4", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "headline-lg": ["32px", {"lineHeight": "1.2", "fontWeight": "500"}],
+                    "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "500"}],
+                    "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "600"}]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-filled {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        
+        /* Soft glass effect class */
+        .glass-card {
+            background-color: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(40px);
+            -webkit-backdrop-filter: blur(40px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 4px 30px -5px rgba(149, 73, 33, 0.05);
+            position: relative;
+        }
+        
+        /* Inner glow for "pebble" effect */
+        .glass-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.5);
+            border-left: 1px solid rgba(255, 255, 255, 0.5);
+            border-radius: inherit;
+            pointer-events: none;
+        }
+
+        /* Custom Toggle Switch */
+        .toggle-checkbox:checked {
+            right: 0;
+            border-color: #954921;
+        }
+        .toggle-checkbox:checked + .toggle-label {
+            background-color: #ff9d6e; /* primary-container */
+        }
+        .toggle-checkbox:checked + .toggle-label::after {
+            transform: translateX(100%);
+            background-color: #ffffff;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface min-h-screen font-body-md flex flex-col relative overflow-x-hidden antialiased">
+<!-- Atmospheric Background Gradients -->
+<div class="fixed inset-0 z-[-1] pointer-events-none overflow-hidden">
+<div class="absolute -top-[20%] -left-[10%] w-[70vw] h-[70vw] rounded-full bg-[#FFD2A8]/40 blur-[80px] opacity-70"></div>
+<div class="absolute top-[40%] -right-[20%] w-[60vw] h-[60vw] rounded-full bg-secondary-container/30 blur-[100px] opacity-60"></div>
+</div>
+<!-- TopAppBar Shared Component -->
+<!-- JSON Execution: style_component_shape, style_bg_color, style_separation_logic, style_shadows_and_elevation -->
+<header class="fixed top-0 w-full z-50 bg-surface/40 backdrop-blur-3xl border-b border-white/20 shadow-sm shadow-primary/5">
+<!-- JSON Execution: style_shell_layout -->
+<div class="flex justify-between items-center px-gutter py-4 w-full max-w-7xl mx-auto">
+<!-- Leading Element: Avatar -->
+<button class="relative w-10 h-10 rounded-full overflow-hidden bg-surface-variant flex items-center justify-center hover:bg-white/50 transition-colors">
+<img alt="User profile photo" class="w-full h-full object-cover" data-alt="A close-up, high-quality portrait photograph of a calm, serene woman bathed in soft, warm, golden-hour light. The lighting is diffused, evoking a modern, light-mode, optimistic wellness aesthetic. The background is a soft, out-of-focus pastel blur, conveying a sense of tranquility and refined elegance." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDYRXVAoOqSMr9uqfihuU2TfvJNyfz_LCbXkkXqiSqM-iOtgjBVww5wDcVZNeemBnfj75uXwsxyIu7C5zYKMxGR6ludrK2nbJdSMQLAE_A2CppdEQLirEGY3I2lCuPcEwNtFNY4CSBAGzfXUHT2NtrzrOEebF-2NueSQ_vQzLz8ZA7P9mJa8bPTJHG9bKUP78eVhuYNSzULBygVsbbtaXa3ftiSe3Ao_NqQsYlyTLNdK_S_klicDhZSHpdKLw5BR4s2nGWmPlOvy6o"/>
+</button>
+<!-- Headline/Brand -->
+<!-- JSON Execution: style_brand_logo -->
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-lg md:text-headline-lg text-primary tracking-tight font-bold">
+                Suvi
+            </h1>
+<!-- Trailing Element: Icon -->
+<!-- JSON Execution: style_primary_color, style_universal_hover, style_interactions -->
+<button class="text-primary hover:bg-white/50 transition-colors active:scale-95 duration-200 p-2 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-[24px]">notifications</span>
+</button>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<!-- Note: BottomNavBar is intentionally suppressed as this is a focused settings journey (Privacy & Safety). -->
+<main class="flex-1 w-full max-w-[1200px] mx-auto px-container-padding pt-[100px] pb-stack-lg flex flex-col gap-stack-lg">
+<!-- Page Header -->
+<div class="mb-stack-sm pt-4">
+<h2 class="font-display-lg text-display-lg text-on-background tracking-tight">Privacy &amp; Safety</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mt-2 max-w-2xl">
+                Control your digital footprint and manage the connections that matter most to your well-being.
+            </p>
+</div>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-stack-md">
+<!-- AI Privacy (Spans full width on mobile, 8 cols on desktop) -->
+<section class="glass-card rounded-2xl p-6 md:p-8 md:col-span-8 flex flex-col gap-4">
+<div class="flex items-center gap-3 text-primary mb-2">
+<span class="material-symbols-outlined material-symbols-filled text-[28px]">robot_2</span>
+<h3 class="font-headline-md text-headline-md">AI Privacy</h3>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant flex-1">
+                    Your personal reflections are processed on-device whenever possible. Cloud processing is only used for complex wellness insights and is fully anonymized before leaving your device.
+                </p>
+<div class="mt-4 p-4 rounded-xl bg-surface/50 border border-white/20 flex items-center justify-between">
+<div>
+<div class="font-body-md text-body-md font-medium text-on-background">Strict Anonymization</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant mt-1">Strip identifiable context before AI processing</div>
+</div>
+<!-- Custom Toggle -->
+<div class="relative inline-block w-12 mr-2 align-middle select-none transition duration-200 ease-in">
+<input checked="" class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 border-surface-variant appearance-none cursor-pointer z-10 transition-transform duration-200 ease-in-out peer" id="ai-toggle" name="toggle" type="checkbox"/>
+<label class="toggle-label block overflow-hidden h-6 rounded-full bg-surface-variant cursor-pointer transition-colors duration-200 ease-in-out" for="ai-toggle"></label>
+</div>
+</div>
+</section>
+<!-- Data Storage (Spans full width on mobile, 4 cols on desktop) -->
+<section class="glass-card rounded-2xl p-6 md:p-8 md:col-span-4 flex flex-col gap-4">
+<div class="flex items-center gap-3 text-primary mb-2">
+<span class="material-symbols-outlined material-symbols-filled text-[28px]">cloud_sync</span>
+<h3 class="font-headline-md text-headline-md">Data Storage</h3>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4">
+                    Choose how your history is preserved.
+                </p>
+<div class="flex flex-col gap-3 mt-auto">
+<label class="flex items-start gap-3 p-3 rounded-lg hover:bg-white/30 transition-colors cursor-pointer border border-transparent hover:border-white/20">
+<input checked="" class="mt-1 text-primary focus:ring-primary-container" name="storage" type="radio"/>
+<div>
+<span class="block font-body-md text-body-md font-medium text-on-background">Encrypted Cloud</span>
+<span class="block font-label-sm text-label-sm text-on-surface-variant">Syncs across all devices</span>
+</div>
+</label>
+<label class="flex items-start gap-3 p-3 rounded-lg hover:bg-white/30 transition-colors cursor-pointer border border-transparent hover:border-white/20">
+<input class="mt-1 text-primary focus:ring-primary-container" name="storage" type="radio"/>
+<div>
+<span class="block font-body-md text-body-md font-medium text-on-background">Local Only</span>
+<span class="block font-label-sm text-label-sm text-on-surface-variant">Data never leaves this device</span>
+</div>
+</label>
+</div>
+</section>
+<!-- Emergency Contacts (Full width) -->
+<section class="glass-card rounded-2xl p-6 md:p-8 md:col-span-12">
+<div class="flex items-center justify-between mb-6">
+<div class="flex items-center gap-3 text-primary">
+<span class="material-symbols-outlined material-symbols-filled text-[28px]">vital_signs</span>
+<h3 class="font-headline-md text-headline-md">Emergency Contacts</h3>
+</div>
+<span class="bg-secondary-container/40 text-on-secondary-container px-3 py-1 rounded-full font-label-sm text-label-sm">
+                        2 of 3 Added
+                    </span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+<!-- Slot 1: Filled -->
+<div class="bg-surface/40 border border-white/30 rounded-xl p-4 flex flex-col items-center text-center gap-3 hover:bg-surface/60 transition-colors">
+<div class="w-12 h-12 rounded-full bg-primary-container/20 text-primary flex items-center justify-center mb-1">
+<span class="font-headline-md text-headline-md">S</span>
+</div>
+<div>
+<div class="font-body-md text-body-md font-medium text-on-background">Sarah Jenkins</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant">Partner</div>
+</div>
+<button class="mt-2 w-full py-2 px-4 rounded-full bg-white/50 backdrop-blur-md border border-white/60 text-primary font-label-sm text-label-sm hover:bg-white/70 transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[16px]">call</span>
+                            Call
+                        </button>
+</div>
+<!-- Slot 2: Filled -->
+<div class="bg-surface/40 border border-white/30 rounded-xl p-4 flex flex-col items-center text-center gap-3 hover:bg-surface/60 transition-colors">
+<div class="w-12 h-12 rounded-full bg-secondary-container/30 text-secondary flex items-center justify-center mb-1">
+<span class="font-headline-md text-headline-md">D</span>
+</div>
+<div>
+<div class="font-body-md text-body-md font-medium text-on-background">Dr. Emily Chen</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant">Therapist</div>
+</div>
+<button class="mt-2 w-full py-2 px-4 rounded-full bg-white/50 backdrop-blur-md border border-white/60 text-primary font-label-sm text-label-sm hover:bg-white/70 transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[16px]">call</span>
+                            Call
+                        </button>
+</div>
+<!-- Slot 3: Empty -->
+<div class="bg-surface/20 border border-dashed border-outline-variant rounded-xl p-4 flex flex-col items-center justify-center text-center gap-3 hover:bg-surface/40 hover:border-primary/30 transition-all cursor-pointer group min-h-[180px]">
+<div class="w-12 h-12 rounded-full bg-white/40 text-on-surface-variant flex items-center justify-center group-hover:bg-white/60 group-hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[24px]">add</span>
+</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant group-hover:text-primary transition-colors">
+                            Add Contact
+                        </div>
+</div>
+</div>
+</section>
+<!-- Data Actions (Full width) -->
+<section class="glass-card rounded-2xl p-6 md:p-8 md:col-span-12 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+<div>
+<h3 class="font-headline-md text-headline-md text-on-background mb-2">Data Actions</h3>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-lg">
+                        Take your data with you, or permanently remove your account and all associated records from our systems.
+                    </p>
+</div>
+<div class="flex flex-col sm:flex-row gap-4 w-full md:w-auto">
+<!-- Glass Button Secondary -->
+<button class="py-3 px-6 rounded-full bg-white/30 backdrop-blur-md border border-white/50 text-on-background font-body-md text-body-md font-medium hover:bg-white/50 transition-colors flex items-center justify-center gap-2 whitespace-nowrap">
+<span class="material-symbols-outlined text-[20px]">download</span>
+                        Export as JSON
+                    </button>
+<!-- Danger Button (Subtle, not aggressive red, fitting the calm theme but clear) -->
+<button class="py-3 px-6 rounded-full bg-error-container/80 text-on-error-container font-body-md text-body-md font-medium hover:bg-error-container transition-colors flex items-center justify-center gap-2 whitespace-nowrap">
+<span class="material-symbols-outlined text-[20px]">delete_forever</span>
+                        Delete Account
+                    </button>
+</div>
+</section>
+</div>
+</main>
+</body></html>

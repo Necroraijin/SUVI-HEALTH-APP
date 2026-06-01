@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Suvi - Permissions</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "tertiary-fixed-dim": "#aecbd9",
+                      "on-surface-variant": "#b9cacb",
+                      "on-tertiary-fixed-variant": "#2f4a56",
+                      "tertiary-fixed": "#cae7f6",
+                      "on-tertiary": "#17343f",
+                      "surface": "#101415",
+                      "outline": "#849495",
+                      "error": "#ffb4ab",
+                      "on-surface": "#e0e3e5",
+                      "on-primary": "#00363a",
+                      "surface-bright": "#363a3b",
+                      "primary": "#e1fdff",
+                      "on-tertiary-fixed": "#001f29",
+                      "inverse-primary": "#00696f",
+                      "outline-variant": "#3a494b",
+                      "surface-container-high": "#272a2c",
+                      "surface-dim": "#101415",
+                      "inverse-on-surface": "#2d3133",
+                      "secondary-container": "#cf5cff",
+                      "error-container": "#93000a",
+                      "surface-container-highest": "#323537",
+                      "on-primary-fixed-variant": "#004f54",
+                      "on-secondary": "#520071",
+                      "on-background": "#e0e3e5",
+                      "surface-container": "#1d2022",
+                      "surface-container-low": "#191c1e",
+                      "inverse-surface": "#e0e3e5",
+                      "secondary-fixed": "#f8d8ff",
+                      "on-primary-container": "#006a71",
+                      "on-secondary-fixed": "#320047",
+                      "surface-tint": "#00dbe7",
+                      "on-secondary-container": "#480063",
+                      "primary-container": "#00f2ff",
+                      "surface-container-lowest": "#0b0f10",
+                      "secondary-fixed-dim": "#ecb2ff",
+                      "background": "#101415",
+                      "surface-variant": "#323537",
+                      "on-error": "#690005",
+                      "on-primary-fixed": "#002022",
+                      "on-secondary-fixed-variant": "#74009f",
+                      "on-error-container": "#ffdad6",
+                      "primary-fixed": "#74f5ff",
+                      "tertiary-container": "#c3e0ee",
+                      "on-tertiary-container": "#486470",
+                      "secondary": "#ecb2ff",
+                      "primary-fixed-dim": "#00dbe7",
+                      "tertiary": "#f0f9ff"
+              },
+              "borderRadius": {
+                      "DEFAULT": "1rem",
+                      "lg": "2rem",
+                      "xl": "3rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "gutter": "16px",
+                      "container-margin-mobile": "20px",
+                      "stack-md": "24px",
+                      "unit": "8px",
+                      "container-margin-desktop": "40px",
+                      "stack-sm": "12px",
+                      "stack-lg": "48px"
+              },
+              "fontFamily": {
+                      "display-lg": ["Lexend"],
+                      "headline-lg": ["Lexend"],
+                      "headline-md": ["Lexend"],
+                      "caption": ["Inter"],
+                      "headline-lg-mobile": ["Lexend"],
+                      "body-md": ["Inter"],
+                      "label-md": ["Inter"],
+                      "body-lg": ["Inter"]
+              },
+              "fontSize": {
+                      "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+                      "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "500" }],
+                      "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "500" }],
+                      "caption": ["12px", { "lineHeight": "16px", "fontWeight": "400" }],
+                      "headline-lg-mobile": ["28px", { "lineHeight": "36px", "fontWeight": "500" }],
+                      "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                      "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                      "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }]
+              }
+            },
+          }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        
+        /* Aurora Liquid Glass Background Animations */
+        @keyframes float-slow {
+            0% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(30px, -50px) scale(1.1); }
+            66% { transform: translate(-20px, 20px) scale(0.9); }
+            100% { transform: translate(0, 0) scale(1); }
+        }
+        .aurora-orb-1 {
+            animation: float-slow 18s ease-in-out infinite;
+        }
+        .aurora-orb-2 {
+            animation: float-slow 22s ease-in-out infinite reverse;
+        }
+        
+        /* Custom Glass Toggle */
+        .glass-toggle-input:checked ~ .glass-toggle-bg {
+            background-color: rgba(0, 242, 255, 0.15); /* primary-container with opacity */
+            border-color: rgba(0, 242, 255, 0.5);
+            box-shadow: inset 0 0 10px rgba(0, 242, 255, 0.1);
+        }
+        .glass-toggle-input:checked ~ .glass-toggle-bg .glass-toggle-knob {
+            transform: translateX(24px);
+            background-color: #00f2ff; /* primary-container */
+            box-shadow: 0 0 15px rgba(0, 242, 255, 0.6);
+        }
+        
+        /* Staggered entrance */
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        @keyframes fadeInUp {
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .delay-100 { animation-delay: 100ms; }
+        .delay-200 { animation-delay: 200ms; }
+        .delay-300 { animation-delay: 300ms; }
+        .delay-400 { animation-delay: 400ms; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface min-h-screen overflow-x-hidden selection:bg-primary/30 antialiased font-body-md">
+<!-- Atmospheric Liquid Background -->
+<div class="fixed inset-0 z-0 pointer-events-none overflow-hidden">
+<div class="absolute top-[-10%] right-[-10%] w-[60vw] h-[60vw] rounded-full bg-secondary-container/10 blur-[100px] aurora-orb-1"></div>
+<div class="absolute bottom-[-10%] left-[-10%] w-[70vw] h-[70vw] rounded-full bg-primary-container/10 blur-[120px] aurora-orb-2"></div>
+</div>
+<!-- Main Content Canvas (Transactional Flow: Nav Shell Suppressed) -->
+<main class="relative z-10 flex flex-col min-h-screen max-w-2xl mx-auto px-container-margin-mobile md:px-container-margin-desktop py-12">
+<!-- Header Section -->
+<header class="mb-stack-lg fade-in-up">
+<h1 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface mb-stack-sm tracking-tight">
+                How I'll look out for you
+            </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-md">
+                I need a few permissions to become your proactive companion. Everything is kept strictly private.
+            </p>
+</header>
+<!-- Permissions List -->
+<div class="flex flex-col gap-stack-md flex-grow">
+<!-- Health Connect Card -->
+<label class="group relative flex items-start gap-gutter p-6 rounded-[2rem] bg-surface/40 backdrop-blur-2xl border border-white/5 hover:border-white/10 transition-all duration-300 fade-in-up delay-100 cursor-pointer">
+<div class="flex-shrink-0 w-12 h-12 rounded-full bg-surface-container flex items-center justify-center text-secondary border border-white/5 shadow-inner">
+<span class="material-symbols-outlined text-[28px]" data-icon="favorite" data-weight="fill" style="font-variation-settings: 'FILL' 1;">favorite</span>
+</div>
+<div class="flex-grow">
+<h3 class="font-label-md text-label-md text-on-surface mb-1">Health &amp; Vitals</h3>
+<p class="font-body-md text-body-md text-on-surface-variant text-opacity-80">
+                        I need this to gently check in on your sleep and heart rate without you having to tell me every morning.
+                    </p>
+</div>
+<div class="flex-shrink-0 mt-1">
+<div class="relative">
+<input checked="" class="sr-only glass-toggle-input" type="checkbox"/>
+<div class="glass-toggle-bg w-14 h-8 rounded-full border border-outline-variant bg-surface-container-highest/50 backdrop-blur-md transition-colors duration-300 relative">
+<div class="glass-toggle-knob absolute top-1 left-1 w-6 h-6 rounded-full bg-on-surface-variant shadow-md transition-transform duration-300"></div>
+</div>
+</div>
+</div>
+</label>
+<!-- Notifications Card -->
+<label class="group relative flex items-start gap-gutter p-6 rounded-[2rem] bg-surface/40 backdrop-blur-2xl border border-white/5 hover:border-white/10 transition-all duration-300 fade-in-up delay-200 cursor-pointer">
+<div class="flex-shrink-0 w-12 h-12 rounded-full bg-surface-container flex items-center justify-center text-primary border border-white/5 shadow-inner">
+<span class="material-symbols-outlined text-[28px]" data-icon="notifications_active" data-weight="fill" style="font-variation-settings: 'FILL' 1;">notifications_active</span>
+</div>
+<div class="flex-grow">
+<h3 class="font-label-md text-label-md text-on-surface mb-1">Gentle Nudges</h3>
+<p class="font-body-md text-body-md text-on-surface-variant text-opacity-80">
+                        Allow me to send you softly timed reminders to breathe, hydrate, or pause when you seem stressed.
+                    </p>
+</div>
+<div class="flex-shrink-0 mt-1">
+<div class="relative">
+<input checked="" class="sr-only glass-toggle-input" type="checkbox"/>
+<div class="glass-toggle-bg w-14 h-8 rounded-full border border-outline-variant bg-surface-container-highest/50 backdrop-blur-md transition-colors duration-300 relative">
+<div class="glass-toggle-knob absolute top-1 left-1 w-6 h-6 rounded-full bg-on-surface-variant shadow-md transition-transform duration-300"></div>
+</div>
+</div>
+</div>
+</label>
+<!-- Microphone Card -->
+<label class="group relative flex items-start gap-gutter p-6 rounded-[2rem] bg-surface/40 backdrop-blur-2xl border border-white/5 hover:border-white/10 transition-all duration-300 fade-in-up delay-300 cursor-pointer">
+<div class="flex-shrink-0 w-12 h-12 rounded-full bg-surface-container flex items-center justify-center text-tertiary-fixed-dim border border-white/5 shadow-inner">
+<span class="material-symbols-outlined text-[28px]" data-icon="mic" data-weight="fill" style="font-variation-settings: 'FILL' 1;">mic</span>
+</div>
+<div class="flex-grow">
+<h3 class="font-label-md text-label-md text-on-surface mb-1">Voice Check-ins</h3>
+<p class="font-body-md text-body-md text-on-surface-variant text-opacity-80">
+                        So we can talk naturally when you feel like processing your thoughts out loud instead of typing.
+                    </p>
+</div>
+<div class="flex-shrink-0 mt-1">
+<div class="relative">
+<input class="sr-only glass-toggle-input" type="checkbox"/>
+<div class="glass-toggle-bg w-14 h-8 rounded-full border border-outline-variant bg-surface-container-highest/50 backdrop-blur-md transition-colors duration-300 relative">
+<div class="glass-toggle-knob absolute top-1 left-1 w-6 h-6 rounded-full bg-on-surface-variant shadow-md transition-transform duration-300"></div>
+</div>
+</div>
+</div>
+</label>
+</div>
+<!-- Sticky Bottom Action -->
+<div class="sticky bottom-8 mt-stack-lg pt-4 fade-in-up delay-400">
+<button class="w-full relative group overflow-hidden rounded-full p-[1px]">
+<!-- Outer Glow -->
+<div class="absolute inset-0 bg-gradient-to-r from-primary-container to-secondary-container rounded-full blur-md opacity-60 group-hover:opacity-100 transition-opacity duration-500"></div>
+<!-- Button Inner -->
+<div class="relative w-full bg-surface-container-low backdrop-blur-xl rounded-full flex items-center justify-center py-4 px-8 border border-white/10 group-hover:bg-surface-container/50 transition-colors duration-300">
+<span class="font-label-md text-label-md bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">Sounds Good</span>
+<span class="material-symbols-outlined ml-2 text-secondary group-hover:translate-x-1 transition-transform" data-icon="arrow_forward">arrow_forward</span>
+</div>
+</button>
+</div>
+</main>
+</body></html>

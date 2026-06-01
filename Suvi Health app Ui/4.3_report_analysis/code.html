@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Suvi - Report Summary</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&amp;family=Lexend:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-secondary": "#ffffff",
+                      "secondary-fixed": "#ffdad9",
+                      "tertiary-fixed": "#e8def8",
+                      "surface-dim": "#e8d6d1",
+                      "tertiary-fixed-dim": "#ccc2dc",
+                      "error": "#ba1a1a",
+                      "surface": "#fff8f6",
+                      "on-tertiary": "#ffffff",
+                      "surface-container": "#fceae4",
+                      "on-primary-fixed": "#351000",
+                      "background": "#fff8f6",
+                      "on-primary-fixed-variant": "#77320b",
+                      "inverse-primary": "#ffb694",
+                      "inverse-surface": "#382e2a",
+                      "tertiary-container": "#bbb2cb",
+                      "surface-variant": "#f0dfd9",
+                      "on-background": "#221a16",
+                      "outline-variant": "#dac1b7",
+                      "outline": "#87736a",
+                      "error-container": "#ffdad6",
+                      "secondary": "#7d5354",
+                      "on-secondary-container": "#7a5051",
+                      "secondary-fixed-dim": "#efb9b9",
+                      "surface-container-low": "#fff1ec",
+                      "on-error-container": "#93000a",
+                      "primary-fixed": "#ffdbcc",
+                      "primary-container": "#ff9d6e",
+                      "on-secondary-fixed": "#301214",
+                      "on-tertiary-fixed-variant": "#4a4458",
+                      "on-error": "#ffffff",
+                      "on-tertiary-container": "#4a4459",
+                      "inverse-on-surface": "#ffede7",
+                      "primary-fixed-dim": "#ffb694",
+                      "on-surface-variant": "#54433b",
+                      "on-primary": "#ffffff",
+                      "surface-container-lowest": "#ffffff",
+                      "surface-container-highest": "#f0dfd9",
+                      "on-surface": "#221a16",
+                      "on-tertiary-fixed": "#1e192b",
+                      "surface-bright": "#fff8f6",
+                      "surface-tint": "#954921",
+                      "primary": "#954921",
+                      "on-secondary-fixed-variant": "#633c3d",
+                      "on-primary-container": "#77320b",
+                      "secondary-container": "#fec7c7",
+                      "surface-container-high": "#f6e5df",
+                      "tertiary": "#625b71"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "unit": "4px",
+                      "gutter": "16px",
+                      "stack-sm": "8px",
+                      "stack-md": "16px",
+                      "stack-lg": "32px",
+                      "container-padding": "24px"
+              },
+              "fontFamily": {
+                      "display-lg": [
+                              "Bodoni Moda"
+                      ],
+                      "body-md": [
+                              "Lexend"
+                      ],
+                      "headline-md": [
+                              "Bodoni Moda"
+                      ],
+                      "headline-lg": [
+                              "Bodoni Moda"
+                      ],
+                      "label-sm": [
+                              "Lexend"
+                      ],
+                      "headline-lg-mobile": [
+                              "Bodoni Moda"
+                      ],
+                      "body-lg": [
+                              "Lexend"
+                      ]
+              },
+              "fontSize": {
+                      "display-lg": [
+                              "48px",
+                              {
+                                      "lineHeight": "1.1",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "1.5",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-md": [
+                              "24px",
+                              {
+                                      "lineHeight": "1.3",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "headline-lg": [
+                              "32px",
+                              {
+                                      "lineHeight": "1.2",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "label-sm": [
+                              "12px",
+                              {
+                                      "lineHeight": "1.4",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "headline-lg-mobile": [
+                              "28px",
+                              {
+                                      "lineHeight": "1.2",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "1.6",
+                                      "fontWeight": "400"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+    </script>
+<style>
+        body {
+            background-color: theme('colors.background');
+            background-image: radial-gradient(circle at 100% 0%, rgba(255, 218, 217, 0.4) 0%, transparent 40%), 
+                              radial-gradient(circle at 0% 100%, rgba(255, 157, 110, 0.15) 0%, transparent 40%);
+            background-attachment: fixed;
+            min-height: 100vh;
+        }
+        
+        /* Soft Glass Card Utility */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(40px);
+            -webkit-backdrop-filter: blur(40px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: inset 1px 1px 0px rgba(255, 255, 255, 0.2), 
+                        -5px 5px 30px rgba(255, 157, 110, 0.05);
+        }
+
+        /* Sunset Core Orb */
+        .sunset-orb {
+            background: radial-gradient(circle, #FFD2A8 0%, rgba(255, 157, 110, 0.6) 50%, transparent 100%);
+            filter: blur(20px);
+            animation: pulse 4s infinite alternate ease-in-out;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(0.9); opacity: 0.7; }
+            100% { transform: scale(1.1); opacity: 1; }
+        }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined.fill {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="text-on-background pb-32 md:pb-0 font-body-md text-body-md antialiased selection:bg-primary-container selection:text-on-primary-container">
+<!-- Top Navigation (Shell logic applies: hide on task pages, but let's assume this is a destination for the sake of the JSON provided, or follow strict rules. Given it's a detail screen with back actions implied, we might suppress the global nav cluster, but we are instructed to translate the JSON into HTML. Wait, rule says: "Automatic Suppression: You MUST exclude the navigation shell if the page intent is: ... Task-Focused: Any sub-page featuring a 'Close' or 'Back' action". Let's build a custom header for this detail screen instead of the global TopAppBar, to strictly follow the prompt's intent for a "Report Detail Screen".) -->
+<!-- Detail Header -->
+<header class="fixed top-0 left-0 w-full z-40 bg-white/40 dark:bg-surface/20 backdrop-blur-3xl border-b border-white/30 shadow-sm flex items-center px-container-padding h-16">
+<button aria-label="Go back" class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-white/20 transition-colors text-primary mr-4">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary fill">description</span>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-lg md:text-headline-lg text-primary tracking-tight">Report Analyzed</h1>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="pt-24 px-container-padding md:max-w-[1200px] md:mx-auto relative z-10 flex flex-col gap-stack-lg">
+<!-- Background Orb -->
+<div class="absolute top-10 left-1/2 -translate-x-1/2 w-64 h-64 sunset-orb -z-10 pointer-events-none"></div>
+<!-- Summary Section -->
+<section class="glass-card rounded-xl p-6 flex flex-col gap-stack-md relative overflow-hidden">
+<div class="absolute -right-4 -top-4 text-primary-container/20 rotate-12 pointer-events-none">
+<span class="material-symbols-outlined !text-9xl">auto_awesome</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">summarize</span>
+<h2 class="font-headline-md text-headline-md text-primary">Plain English Summary</h2>
+</div>
+<p class="font-body-lg text-body-lg text-on-surface-variant relative z-10">
+                Your blood sugar control has improved since last month. Your kidney function markers are all in the normal range. Your iron is slightly low — worth discussing with your doctor.
+            </p>
+</section>
+<!-- Key Findings Section -->
+<section class="flex flex-col gap-stack-sm">
+<h3 class="font-headline-md text-headline-md text-on-surface mb-2 px-2">Key Findings</h3>
+<!-- Findings Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-stack-md">
+<!-- Finding Card 1 -->
+<button class="glass-card rounded-xl p-4 flex items-center justify-between hover:bg-white/50 transition-colors group text-left active:scale-[0.98]">
+<div class="flex flex-col gap-1">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Glucose</span>
+<span class="font-headline-md text-headline-md text-on-surface">95 <span class="font-body-md text-body-md text-on-surface-variant">mg/dL</span></span>
+</div>
+<div class="flex items-center gap-2 bg-[#e6f4ea] text-[#137333] px-3 py-1.5 rounded-full">
+<span class="w-2 h-2 rounded-full bg-[#137333]"></span>
+<span class="font-label-sm text-label-sm">Normal</span>
+</div>
+</button>
+<!-- Finding Card 2 -->
+<button class="glass-card rounded-xl p-4 flex items-center justify-between hover:bg-white/50 transition-colors group text-left active:scale-[0.98]">
+<div class="flex flex-col gap-1">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Ferritin</span>
+<span class="font-headline-md text-headline-md text-on-surface">15 <span class="font-body-md text-body-md text-on-surface-variant">ng/mL</span></span>
+</div>
+<div class="flex items-center gap-2 bg-[#fef7e0] text-[#b06000] px-3 py-1.5 rounded-full">
+<span class="w-2 h-2 rounded-full bg-[#b06000]"></span>
+<span class="font-label-sm text-label-sm">Low</span>
+</div>
+</button>
+<!-- Finding Card 3 (Placeholder for layout) -->
+<button class="glass-card rounded-xl p-4 flex items-center justify-between hover:bg-white/50 transition-colors group text-left active:scale-[0.98]">
+<div class="flex flex-col gap-1">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Creatinine</span>
+<span class="font-headline-md text-headline-md text-on-surface">0.8 <span class="font-body-md text-body-md text-on-surface-variant">mg/dL</span></span>
+</div>
+<div class="flex items-center gap-2 bg-[#e6f4ea] text-[#137333] px-3 py-1.5 rounded-full">
+<span class="w-2 h-2 rounded-full bg-[#137333]"></span>
+<span class="font-label-sm text-label-sm">Normal</span>
+</div>
+</button>
+</div>
+</section>
+<!-- Actions Section -->
+<section class="flex flex-col gap-stack-md mt-4">
+<button class="w-full bg-primary text-on-primary rounded-full py-4 px-6 flex justify-center items-center gap-2 shadow-sm hover:shadow-md hover:bg-primary/90 transition-all active:scale-[0.98]">
+<span class="material-symbols-outlined">medication</span>
+<span class="font-label-sm text-label-sm font-bold uppercase tracking-wider">Add all medications to tracker</span>
+</button>
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-stack-sm">
+<button class="glass-card rounded-full py-3 px-4 flex justify-center items-center gap-2 hover:bg-white/50 transition-colors active:scale-[0.98]">
+<span class="material-symbols-outlined text-primary">chat_bubble</span>
+<span class="font-label-sm text-label-sm text-on-surface font-semibold">Ask Suvi to explain</span>
+</button>
+<button class="glass-card rounded-full py-3 px-4 flex justify-center items-center gap-2 hover:bg-white/50 transition-colors active:scale-[0.98]">
+<span class="material-symbols-outlined text-primary">ios_share</span>
+<span class="font-label-sm text-label-sm text-on-surface font-semibold">Share with Doctor</span>
+</button>
+<button class="glass-card rounded-full py-3 px-4 flex justify-center items-center gap-2 hover:bg-white/50 transition-colors active:scale-[0.98]">
+<span class="material-symbols-outlined text-primary">lock</span>
+<span class="font-label-sm text-label-sm text-on-surface font-semibold">Save to Vault</span>
+</button>
+</div>
+</section>
+</main>
+</body></html>

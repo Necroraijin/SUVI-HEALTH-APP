@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Suvi - Onboarding Goals</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-fixed-dim": "#aecbd9",
+                        "on-surface-variant": "#b9cacb",
+                        "on-tertiary-fixed-variant": "#2f4a56",
+                        "tertiary-fixed": "#cae7f6",
+                        "on-tertiary": "#17343f",
+                        "surface": "#101415",
+                        "outline": "#849495",
+                        "error": "#ffb4ab",
+                        "on-surface": "#e0e3e5",
+                        "on-primary": "#00363a",
+                        "surface-bright": "#363a3b",
+                        "primary": "#e1fdff",
+                        "on-tertiary-fixed": "#001f29",
+                        "inverse-primary": "#00696f",
+                        "outline-variant": "#3a494b",
+                        "surface-container-high": "#272a2c",
+                        "surface-dim": "#101415",
+                        "inverse-on-surface": "#2d3133",
+                        "secondary-container": "#cf5cff",
+                        "error-container": "#93000a",
+                        "surface-container-highest": "#323537",
+                        "on-primary-fixed-variant": "#004f54",
+                        "on-secondary": "#520071",
+                        "on-background": "#e0e3e5",
+                        "surface-container": "#1d2022",
+                        "surface-container-low": "#191c1e",
+                        "inverse-surface": "#e0e3e5",
+                        "secondary-fixed": "#f8d8ff",
+                        "on-primary-container": "#006a71",
+                        "on-secondary-fixed": "#320047",
+                        "surface-tint": "#00dbe7",
+                        "on-secondary-container": "#480063",
+                        "primary-container": "#00f2ff",
+                        "surface-container-lowest": "#0b0f10",
+                        "secondary-fixed-dim": "#ecb2ff",
+                        "background": "#101415",
+                        "surface-variant": "#323537",
+                        "on-error": "#690005",
+                        "on-primary-fixed": "#002022",
+                        "on-secondary-fixed-variant": "#74009f",
+                        "on-error-container": "#ffdad6",
+                        "primary-fixed": "#74f5ff",
+                        "tertiary-container": "#c3e0ee",
+                        "on-tertiary-container": "#486470",
+                        "secondary": "#ecb2ff",
+                        "primary-fixed-dim": "#00dbe7",
+                        "tertiary": "#f0f9ff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "16px",
+                        "container-margin-mobile": "20px",
+                        "stack-md": "24px",
+                        "unit": "8px",
+                        "container-margin-desktop": "40px",
+                        "stack-sm": "12px",
+                        "stack-lg": "48px"
+                    },
+                    "fontFamily": {
+                        "display-lg": ["Lexend", "sans-serif"],
+                        "headline-lg": ["Lexend", "sans-serif"],
+                        "headline-md": ["Lexend", "sans-serif"],
+                        "caption": ["Inter", "sans-serif"],
+                        "headline-lg-mobile": ["Lexend", "sans-serif"],
+                        "body-md": ["Inter", "sans-serif"],
+                        "label-md": ["Inter", "sans-serif"],
+                        "body-lg": ["Inter", "sans-serif"]
+                    },
+                    "fontSize": {
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "500" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "500" }],
+                        "caption": ["12px", { "lineHeight": "16px", "fontWeight": "400" }],
+                        "headline-lg-mobile": ["28px", { "lineHeight": "36px", "fontWeight": "500" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600&amp;family=Inter:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        body {
+            background-color: #101415; /* background */
+            color: #e0e3e5; /* on-background */
+            position: relative;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        /* Ambient Aurora Background */
+        .aurora-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -1;
+            background: radial-gradient(circle at 10% 20%, rgba(0, 219, 231, 0.08) 0%, transparent 40%),
+                        radial-gradient(circle at 90% 80%, rgba(207, 92, 255, 0.08) 0%, transparent 40%),
+                        radial-gradient(circle at 50% 50%, rgba(0, 106, 113, 0.05) 0%, transparent 60%);
+            filter: blur(60px);
+            animation: breatheAurora 15s ease-in-out infinite alternate;
+        }
+
+        @keyframes breatheAurora {
+            0% { transform: scale(1) translate(0, 0); opacity: 0.8; }
+            50% { transform: scale(1.05) translate(2%, 2%); opacity: 1; }
+            100% { transform: scale(1) translate(-2%, -2%); opacity: 0.8; }
+        }
+
+        /* Breathing Orb Avatar */
+        .orb-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, rgba(0, 242, 255, 0.6), rgba(207, 92, 255, 0.6));
+            box-shadow: 0 0 30px rgba(0, 242, 255, 0.3), inset 0 0 20px rgba(255, 255, 255, 0.5);
+            animation: orbBreathe 4s ease-in-out infinite alternate;
+            position: relative;
+        }
+        
+        .orb-avatar::after {
+            content: '';
+            position: absolute;
+            top: 10%; left: 10%; right: 10%; bottom: 10%;
+            border-radius: 50%;
+            background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.8), transparent 60%);
+            filter: blur(4px);
+        }
+
+        @keyframes orbBreathe {
+            0% { transform: scale(0.95); box-shadow: 0 0 20px rgba(0, 242, 255, 0.2), inset 0 0 15px rgba(255, 255, 255, 0.3); }
+            100% { transform: scale(1.05); box-shadow: 0 0 40px rgba(207, 92, 255, 0.4), inset 0 0 25px rgba(255, 255, 255, 0.6); }
+        }
+
+        /* Glass Card Refinement */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-top-color: rgba(255, 255, 255, 0.15);
+            border-left-color: rgba(255, 255, 255, 0.15);
+            transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        .glass-card:hover, .glass-card.selected {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(0, 219, 231, 0.3);
+            box-shadow: 0 10px 30px -10px rgba(0, 219, 231, 0.15), inset 0 0 20px rgba(0, 219, 231, 0.05);
+            transform: translateY(-2px);
+        }
+
+        .glass-card.selected {
+            border-color: rgba(207, 92, 255, 0.5);
+            box-shadow: 0 10px 30px -10px rgba(207, 92, 255, 0.2), inset 0 0 20px rgba(207, 92, 255, 0.1);
+        }
+
+        /* Custom Input Styling */
+        .glass-input {
+            background: rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .glass-input:focus {
+            outline: none;
+            border-color: rgba(0, 219, 231, 0.5);
+            border-bottom-color: rgba(0, 219, 231, 1);
+            background: rgba(0, 0, 0, 0.3);
+            box-shadow: inset 0 0 15px rgba(0, 219, 231, 0.1);
+        }
+
+        /* Button Refinement */
+        .luminescent-btn {
+            background: linear-gradient(135deg, #00dbe7, #cf5cff);
+            box-shadow: 0 4px 20px rgba(0, 219, 231, 0.3);
+            transition: all 0.3s ease;
+        }
+        .luminescent-btn:hover {
+            box-shadow: 0 6px 25px rgba(207, 92, 255, 0.5);
+            transform: translateY(-1px);
+        }
+        .luminescent-btn:disabled {
+            background: rgba(255,255,255,0.1);
+            box-shadow: none;
+            color: rgba(255,255,255,0.3);
+            cursor: not-allowed;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="antialiased selection:bg-primary-container selection:text-on-primary-container flex flex-col min-h-screen">
+<div class="aurora-bg"></div>
+<!-- Main Content Canvas -->
+<main class="flex-grow flex flex-col items-center justify-center px-container-margin-mobile md:px-container-margin-desktop py-stack-lg z-10 w-full max-w-4xl mx-auto relative">
+<!-- Conversational Header -->
+<header class="flex flex-col items-center text-center mb-stack-lg w-full">
+<div aria-hidden="true" class="orb-avatar mb-stack-md"></div>
+<h1 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface mb-unit">What brings you here?</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-lg">Select the main goal you'd like us to focus on together. You can always change this later.</p>
+</header>
+<!-- Options Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-stack-sm w-full mb-stack-lg" id="goal-options">
+<button class="glass-card rounded-lg p-stack-sm flex items-center text-left group w-full focus:outline-none focus:ring-2 focus:ring-primary-fixed" data-goal="medical">
+<div class="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center mr-stack-sm flex-shrink-0 group-hover:bg-primary/20 transition-colors">
+<span class="text-2xl">💊</span>
+</div>
+<div>
+<h3 class="font-label-md text-label-md text-on-surface mb-1">I have a medical condition</h3>
+<p class="font-caption text-caption text-on-surface-variant">Manage and track specific health needs</p>
+</div>
+</button>
+<button class="glass-card rounded-lg p-stack-sm flex items-center text-left group w-full focus:outline-none focus:ring-2 focus:ring-primary-fixed" data-goal="prescription">
+<div class="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center mr-stack-sm flex-shrink-0 group-hover:bg-secondary/20 transition-colors">
+<span class="text-2xl">📋</span>
+</div>
+<div>
+<h3 class="font-label-md text-label-md text-on-surface mb-1">Help with a report/prescription</h3>
+<p class="font-caption text-caption text-on-surface-variant">Understand and act on medical documents</p>
+</div>
+</button>
+<button class="glass-card rounded-lg p-stack-sm flex items-center text-left group w-full focus:outline-none focus:ring-2 focus:ring-primary-fixed" data-goal="weight">
+<div class="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center mr-stack-sm flex-shrink-0 group-hover:bg-primary/20 transition-colors">
+<span class="text-2xl">⚖️</span>
+</div>
+<div>
+<h3 class="font-label-md text-label-md text-on-surface mb-1">Lose or gain weight</h3>
+<p class="font-caption text-caption text-on-surface-variant">Guided plans for body composition goals</p>
+</div>
+</button>
+<button class="glass-card rounded-lg p-stack-sm flex items-center text-left group w-full focus:outline-none focus:ring-2 focus:ring-primary-fixed" data-goal="fitness">
+<div class="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center mr-stack-sm flex-shrink-0 group-hover:bg-secondary/20 transition-colors">
+<span class="text-2xl">💪</span>
+</div>
+<div>
+<h3 class="font-label-md text-label-md text-on-surface mb-1">Get fit &amp; build routine</h3>
+<p class="font-caption text-caption text-on-surface-variant">Establish sustainable active habits</p>
+</div>
+</button>
+<button class="glass-card rounded-lg p-stack-sm flex items-center text-left group w-full focus:outline-none focus:ring-2 focus:ring-primary-fixed" data-goal="stress">
+<div class="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center mr-stack-sm flex-shrink-0 group-hover:bg-primary/20 transition-colors">
+<span class="text-2xl">🧘</span>
+</div>
+<div>
+<h3 class="font-label-md text-label-md text-on-surface mb-1">Manage stress &amp; sleep</h3>
+<p class="font-caption text-caption text-on-surface-variant">Improve mental clarity and rest</p>
+</div>
+</button>
+<button class="glass-card rounded-lg p-stack-sm flex items-center text-left group w-full focus:outline-none focus:ring-2 focus:ring-primary-fixed" data-goal="monitor">
+<div class="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center mr-stack-sm flex-shrink-0 group-hover:bg-secondary/20 transition-colors">
+<span class="text-2xl">🩺</span>
+</div>
+<div>
+<h3 class="font-label-md text-label-md text-on-surface mb-1">Monitor overall health</h3>
+<p class="font-caption text-caption text-on-surface-variant">General wellness tracking and insights</p>
+</div>
+</button>
+</div>
+<!-- Custom Input -->
+<div class="w-full max-w-2xl mt-stack-md flex flex-col gap-unit">
+<label class="font-caption text-caption text-on-surface-variant ml-2" for="custom-goal">Something else?</label>
+<input class="glass-input w-full rounded-lg px-4 py-3 font-body-md text-body-md text-on-surface placeholder:text-on-surface-variant/50 focus:ring-0" id="custom-goal" placeholder="Tell me what you're looking to achieve..." type="text"/>
+</div>
+<!-- Action Area -->
+<div class="mt-stack-lg w-full flex justify-center sticky bottom-8 z-20">
+<button class="luminescent-btn rounded-full px-8 py-3 font-label-md text-label-md text-on-primary flex items-center gap-2" disabled="" id="continue-btn">
+                Continue
+                <span class="material-symbols-outlined" data-icon="arrow_forward" data-weight="fill" style="font-variation-settings: 'FILL' 1;">arrow_forward</span>
+</button>
+</div>
+</main>
+<script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const options = document.querySelectorAll('#goal-options button');
+            const customInput = document.getElementById('custom-goal');
+            const continueBtn = document.getElementById('continue-btn');
+            let selectedGoal = null;
+
+            function updateContinueButton() {
+                if (selectedGoal || customInput.value.trim().length > 0) {
+                    continueBtn.disabled = false;
+                } else {
+                    continueBtn.disabled = true;
+                }
+            }
+
+            options.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    // Deselect all
+                    options.forEach(b => b.classList.remove('selected'));
+                    
+                    // Select clicked
+                    btn.classList.add('selected');
+                    selectedGoal = btn.getAttribute('data-goal');
+                    
+                    // Clear custom input to prioritize preset
+                    customInput.value = '';
+                    
+                    updateContinueButton();
+                });
+            });
+
+            customInput.addEventListener('input', () => {
+                if (customInput.value.trim().length > 0) {
+                    // Deselect presets if typing custom
+                    options.forEach(b => b.classList.remove('selected'));
+                    selectedGoal = 'custom';
+                } else if (selectedGoal === 'custom') {
+                    selectedGoal = null;
+                }
+                updateContinueButton();
+            });
+        });
+    </script>
+</body></html>

@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Health Trackers - Suvi</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&amp;family=Lexend:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-tertiary": "#ffffff",
+                    "on-tertiary-container": "#4a4459",
+                    "surface-container": "#fceae4",
+                    "tertiary-container": "#bbb2cb",
+                    "surface-tint": "#954921",
+                    "secondary-fixed-dim": "#efb9b9",
+                    "on-secondary-fixed": "#301214",
+                    "inverse-primary": "#ffb694",
+                    "surface-container-low": "#fff1ec",
+                    "surface-container-highest": "#f0dfd9",
+                    "surface-container-high": "#f6e5df",
+                    "error-container": "#ffdad6",
+                    "on-secondary-fixed-variant": "#633c3d",
+                    "on-background": "#221a16",
+                    "on-error-container": "#93000a",
+                    "on-surface-variant": "#54433b",
+                    "surface-container-lowest": "#ffffff",
+                    "on-primary-fixed-variant": "#77320b",
+                    "tertiary-fixed-dim": "#ccc2dc",
+                    "primary": "#954921",
+                    "primary-fixed-dim": "#ffb694",
+                    "on-secondary-container": "#7a5051",
+                    "on-primary": "#ffffff",
+                    "inverse-surface": "#382e2a",
+                    "primary-container": "#ff9d6e",
+                    "on-tertiary-fixed-variant": "#4a4458",
+                    "outline-variant": "#dac1b7",
+                    "on-tertiary-fixed": "#1e192b",
+                    "surface-dim": "#e8d6d1",
+                    "secondary": "#7d5354",
+                    "error": "#ba1a1a",
+                    "inverse-on-surface": "#ffede7",
+                    "surface": "#fff8f6",
+                    "surface-bright": "#fff8f6",
+                    "surface-variant": "#f0dfd9",
+                    "on-primary-fixed": "#351000",
+                    "on-surface": "#221a16",
+                    "tertiary": "#625b71",
+                    "on-secondary": "#ffffff",
+                    "secondary-container": "#fec7c7",
+                    "on-primary-container": "#77320b",
+                    "primary-fixed": "#ffdbcc",
+                    "outline": "#87736a",
+                    "tertiary-fixed": "#e8def8",
+                    "on-error": "#ffffff",
+                    "secondary-fixed": "#ffdad9",
+                    "background": "#fff8f6"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "unit": "4px",
+                    "gutter": "16px",
+                    "stack-md": "16px",
+                    "stack-sm": "8px",
+                    "stack-lg": "32px",
+                    "container-padding": "24px"
+            },
+            "fontFamily": {
+                    "headline-md": [
+                            "Bodoni Moda"
+                    ],
+                    "display-lg": [
+                            "Bodoni Moda"
+                    ],
+                    "body-lg": [
+                            "Lexend"
+                    ],
+                    "headline-lg": [
+                            "Bodoni Moda"
+                    ],
+                    "body-md": [
+                            "Lexend"
+                    ],
+                    "label-sm": [
+                            "Lexend"
+                    ],
+                    "headline-lg-mobile": [
+                            "Bodoni Moda"
+                    ]
+            },
+            "fontSize": {
+                    "headline-md": [
+                            "24px",
+                            {
+                                    "lineHeight": "1.3",
+                                    "fontWeight": "500"
+                            }
+                    ],
+                    "display-lg": [
+                            "48px",
+                            {
+                                    "lineHeight": "1.1",
+                                    "letterSpacing": "-0.02em",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "body-lg": [
+                            "18px",
+                            {
+                                    "lineHeight": "1.6",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "headline-lg": [
+                            "32px",
+                            {
+                                    "lineHeight": "1.2",
+                                    "fontWeight": "500"
+                            }
+                    ],
+                    "body-md": [
+                            "16px",
+                            {
+                                    "lineHeight": "1.5",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "label-sm": [
+                            "12px",
+                            {
+                                    "lineHeight": "1.4",
+                                    "letterSpacing": "0.05em",
+                                    "fontWeight": "500"
+                            }
+                    ],
+                    "headline-lg-mobile": [
+                            "28px",
+                            {
+                                    "lineHeight": "1.2",
+                                    "fontWeight": "500"
+                            }
+                    ]
+            }
+        },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: theme('colors.background');
+            background-image: radial-gradient(circle at top right, theme('colors.primary-fixed'), transparent 50%),
+                              radial-gradient(circle at bottom left, theme('colors.secondary-fixed'), transparent 50%);
+            background-attachment: fixed;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(40px);
+            -webkit-backdrop-filter: blur(40px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 10px 30px -5px rgba(255, 182, 148, 0.2), inset 1px 1px 0 0 rgba(255, 255, 255, 0.2);
+        }
+
+        /* Suvi Orb Animation */
+        @keyframes pulse-glow {
+            0%, 100% {
+                transform: scale(1);
+                box-shadow: 0 0 40px rgba(255, 157, 110, 0.4), inset 0 0 20px rgba(255, 210, 168, 0.8);
+            }
+            50% {
+                transform: scale(1.05);
+                box-shadow: 0 0 60px rgba(255, 157, 110, 0.6), inset 0 0 30px rgba(255, 210, 168, 0.9);
+            }
+        }
+
+        .suvi-orb {
+            background: radial-gradient(circle at 30% 30%, #FFD2A8, #FF9D6E, rgba(255, 157, 110, 0.8));
+            animation: pulse-glow 4s ease-in-out infinite;
+        }
+        
+        .progress-ring__circle {
+            transition: stroke-dashoffset 0.35s;
+            transform: rotate(-90deg);
+            transform-origin: 50% 50%;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="text-on-background font-body-md min-h-screen flex flex-col pt-[88px] pb-[100px] md:pb-8">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-white/40 dark:bg-black/20 backdrop-blur-3xl shadow-[0_30px_30px_-5px_rgba(255,219,204,0.3)]">
+<div class="flex justify-between items-center px-gutter py-4 w-full max-w-7xl mx-auto">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full overflow-hidden border-2 border-white shadow-sm">
+<img alt="User profile photo" class="w-full h-full object-cover" data-alt="A close-up portrait of a cheerful person with a warm, natural smile, softly lit to match a serene, optimistic wellness app aesthetic. The background is slightly blurred with soft warm tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAVwrMIHru9GjREiYMxRlIdcwVK7c914ZIm9wR_vHTfcONW8OUl7HqwJBoHGiGz23lsxopx6QzT69-4RRUUJxrTuUkBfro0QwzpLpylB7df0c3nCdwh0PD4YVyz_gBcm8xlMgXh4RbHP1e6Z0aJc2yvUewmYW-AN4Gmgecg_so75IlEI4fCloxT5l-W7J1ZhPi5BaoBgrzD1B8jAtScBxaIu0SyjnolKuOOcpbwagkWgs5fDd0Ae8X65vdY2i72aNBtvhABg8ZrgFE"/>
+</div>
+</div>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-lg md:text-headline-lg text-primary font-bold">Suvi</h1>
+<div class="flex items-center">
+<button aria-label="Notifications" class="w-10 h-10 flex items-center justify-center text-primary hover:opacity-80 transition-opacity">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">notifications</span>
+</button>
+</div>
+</div>
+</header>
+<main class="flex-grow px-gutter md:px-container-padding max-w-7xl mx-auto w-full flex flex-col gap-stack-lg">
+<!-- Page Header -->
+<div class="pt-8 pb-4">
+<h2 class="font-display-lg text-display-lg text-on-surface mb-2">Health Trackers</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Your daily wellness summary.</p>
+</div>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+<!-- Core Trackers Section -->
+<div class="md:col-span-12">
+<h3 class="font-headline-md text-headline-md text-on-surface mb-stack-md flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">monitor_heart</span>
+                    Core Trackers
+                </h3>
+</div>
+<!-- Steps Card (Large) -->
+<div class="glass-card rounded-[32px] p-6 md:col-span-8 flex flex-col justify-between hover:scale-[1.01] transition-transform duration-300">
+<div class="flex justify-between items-start mb-6">
+<div>
+<div class="flex items-center gap-2 mb-1">
+<span class="material-symbols-outlined text-primary">directions_walk</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Steps</span>
+</div>
+<h4 class="font-display-lg text-display-lg text-on-surface">8,400</h4>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">Goal: 10,000</p>
+</div>
+<!-- Circular Progress -->
+<div class="relative w-24 h-24">
+<svg class="w-full h-full" viewbox="0 0 100 100">
+<circle class="text-surface-variant stroke-current" cx="50" cy="50" fill="transparent" r="40" stroke-width="8"></circle>
+<circle class="text-primary-container progress-ring__circle stroke-current" cx="50" cy="50" fill="transparent" r="40" stroke-dasharray="251.2" stroke-dashoffset="40.192" stroke-linecap="round" stroke-width="8"></circle>
+</svg>
+<div class="absolute inset-0 flex items-center justify-center">
+<span class="font-headline-md text-headline-md text-primary">84%</span>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-between mt-4 pt-4 border-t border-white/20">
+<span class="font-body-md text-body-md text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">schedule</span> Next Log: Auto-sync
+                    </span>
+<button class="bg-primary/10 text-primary font-label-sm text-label-sm px-4 py-2 rounded-full hover:bg-primary/20 transition-colors">Details</button>
+</div>
+</div>
+<!-- Water & Weight Column (Stacked on desktop) -->
+<div class="md:col-span-4 flex flex-col gap-6">
+<!-- Water Card -->
+<div class="glass-card rounded-[24px] p-5 flex-1 flex flex-col justify-between hover:scale-[1.02] transition-transform duration-300">
+<div class="flex justify-between items-center mb-4">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[#4fc3f7]">water_drop</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Water</span>
+</div>
+</div>
+<div class="flex items-end justify-between">
+<div>
+<h4 class="font-headline-lg text-headline-lg text-on-surface">1.2<span class="text-body-lg font-body-lg text-on-surface-variant ml-1">L</span></h4>
+<p class="font-body-md text-body-md text-on-surface-variant">of 2.5L</p>
+</div>
+<!-- Mini Sparkline placeholder -->
+<div class="w-16 h-8 flex items-end gap-1">
+<div class="w-3 bg-[#4fc3f7]/30 h-[40%] rounded-t-sm"></div>
+<div class="w-3 bg-[#4fc3f7]/50 h-[60%] rounded-t-sm"></div>
+<div class="w-3 bg-[#4fc3f7]/80 h-[100%] rounded-t-sm"></div>
+</div>
+</div>
+<button class="mt-4 w-full bg-white/50 text-primary font-body-md text-body-md py-2 rounded-xl hover:bg-white/70 transition-colors border border-white/40">Log Water</button>
+</div>
+<!-- Weight Card -->
+<div class="glass-card rounded-[24px] p-5 flex-1 flex flex-col justify-between hover:scale-[1.02] transition-transform duration-300">
+<div class="flex justify-between items-center mb-4">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary">scale</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Weight</span>
+</div>
+</div>
+<div>
+<h4 class="font-headline-lg text-headline-lg text-on-surface">152<span class="text-body-lg font-body-lg text-on-surface-variant ml-1">lbs</span></h4>
+<p class="font-body-md text-body-md text-on-surface-variant flex items-center gap-1 text-emerald-600">
+<span class="material-symbols-outlined text-sm">trending_down</span> -1.2 lbs this week
+                        </p>
+</div>
+</div>
+</div>
+<!-- Medical Trackers Section -->
+<div class="md:col-span-12 mt-4">
+<h3 class="font-headline-md text-headline-md text-on-surface mb-stack-md flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">medical_services</span>
+                    Medical Trackers
+                </h3>
+</div>
+<!-- Blood Pressure Card -->
+<div class="glass-card rounded-[24px] p-6 md:col-span-6 hover:scale-[1.01] transition-transform duration-300">
+<div class="flex justify-between items-start mb-6">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-error">favorite</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Blood Pressure</span>
+</div>
+<span class="bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full font-label-sm text-label-sm">Normal</span>
+</div>
+<h4 class="font-display-lg text-display-lg text-on-surface mb-4">128/82 <span class="font-body-lg text-body-lg text-on-surface-variant">mmHg</span></h4>
+<!-- Trend Line SVG Placeholder -->
+<div class="w-full h-16 mb-4 opacity-70">
+<svg class="w-full h-full overflow-visible" preserveaspectratio="none" viewbox="0 0 100 30">
+<path class="text-primary" d="M0,15 Q10,5 20,15 T40,10 T60,20 T80,10 T100,15" fill="none" stroke="currentColor" stroke-width="2"></path>
+<circle class="fill-primary" cx="100" cy="15" r="3"></circle>
+</svg>
+</div>
+<div class="flex items-center justify-between pt-4 border-t border-white/20">
+<span class="font-body-md text-body-md text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">schedule</span> Next Log: 8:00 PM
+                    </span>
+<button class="w-10 h-10 flex items-center justify-center bg-primary text-on-primary rounded-full hover:bg-primary-fixed hover:text-on-primary-fixed transition-colors shadow-md">
+<span class="material-symbols-outlined">add</span>
+</button>
+</div>
+</div>
+<!-- Glucose Card -->
+<div class="glass-card rounded-[24px] p-6 md:col-span-6 hover:scale-[1.01] transition-transform duration-300">
+<div class="flex justify-between items-start mb-6">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary">bloodtype</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Glucose</span>
+</div>
+</div>
+<h4 class="font-display-lg text-display-lg text-on-surface mb-4">95 <span class="font-body-lg text-body-lg text-on-surface-variant">mg/dL</span></h4>
+<div class="flex gap-2 mb-4 mt-8">
+<div class="h-2 flex-1 rounded-full bg-surface-variant"></div>
+<div class="h-2 flex-1 rounded-full bg-primary-container relative">
+<div class="absolute -top-3 left-1/2 w-3 h-3 bg-primary rounded-full border-2 border-white shadow-sm transform -translate-x-1/2"></div>
+</div>
+<div class="h-2 flex-1 rounded-full bg-surface-variant"></div>
+</div>
+<div class="flex items-center justify-between pt-4 border-t border-white/20 mt-6">
+<span class="font-body-md text-body-md text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">schedule</span> Next Log: After Dinner
+                    </span>
+<button class="w-10 h-10 flex items-center justify-center bg-primary text-on-primary rounded-full hover:bg-primary-fixed hover:text-on-primary-fixed transition-colors shadow-md">
+<span class="material-symbols-outlined">add</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Manage Button -->
+<div class="flex justify-center mt-8 mb-12">
+<button class="glass-card px-8 py-3 rounded-full font-body-lg text-body-lg text-on-surface hover:bg-white/50 transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined">settings</span>
+                Manage Trackers
+            </button>
+</div>
+</main>
+<!-- Floating Suvi Orb (FAB) -->
+<div class="fixed bottom-24 right-6 md:bottom-8 md:right-8 z-50">
+<button aria-label="Ask Suvi" class="suvi-orb w-16 h-16 rounded-full flex items-center justify-center cursor-pointer transition-transform hover:scale-110 active:scale-95">
+<span class="material-symbols-outlined text-on-primary text-3xl" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+</button>
+</div>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 w-full z-40 rounded-t-xl bg-surface-container-low/60 dark:bg-surface-container-highest/20 backdrop-blur-3xl border-t border-white/20 shadow-[0_-10px_30px_-5px_rgba(255,182,148,0.2)]">
+<div class="fixed bottom-0 left-0 w-full flex justify-around items-center px-4 pb-6 pt-3">
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant px-4 py-1 hover:text-primary dark:hover:text-primary-fixed transition-colors">
+<span class="material-symbols-outlined mb-1">calendar_today</span>
+<span class="font-label-sm text-label-sm">Today</span>
+</button>
+<button class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-full px-6 py-1 hover:text-primary dark:hover:text-primary-fixed transition-colors scale-90 transition-transform duration-300 ease-out">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 1;">target</span>
+<span class="font-label-sm text-label-sm">Goals</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant px-4 py-1 hover:text-primary dark:hover:text-primary-fixed transition-colors">
+<span class="material-symbols-outlined mb-1">auto_awesome</span>
+<span class="font-label-sm text-label-sm">Chat</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant px-4 py-1 hover:text-primary dark:hover:text-primary-fixed transition-colors">
+<span class="material-symbols-outlined mb-1">person</span>
+<span class="font-label-sm text-label-sm">Profile</span>
+</button>
+</div>
+</nav>
+</body></html>

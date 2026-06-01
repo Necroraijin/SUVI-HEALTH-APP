@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Aura Wellness - Permissions</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&amp;family=Lexend:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "background": "#fff8f6",
+                      "tertiary-container": "#bbb2cb",
+                      "on-tertiary-fixed": "#1e192b",
+                      "primary-fixed-dim": "#ffb694",
+                      "primary": "#954921",
+                      "on-primary-fixed": "#351000",
+                      "surface-container-highest": "#f0dfd9",
+                      "primary-fixed": "#ffdbcc",
+                      "tertiary-fixed-dim": "#ccc2dc",
+                      "primary-container": "#ff9d6e",
+                      "on-tertiary-container": "#4a4459",
+                      "surface-bright": "#fff8f6",
+                      "on-surface": "#221a16",
+                      "on-secondary-fixed-variant": "#633c3d",
+                      "error": "#ba1a1a",
+                      "error-container": "#ffdad6",
+                      "surface": "#fff8f6",
+                      "on-primary-container": "#77320b",
+                      "on-background": "#221a16",
+                      "inverse-surface": "#382e2a",
+                      "tertiary-fixed": "#e8def8",
+                      "surface-container": "#fceae4",
+                      "outline-variant": "#dac1b7",
+                      "on-error": "#ffffff",
+                      "on-primary-fixed-variant": "#77320b",
+                      "secondary-fixed-dim": "#efb9b9",
+                      "on-error-container": "#93000a",
+                      "surface-container-lowest": "#ffffff",
+                      "on-secondary": "#ffffff",
+                      "on-secondary-container": "#7a5051",
+                      "surface-dim": "#e8d6d1",
+                      "on-surface-variant": "#54433b",
+                      "secondary-fixed": "#ffdad9",
+                      "tertiary": "#625b71",
+                      "on-tertiary-fixed-variant": "#4a4458",
+                      "surface-variant": "#f0dfd9",
+                      "secondary-container": "#fec7c7",
+                      "inverse-primary": "#ffb694",
+                      "on-primary": "#ffffff",
+                      "inverse-on-surface": "#ffede7",
+                      "on-tertiary": "#ffffff",
+                      "outline": "#87736a",
+                      "surface-container-low": "#fff1ec",
+                      "surface-tint": "#954921",
+                      "on-secondary-fixed": "#301214",
+                      "surface-container-high": "#f6e5df",
+                      "secondary": "#7d5354"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px",
+                      "2xl": "1rem",
+                      "3xl": "1.5rem"
+              },
+              "spacing": {
+                      "container-padding": "24px",
+                      "stack-sm": "8px",
+                      "unit": "4px",
+                      "stack-lg": "32px",
+                      "stack-md": "16px",
+                      "gutter": "16px"
+              },
+              "fontFamily": {
+                      "headline-lg": ["Bodoni Moda", "serif"],
+                      "body-md": ["Lexend", "sans-serif"],
+                      "body-lg": ["Lexend", "sans-serif"],
+                      "display-lg": ["Bodoni Moda", "serif"],
+                      "headline-lg-mobile": ["Bodoni Moda", "serif"],
+                      "headline-md": ["Bodoni Moda", "serif"],
+                      "label-sm": ["Lexend", "sans-serif"]
+              },
+              "fontSize": {
+                      "headline-lg": ["32px", {"lineHeight": "1.2", "fontWeight": "500"}],
+                      "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                      "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                      "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                      "headline-lg-mobile": ["28px", {"lineHeight": "1.2", "fontWeight": "500"}],
+                      "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "500"}],
+                      "label-sm": ["12px", {"lineHeight": "1.4", "letterSpacing": "0.05em", "fontWeight": "500"}]
+              },
+              "boxShadow": {
+                  'soft-glass': '0 8px 32px 0 rgba(149,73,33, 0.05)',
+                  'orb-glow': '0 0 40px rgba(255,157,110,0.5)',
+                  'button-press': '0 10px 25px -5px rgba(149,73,33,0.3)',
+                  'toggle-handle': '0 2px 4px rgba(149,73,33,0.2)'
+              }
+            },
+          }
+        }
+    </script>
+<style>
+        /* Custom Keyframes for the breathing orb */
+        @keyframes breathe {
+            0%, 100% { transform: scale(1); opacity: 0.8; }
+            50% { transform: scale(1.05); opacity: 1; }
+        }
+        .animate-breathe {
+            animation: breathe 4s ease-in-out infinite;
+        }
+        
+        /* Custom toggle styling using standard tailwind utilities mapped */
+        .toggle-checkbox:checked {
+            right: 0;
+            border-color: #ff9d6e; /* primary-container */
+        }
+        .toggle-checkbox:checked + .toggle-label {
+            background-color: #ff9d6e; /* primary-container */
+        }
+        .toggle-checkbox:checked + .toggle-label:after {
+            transform: translateX(100%);
+            border-color: white;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body-md min-h-screen relative overflow-hidden selection:bg-primary-container selection:text-on-primary-container">
+<!-- Atmospheric Sunset Background Gradients -->
+<div aria-hidden="true" class="fixed inset-0 z-0 pointer-events-none overflow-hidden">
+<!-- Top right warm peach blob -->
+<div class="absolute -top-20 -right-20 w-[400px] h-[400px] bg-primary-fixed-dim/40 rounded-full blur-[80px] mix-blend-multiply opacity-70"></div>
+<!-- Bottom left softer pinkish blob -->
+<div class="absolute -bottom-32 -left-32 w-[500px] h-[500px] bg-secondary-fixed/50 rounded-full blur-[100px] mix-blend-multiply opacity-60"></div>
+<!-- Center warm accent -->
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-surface-container/40 rounded-full blur-[120px] mix-blend-multiply opacity-50"></div>
+</div>
+<!-- Main Content Container (Mobile-first focused layout) -->
+<main class="relative z-10 max-w-md mx-auto min-h-screen flex flex-col px-container-padding py-stack-lg">
+<!-- Header: The Core Orb & Headline -->
+<header class="flex flex-col items-center text-center mt-stack-lg mb-stack-lg">
+<!-- The Sunset Core Orb -->
+<div class="relative w-20 h-20 mb-stack-md flex items-center justify-center">
+<!-- Outer glow/pulse -->
+<div class="absolute inset-0 rounded-full bg-primary-container opacity-20 blur-xl animate-breathe"></div>
+<!-- The physical orb -->
+<div class="relative w-14 h-14 rounded-full shadow-orb-glow animate-breathe border border-white/40" style="background: radial-gradient(circle at 30% 30%, #ffdbcc 0%, #ff9d6e 50%, #954921 100%);">
+<!-- Inner highlight for glass effect -->
+<div class="absolute inset-0 rounded-full border border-white/60 mix-blend-overlay"></div>
+</div>
+</div>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface tracking-tight mb-unit">
+                How I'll look out<br/>for you
+            </h1>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-[280px] mx-auto mt-stack-sm">
+                To provide the best guidance, Suvi needs a few permissions.
+            </p>
+</header>
+<!-- Permissions List (Soft Glass Cards) -->
+<div class="flex flex-col gap-stack-sm flex-grow w-full">
+<!-- Card 1: Health & Vitals -->
+<label class="group relative flex items-center justify-between p-stack-md bg-white/40 backdrop-blur-[40px] border border-white/50 rounded-3xl shadow-soft-glass cursor-pointer hover:bg-white/50 transition-colors duration-300">
+<div class="flex items-center gap-stack-md">
+<div class="w-12 h-12 rounded-full bg-surface-container-high flex items-center justify-center text-primary-container shadow-inner">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">monitor_heart</span>
+</div>
+<div class="flex flex-col">
+<span class="font-body-lg text-body-lg font-medium text-on-surface">Health &amp; Vitals</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant mt-unit">Track your holistic well-being</span>
+</div>
+</div>
+<!-- Custom Toggle -->
+<div class="relative inline-block w-12 h-6 align-middle select-none transition duration-200 ease-in">
+<input checked="" class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 border-surface-container-high appearance-none cursor-pointer z-10 transition-transform duration-300 checked:translate-x-[24px] checked:border-primary-container shadow-toggle-handle" id="toggle-health" name="toggle-health" type="checkbox"/>
+<label class="toggle-label block overflow-hidden h-6 rounded-full bg-surface-container-high cursor-pointer transition-colors duration-300" for="toggle-health"></label>
+</div>
+</label>
+<!-- Card 2: Gentle Nudges -->
+<label class="group relative flex items-center justify-between p-stack-md bg-white/40 backdrop-blur-[40px] border border-white/50 rounded-3xl shadow-soft-glass cursor-pointer hover:bg-white/50 transition-colors duration-300">
+<div class="flex items-center gap-stack-md">
+<div class="w-12 h-12 rounded-full bg-surface-container-high flex items-center justify-center text-primary-container shadow-inner">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">notifications_active</span>
+</div>
+<div class="flex flex-col">
+<span class="font-body-lg text-body-lg font-medium text-on-surface">Gentle Nudges</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant mt-unit">Timely reminders for habits</span>
+</div>
+</div>
+<!-- Custom Toggle -->
+<div class="relative inline-block w-12 h-6 align-middle select-none transition duration-200 ease-in">
+<input checked="" class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 border-surface-container-high appearance-none cursor-pointer z-10 transition-transform duration-300 checked:translate-x-[24px] checked:border-primary-container shadow-toggle-handle" id="toggle-nudges" name="toggle-nudges" type="checkbox"/>
+<label class="toggle-label block overflow-hidden h-6 rounded-full bg-surface-container-high cursor-pointer transition-colors duration-300" for="toggle-nudges"></label>
+</div>
+</label>
+<!-- Card 3: Voice Check-ins -->
+<label class="group relative flex items-center justify-between p-stack-md bg-white/40 backdrop-blur-[40px] border border-white/50 rounded-3xl shadow-soft-glass cursor-pointer hover:bg-white/50 transition-colors duration-300">
+<div class="flex items-center gap-stack-md">
+<div class="w-12 h-12 rounded-full bg-surface-container-high flex items-center justify-center text-primary-container shadow-inner">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">mic</span>
+</div>
+<div class="flex flex-col">
+<span class="font-body-lg text-body-lg font-medium text-on-surface">Voice Check-ins</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant mt-unit">Hands-free mood logging</span>
+</div>
+</div>
+<!-- Custom Toggle -->
+<div class="relative inline-block w-12 h-6 align-middle select-none transition duration-200 ease-in">
+<input class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 border-surface-container-high appearance-none cursor-pointer z-10 transition-transform duration-300 checked:translate-x-[24px] checked:border-primary-container shadow-toggle-handle" id="toggle-voice" name="toggle-voice" type="checkbox"/>
+<label class="toggle-label block overflow-hidden h-6 rounded-full bg-surface-container-high cursor-pointer transition-colors duration-300" for="toggle-voice"></label>
+</div>
+</label>
+</div>
+<!-- Bottom Action Area -->
+<div class="mt-auto pt-stack-lg pb-stack-sm w-full flex flex-col items-center">
+<button class="w-full max-w-[300px] bg-primary text-on-primary font-label-sm text-label-sm uppercase tracking-widest py-4 px-8 rounded-full shadow-button-press hover:bg-surface-tint hover:shadow-lg transition-all duration-300 transform active:scale-95 flex items-center justify-center gap-2">
+                Sounds Good
+                <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+<button class="mt-stack-md text-on-surface-variant font-label-sm text-label-sm hover:text-primary transition-colors bg-transparent border-none">
+                Maybe Later
+            </button>
+</div>
+</main>
+</body></html>

@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Suvi - Welcome</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&amp;family=Lexend:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "background": "#fff8f6",
+                        "tertiary-container": "#bbb2cb",
+                        "on-tertiary-fixed": "#1e192b",
+                        "primary-fixed-dim": "#ffb694",
+                        "primary": "#954921",
+                        "on-primary-fixed": "#351000",
+                        "surface-container-highest": "#f0dfd9",
+                        "primary-fixed": "#ffdbcc",
+                        "tertiary-fixed-dim": "#ccc2dc",
+                        "primary-container": "#ff9d6e",
+                        "on-tertiary-container": "#4a4459",
+                        "surface-bright": "#fff8f6",
+                        "on-surface": "#221a16",
+                        "on-secondary-fixed-variant": "#633c3d",
+                        "error": "#ba1a1a",
+                        "error-container": "#ffdad6",
+                        "surface": "#fff8f6",
+                        "on-primary-container": "#77320b",
+                        "on-background": "#221a16",
+                        "inverse-surface": "#382e2a",
+                        "tertiary-fixed": "#e8def8",
+                        "surface-container": "#fceae4",
+                        "outline-variant": "#dac1b7",
+                        "on-error": "#ffffff",
+                        "on-primary-fixed-variant": "#77320b",
+                        "secondary-fixed-dim": "#efb9b9",
+                        "on-error-container": "#93000a",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "on-secondary-container": "#7a5051",
+                        "surface-dim": "#e8d6d1",
+                        "on-surface-variant": "#54433b",
+                        "secondary-fixed": "#ffdad9",
+                        "tertiary": "#625b71",
+                        "on-tertiary-fixed-variant": "#4a4458",
+                        "surface-variant": "#f0dfd9",
+                        "secondary-container": "#fec7c7",
+                        "inverse-primary": "#ffb694",
+                        "on-primary": "#ffffff",
+                        "inverse-on-surface": "#ffede7",
+                        "on-tertiary": "#ffffff",
+                        "outline": "#87736a",
+                        "surface-container-low": "#fff1ec",
+                        "surface-tint": "#954921",
+                        "on-secondary-fixed": "#301214",
+                        "surface-container-high": "#f6e5df",
+                        "secondary": "#7d5354"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "container-padding": "24px",
+                        "stack-sm": "8px",
+                        "unit": "4px",
+                        "stack-lg": "32px",
+                        "stack-md": "16px",
+                        "gutter": "16px"
+                    },
+                    "fontFamily": {
+                        "headline-lg": ["Bodoni Moda"],
+                        "body-md": ["Lexend"],
+                        "body-lg": ["Lexend"],
+                        "display-lg": ["Bodoni Moda"],
+                        "headline-lg-mobile": ["Bodoni Moda"],
+                        "headline-md": ["Bodoni Moda"],
+                        "label-sm": ["Lexend"]
+                    },
+                    "fontSize": {
+                        "headline-lg": ["32px", { "lineHeight": "1.2", "fontWeight": "500" }],
+                        "body-md": ["16px", { "lineHeight": "1.5", "fontWeight": "400" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "display-lg": ["48px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+                        "headline-lg-mobile": ["28px", { "lineHeight": "1.2", "fontWeight": "500" }],
+                        "headline-md": ["24px", { "lineHeight": "1.3", "fontWeight": "500" }],
+                        "label-sm": ["12px", { "lineHeight": "1.4", "letterSpacing": "0.05em", "fontWeight": "500" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        /* Ambient Background Animation */
+        @keyframes floatGradient {
+            0% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(5%, 10%) scale(1.05); }
+            66% { transform: translate(-5%, 5%) scale(0.95); }
+            100% { transform: translate(0, 0) scale(1); }
+        }
+
+        .ambient-bg-1 {
+            background: radial-gradient(circle at 50% 50%, #ffe0cc 0%, transparent 70%);
+            animation: floatGradient 20s ease-in-out infinite alternate;
+        }
+        
+        .ambient-bg-2 {
+            background: radial-gradient(circle at 20% 80%, #ffd0d0 0%, transparent 60%);
+            animation: floatGradient 25s ease-in-out infinite alternate-reverse;
+            animation-delay: -5s;
+        }
+        
+        .ambient-bg-3 {
+            background: radial-gradient(circle at 80% 20%, #ffeedd 0%, transparent 60%);
+            animation: floatGradient 22s ease-in-out infinite alternate;
+            animation-delay: -10s;
+        }
+
+        /* The Breathing Orb */
+        @keyframes breathe {
+            0% { transform: scale(0.95); opacity: 0.8; filter: drop-shadow(0 0 40px rgba(255,157,110,0.4)); }
+            50% { transform: scale(1.05); opacity: 1; filter: drop-shadow(0 0 80px rgba(255,157,110,0.8)); }
+            100% { transform: scale(0.95); opacity: 0.8; filter: drop-shadow(0 0 40px rgba(255,157,110,0.4)); }
+        }
+
+        @keyframes pulseRing {
+            0% { transform: scale(0.8); opacity: 0.5; }
+            100% { transform: scale(1.5); opacity: 0; }
+        }
+
+        .breathing-orb {
+            background: radial-gradient(circle at 40% 40%, #ffeddf 0%, #ffc6a1 40%, #fa9561 100%);
+            animation: breathe 6s ease-in-out infinite;
+            box-shadow: inset -10px -10px 30px rgba(149, 73, 33, 0.3), inset 10px 10px 30px rgba(255, 255, 255, 0.8);
+        }
+
+        .orb-ring {
+            border: 2px solid rgba(255, 157, 110, 0.4);
+            animation: pulseRing 6s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+        }
+        
+        .orb-ring-delay {
+            animation-delay: 3s;
+        }
+
+        /* Glassmorphism Classes */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(40px);
+            -webkit-backdrop-filter: blur(40px);
+            border-top: 1px solid rgba(255, 255, 255, 0.6);
+            border-left: 1px solid rgba(255, 255, 255, 0.6);
+            border-right: 1px solid rgba(255, 255, 255, 0.2);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 
+                0 20px 40px rgba(149, 73, 33, 0.05),
+                inset 0 0 20px rgba(255, 255, 255, 0.5);
+        }
+
+        .glass-button {
+            background: linear-gradient(135deg, rgba(255,255,255,0.7) 0%, rgba(255,255,255,0.3) 100%);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255,255,255,0.8);
+            box-shadow: 0 8px 32px rgba(149, 73, 33, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .glass-button:hover {
+            background: linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.5) 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 12px 40px rgba(149, 73, 33, 0.15);
+        }
+
+        .glass-button:active {
+            transform: translateY(1px);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen relative overflow-hidden font-body-md selection:bg-primary-container selection:text-on-primary-container">
+<!-- Ambient Background Layers -->
+<div class="fixed inset-0 z-0 overflow-hidden pointer-events-none">
+<div class="absolute -top-[20%] -left-[20%] w-[140%] h-[140%] ambient-bg-1 opacity-70"></div>
+<div class="absolute -top-[10%] -right-[30%] w-[150%] h-[150%] ambient-bg-2 opacity-60"></div>
+<div class="absolute -bottom-[20%] -left-[10%] w-[130%] h-[130%] ambient-bg-3 opacity-80"></div>
+<!-- Soft noise overlay for texture -->
+<div class="absolute inset-0 opacity-[0.03] mix-blend-overlay" style="background-image: url('data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.65%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22/%3E%3C/svg%3E');"></div>
+</div>
+<!-- Main Content Container -->
+<main class="relative z-10 min-h-screen flex flex-col items-center justify-between px-container-padding py-12 md:max-w-[1200px] md:mx-auto">
+<!-- Top spacer for vertical balance -->
+<div class="w-full flex-grow-0 min-h-[35px] md:min-h-[88px]"></div>
+<!-- Central Orb Section -->
+<div class="relative flex flex-col items-center justify-center mb-stack-lg w-full max-w-sm">
+<div class="relative w-48 h-48 md:w-64 md:h-64 flex items-center justify-center">
+<!-- Pulsing rings -->
+<div class="absolute inset-0 rounded-full orb-ring"></div>
+<div class="absolute inset-0 rounded-full orb-ring orb-ring-delay"></div>
+<!-- Core Orb -->
+<div class="w-32 h-32 md:w-48 md:h-48 rounded-full breathing-orb absolute"></div>
+</div>
+<!-- Headline & Tagline within a subtle glass card -->
+<div class="mt-8 text-center glass-card rounded-[2rem] p-8 w-full max-w-md mx-auto">
+<h1 class="font-display-lg text-display-lg text-on-surface mb-stack-sm tracking-tight">
+                    Hi, I'm Suvi.
+                </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-[280px] mx-auto leading-relaxed">
+                    I'm here to help you feel better — not just track you.
+                </p>
+</div>
+</div>
+<!-- Bottom Actions -->
+<div class="w-full max-w-md mt-auto pt-stack-lg flex flex-col gap-4">
+<button class="w-full py-4 px-8 rounded-full bg-primary text-on-primary font-body-md font-medium text-[16px] tracking-wide shadow-[0_10px_30px_rgba(149,73,33,0.25)] hover:bg-primary/90 hover:shadow-[0_15px_40px_rgba(149,73,33,0.35)] transition-all duration-300 transform active:scale-[0.98] flex items-center justify-center gap-2 group">
+<span>Let's begin</span>
+<span class="material-symbols-outlined text-[20px] transition-transform duration-300 group-hover:translate-x-1">arrow_forward</span>
+</button>
+<p class="text-center font-label-sm text-label-sm text-on-surface-variant/60 mt-2">
+                A refined wellness journey awaits.
+            </p>
+</div>
+</main>
+<script>
+        // Optional: Add subtle parallax effect to the orb based on mouse/touch movement
+        document.addEventListener('mousemove', (e) => {
+            const orb = document.querySelector('.breathing-orb');
+            if(orb) {
+                const x = (e.clientX / window.innerWidth - 0.5) * 20;
+                const y = (e.clientY / window.innerHeight - 0.5) * 20;
+                orb.style.transform = `translate(${x}px, ${y}px) scale(1)`; // Base scale is managed by CSS animation, this adds slight translation
+            }
+        });
+    </script>
+</body></html>

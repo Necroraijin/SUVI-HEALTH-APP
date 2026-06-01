@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Basic Profile</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&amp;family=Lexend:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "background": "#fff8f6",
+                      "tertiary-container": "#bbb2cb",
+                      "on-tertiary-fixed": "#1e192b",
+                      "primary-fixed-dim": "#ffb694",
+                      "primary": "#954921",
+                      "on-primary-fixed": "#351000",
+                      "surface-container-highest": "#f0dfd9",
+                      "primary-fixed": "#ffdbcc",
+                      "tertiary-fixed-dim": "#ccc2dc",
+                      "primary-container": "#ff9d6e",
+                      "on-tertiary-container": "#4a4459",
+                      "surface-bright": "#fff8f6",
+                      "on-surface": "#221a16",
+                      "on-secondary-fixed-variant": "#633c3d",
+                      "error": "#ba1a1a",
+                      "error-container": "#ffdad6",
+                      "surface": "#fff8f6",
+                      "on-primary-container": "#77320b",
+                      "on-background": "#221a16",
+                      "inverse-surface": "#382e2a",
+                      "tertiary-fixed": "#e8def8",
+                      "surface-container": "#fceae4",
+                      "outline-variant": "#dac1b7",
+                      "on-error": "#ffffff",
+                      "on-primary-fixed-variant": "#77320b",
+                      "secondary-fixed-dim": "#efb9b9",
+                      "on-error-container": "#93000a",
+                      "surface-container-lowest": "#ffffff",
+                      "on-secondary": "#ffffff",
+                      "on-secondary-container": "#7a5051",
+                      "surface-dim": "#e8d6d1",
+                      "on-surface-variant": "#54433b",
+                      "secondary-fixed": "#ffdad9",
+                      "tertiary": "#625b71",
+                      "on-tertiary-fixed-variant": "#4a4458",
+                      "surface-variant": "#f0dfd9",
+                      "secondary-container": "#fec7c7",
+                      "inverse-primary": "#ffb694",
+                      "on-primary": "#ffffff",
+                      "inverse-on-surface": "#ffede7",
+                      "on-tertiary": "#ffffff",
+                      "outline": "#87736a",
+                      "surface-container-low": "#fff1ec",
+                      "surface-tint": "#954921",
+                      "on-secondary-fixed": "#301214",
+                      "surface-container-high": "#f6e5df",
+                      "secondary": "#7d5354"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "container-padding": "24px",
+                      "stack-sm": "8px",
+                      "unit": "4px",
+                      "stack-lg": "32px",
+                      "stack-md": "16px",
+                      "gutter": "16px"
+              },
+              "fontFamily": {
+                      "headline-lg": [
+                              "Bodoni Moda"
+                      ],
+                      "body-md": [
+                              "Lexend"
+                      ],
+                      "body-lg": [
+                              "Lexend"
+                      ],
+                      "display-lg": [
+                              "Bodoni Moda"
+                      ],
+                      "headline-lg-mobile": [
+                              "Bodoni Moda"
+                      ],
+                      "headline-md": [
+                              "Bodoni Moda"
+                      ],
+                      "label-sm": [
+                              "Lexend"
+                      ]
+              },
+              "fontSize": {
+                      "headline-lg": [
+                              "32px",
+                              {
+                                      "lineHeight": "1.2",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "1.5",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "1.6",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "display-lg": [
+                              "48px",
+                              {
+                                      "lineHeight": "1.1",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-lg-mobile": [
+                              "28px",
+                              {
+                                      "lineHeight": "1.2",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "headline-md": [
+                              "24px",
+                              {
+                                      "lineHeight": "1.3",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "label-sm": [
+                              "12px",
+                              {
+                                      "lineHeight": "1.4",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "500"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+    </script>
+<style>
+        /* Ambient Background Overlay */
+        .ambient-bg {
+            background: radial-gradient(circle at 50% 0%, rgba(255, 219, 204, 0.8) 0%, transparent 60%),
+                        radial-gradient(circle at 100% 50%, rgba(254, 199, 199, 0.5) 0%, transparent 50%),
+                        radial-gradient(circle at 0% 100%, rgba(240, 223, 217, 0.8) 0%, transparent 50%);
+            background-color: #fff8f6;
+        }
+
+        /* Sunset Core Orb Animation */
+        @keyframes gentle-pulse {
+            0%, 100% { transform: scale(1); opacity: 0.9; box-shadow: 0 0 20px rgba(255, 157, 110, 0.4); }
+            50% { transform: scale(1.05); opacity: 1; box-shadow: 0 0 30px rgba(255, 157, 110, 0.7); }
+        }
+        .sunset-orb {
+            background: radial-gradient(circle at center, #FFD2A8 0%, #ff9d6e 70%, #954921 100%);
+            animation: gentle-pulse 4s ease-in-out infinite;
+        }
+
+        /* Glass Input styling overrides for floating effect */
+        .glass-input {
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            box-shadow: 0 4px 15px rgba(149, 73, 33, 0.05), inset 1px 1px 0 rgba(255, 255, 255, 0.5);
+            transition: all 0.3s ease;
+        }
+        .glass-input:focus-within {
+            background: rgba(255, 255, 255, 0.6);
+            border-color: rgba(255, 157, 110, 0.5);
+            box-shadow: 0 8px 25px rgba(149, 73, 33, 0.08), inset 1px 1px 0 rgba(255, 255, 255, 0.8);
+            transform: translateY(-1px);
+        }
+        
+        .glass-input input, .glass-input select {
+            background: transparent;
+            border: none;
+            box-shadow: none;
+        }
+        .glass-input input:focus, .glass-input select:focus {
+            outline: none;
+            box-shadow: none;
+        }
+        
+        /* Hide scrollbar for select elements if needed */
+        select {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23954921' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right 1rem center;
+            background-size: 1em;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="ambient-bg min-h-screen text-on-surface antialiased relative overflow-x-hidden flex flex-col items-center">
+<!-- Suppressed Nav Shells: This is a linear onboarding flow. BottomNavBar is intentionally excluded. -->
+<!-- Header Area: Back & Orb -->
+<header class="w-full max-w-[1200px] px-container-padding py-stack-md flex justify-between items-center z-10 sticky top-0">
+<button aria-label="Go back" class="w-10 h-10 flex items-center justify-center rounded-full glass-input text-primary hover:bg-white/60 transition-colors">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">arrow_back_ios_new</span>
+</button>
+<!-- Suvi Conversational Orb -->
+<div class="relative w-12 h-12 flex items-center justify-center">
+<div class="absolute inset-0 rounded-full sunset-orb"></div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="w-full max-w-md px-container-padding flex-1 flex flex-col justify-center pb-24 z-10 relative">
+<div class="mb-stack-lg animate-fade-in-up">
+<h1 class="text-headline-lg-mobile md:text-headline-lg font-headline-lg-mobile md:font-headline-lg text-primary mb-2">
+                Tell me a bit<br/>about yourself...
+            </h1>
+<p class="text-body-md font-body-md text-on-surface-variant">
+                This helps Suvi personalize your wellness journey.
+            </p>
+</div>
+<!-- Form Glass Container -->
+<form action="#" class="space-y-stack-md" method="POST">
+<!-- Full Width Input: Name -->
+<div class="glass-input rounded-xl px-4 py-3 flex flex-col">
+<label class="text-headline-md font-headline-md text-primary/80 block mb-1" for="fullName">Name</label>
+<input class="w-full text-body-lg font-body-lg text-on-surface placeholder:text-outline-variant/60" id="fullName" name="fullName" placeholder="How should I call you?" type="text"/>
+</div>
+<!-- Two Column Row: Age & Gender -->
+<div class="grid grid-cols-2 gap-gutter">
+<div class="glass-input rounded-xl px-4 py-3 flex flex-col">
+<label class="text-headline-md font-headline-md text-primary/80 block mb-1" for="age">Age</label>
+<input class="w-full text-body-lg font-body-lg text-on-surface placeholder:text-outline-variant/60" id="age" name="age" placeholder="Years" type="number"/>
+</div>
+<div class="glass-input rounded-xl px-4 py-3 flex flex-col">
+<label class="text-headline-md font-headline-md text-primary/80 block mb-1" for="gender">Gender</label>
+<select class="w-full text-body-lg font-body-lg text-on-surface cursor-pointer pr-8" id="gender" name="gender">
+<option class="text-outline-variant/60" disabled="" selected="" value="">Select</option>
+<option value="female">Female</option>
+<option value="male">Male</option>
+<option value="nonbinary">Non-binary</option>
+<option value="prefer_not">Prefer not to say</option>
+</select>
+</div>
+</div>
+<!-- Three Column Grid: Vitals -->
+<div class="grid grid-cols-3 gap-unit">
+<div class="glass-input rounded-xl px-3 py-3 flex flex-col text-center items-center">
+<label class="text-headline-md font-headline-md text-primary/80 block mb-1" for="height">Height</label>
+<div class="flex items-baseline">
+<input class="w-12 text-center text-body-lg font-body-lg text-on-surface placeholder:text-outline-variant/60 p-0 m-0" id="height" name="height" placeholder="--" type="text"/>
+<span class="text-label-sm font-label-sm text-outline-variant ml-1">cm</span>
+</div>
+</div>
+<div class="glass-input rounded-xl px-3 py-3 flex flex-col text-center items-center">
+<label class="text-headline-md font-headline-md text-primary/80 block mb-1" for="weight">Weight</label>
+<div class="flex items-baseline">
+<input class="w-12 text-center text-body-lg font-body-lg text-on-surface placeholder:text-outline-variant/60 p-0 m-0" id="weight" name="weight" placeholder="--" type="text"/>
+<span class="text-label-sm font-label-sm text-outline-variant ml-1">kg</span>
+</div>
+</div>
+<div class="glass-input rounded-xl px-3 py-3 flex flex-col text-center items-center">
+<label class="text-headline-md font-headline-md text-primary/80 block mb-1" for="blood">Blood</label>
+<select class="w-full text-center text-body-lg font-body-lg text-on-surface cursor-pointer p-0 m-0 bg-none pr-4" id="blood" name="blood" style="background-position: right center;">
+<option class="text-outline-variant/60" disabled="" selected="" value="">--</option>
+<option value="A+">A+</option>
+<option value="O+">O+</option>
+<option value="B+">B+</option>
+<option value="AB+">AB+</option>
+</select>
+</div>
+</div>
+</form>
+</main>
+<!-- Bottom Action Area -->
+<div class="fixed bottom-0 left-0 w-full px-container-padding pb-stack-lg pt-stack-sm bg-gradient-to-t from-background via-background/90 to-transparent z-20 flex justify-center">
+<button class="w-full max-w-md bg-primary text-on-primary rounded-full py-4 px-6 shadow-[0_10px_30px_rgba(149,73,33,0.3)] flex justify-between items-center group transition-transform active:scale-95" type="button">
+<span class="text-body-lg font-body-lg pl-4">Next</span>
+<div class="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center group-hover:bg-white/30 transition-colors">
+<span class="material-symbols-outlined text-on-primary" style="font-variation-settings: 'FILL' 0;">arrow_forward</span>
+</div>
+</button>
+</div>
+</body></html>
