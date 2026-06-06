@@ -1,9 +1,11 @@
 import React from 'react';
 import { StyleSheet, View, Text, ScrollView, TouchableOpacity, Alert } from 'react-native';
+import { useRouter } from 'expo-router';
 import { useSuvi } from '../../context/SuviStateContext';
 import { GlassCard } from '../ui/GlassCard';
 
 export const ProfileSettingsTab: React.FC = () => {
+  const router = useRouter();
   const { state, syncSmartwatch, disconnectSmartwatch, resetAllData } = useSuvi();
 
   const handleReset = () => {
@@ -25,6 +27,19 @@ export const ProfileSettingsTab: React.FC = () => {
       : state.profile.focusGoal === 'weight-loss'
       ? 'Weight Loss'
       : 'Muscle Gain';
+
+  const renderMenuRow = (icon: string, title: string, desc: string, onPress: () => void) => (
+    <TouchableOpacity style={styles.menuRow} onPress={onPress} activeOpacity={0.7}>
+      <View style={styles.rowIconBox}>
+        <Text style={styles.rowIcon}>{icon}</Text>
+      </View>
+      <View style={styles.rowText}>
+        <Text style={styles.rowTitle}>{title}</Text>
+        <Text style={styles.rowDesc}>{desc}</Text>
+      </View>
+      <Text style={styles.arrowIcon}>➔</Text>
+    </TouchableOpacity>
+  );
 
   return (
     <ScrollView style={styles.container} contentContainerStyle={styles.scrollContent} showsVerticalScrollIndicator={false}>
@@ -55,8 +70,18 @@ export const ProfileSettingsTab: React.FC = () => {
         </View>
       </GlassCard>
 
+      {/* Clinical Team & Visits Card Group */}
+      <Text style={styles.sectionTitle}>Clinical Team & Visits</Text>
+      <GlassCard style={styles.cardGroup}>
+        {renderMenuRow('🩺', 'My Care Team', 'Active doctors, specialties, and clinics', () => router.push('/(screens)/my-doctors'))}
+        <View style={styles.dividerLight} />
+        {renderMenuRow('📅', 'Appointments Schedule', 'Upcoming doctor appointments and schedule reviews', () => router.push('/(screens)/appointments-schedule'))}
+        <View style={styles.dividerLight} />
+        {renderMenuRow('📄', 'Medical Vault', 'Expandable AI summaries of clinical documents', () => router.push('/(screens)/health-vault'))}
+      </GlassCard>
+
       {/* Connection Card */}
-      <Text style={styles.sectionTitle}>Connections & Integrations</Text>
+      <Text style={[styles.sectionTitle, styles.topMargin]}>Connections & Integrations</Text>
       <GlassCard style={styles.card}>
         <View style={styles.row}>
           <View style={styles.rowIconBox}>
@@ -64,7 +89,7 @@ export const ProfileSettingsTab: React.FC = () => {
           </View>
           <View style={styles.rowText}>
             <Text style={styles.rowTitle}>Smartwatch Integration</Text>
-            <Text style={styles.rowDesc}>{state.watchSynced ? '🟢 Apple Watch Connected' : '🔴 Not Paired'}</Text>
+            <Text style={styles.rowDesc}>{state.watchSynced ? 'Live Connected (Rest HR, Sleep, BP)' : 'Not Connected'}</Text>
           </View>
           <TouchableOpacity 
             style={[styles.toggleBtn, state.watchSynced ? styles.toggleActive : styles.toggleInactive]}
@@ -73,6 +98,18 @@ export const ProfileSettingsTab: React.FC = () => {
             <Text style={styles.toggleText}>{state.watchSynced ? 'Disconnect' : 'Connect'}</Text>
           </TouchableOpacity>
         </View>
+      </GlassCard>
+
+      {/* Settings Options Group */}
+      <Text style={[styles.sectionTitle, styles.topMargin]}>Companion Settings</Text>
+      <GlassCard style={styles.cardGroup}>
+        {renderMenuRow('👤', 'Health Profile', 'Height, emergency contact, and medical indicators', () => router.push('/(screens)/my-health-profile'))}
+        <View style={styles.dividerLight} />
+        {renderMenuRow('🔌', 'Connected Devices', 'Manage wearable sensors, BP cuffs, and CGMs', () => router.push('/(screens)/connected-devices'))}
+        <View style={styles.dividerLight} />
+        {renderMenuRow('🔔', 'Reminders & Timing', 'Customize daily brief timing and quiet hours', () => router.push('/(screens)/notifications-timing'))}
+        <View style={styles.dividerLight} />
+        {renderMenuRow('🔒', 'Privacy & Safety', 'Configure data sharing preferences and account purges', () => router.push('/(screens)/privacy-safety'))}
       </GlassCard>
 
       {/* Testing Section */}
@@ -249,5 +286,25 @@ const styles = StyleSheet.create({
     fontSize: 14,
     fontWeight: '600',
     color: '#ba1a1a',
+  },
+  cardGroup: {
+    paddingHorizontal: 16,
+    paddingVertical: 4,
+    gap: 0,
+  },
+  menuRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingVertical: 12,
+  },
+  dividerLight: {
+    height: 1,
+    backgroundColor: 'rgba(149, 73, 33, 0.08)',
+  },
+  arrowIcon: {
+    fontSize: 14,
+    color: '#954921',
+    fontWeight: 'bold',
+    paddingHorizontal: 8,
   },
 });

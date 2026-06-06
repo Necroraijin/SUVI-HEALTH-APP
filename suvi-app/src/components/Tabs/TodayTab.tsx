@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { StyleSheet, View, Text, ScrollView, TouchableOpacity, Dimensions } from 'react-native';
+import { useRouter } from 'expo-router';
 import { useSuvi } from '../../context/SuviStateContext';
 import { GlassCard } from '../ui/GlassCard';
 
@@ -8,6 +9,7 @@ interface TodayTabProps {
 }
 
 export const TodayTab: React.FC<TodayTabProps> = ({ onNavigateToTab }) => {
+  const router = useRouter();
   const { state, logWater, toggleMedication, syncSmartwatch, disconnectSmartwatch, getMorningBrief } = useSuvi();
   const [medModalVisible, setMedModalVisible] = useState(false);
 
@@ -62,7 +64,7 @@ export const TodayTab: React.FC<TodayTabProps> = ({ onNavigateToTab }) => {
         <TouchableOpacity
           activeOpacity={0.9}
           style={styles.tile}
-          onPress={() => setMedModalVisible(!medModalVisible)}
+          onPress={() => router.push('/(screens)/medication-today')}
         >
           <View style={styles.tileHeader}>
             <Text style={styles.tileIcon}>💊</Text>
@@ -79,7 +81,7 @@ export const TodayTab: React.FC<TodayTabProps> = ({ onNavigateToTab }) => {
         </TouchableOpacity>
 
         {/* Steps Tile */}
-        <TouchableOpacity activeOpacity={0.9} style={styles.tile} onPress={() => onNavigateToTab(1)}>
+        <TouchableOpacity activeOpacity={0.9} style={styles.tile} onPress={() => router.push('/(screens)/fitness-goal-detail')}>
           <View style={styles.tileHeader}>
             <Text style={styles.tileIcon}>🏃</Text>
             <View style={[styles.badge, styles.greenBadge]}>
@@ -113,7 +115,7 @@ export const TodayTab: React.FC<TodayTabProps> = ({ onNavigateToTab }) => {
         </TouchableOpacity>
 
         {/* Workout Tile */}
-        <TouchableOpacity activeOpacity={0.9} style={styles.tile} onPress={() => onNavigateToTab(1)}>
+        <TouchableOpacity activeOpacity={0.9} style={styles.tile} onPress={() => router.push('/(screens)/fitness-goal-detail')}>
           <View style={styles.tileHeader}>
             <Text style={styles.tileIcon}>💪</Text>
           </View>

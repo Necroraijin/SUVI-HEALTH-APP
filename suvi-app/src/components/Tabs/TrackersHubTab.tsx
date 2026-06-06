@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import { StyleSheet, View, Text, ScrollView, TouchableOpacity, TextInput, Dimensions } from 'react-native';
+import { useRouter } from 'expo-router';
 import { useSuvi } from '../../context/SuviStateContext';
 import { GlassCard } from '../ui/GlassCard';
 
 
 export const TrackersHubTab: React.FC = () => {
+  const router = useRouter();
   const { state, logWater, addBPRecord, updateCycleDay, getMenstrualPhase } = useSuvi();
   
   // Sub-navigation: 'hub' | 'cycle' | 'bp' | 'water'
@@ -37,6 +39,8 @@ export const TrackersHubTab: React.FC = () => {
 
   const cycleInfo = getMenstrualPhase();
   const latestBP = state.bpLogs[0] || { systolic: 120, diastolic: 80 };
+  const latestGlucose = state.glucoseLogs[0] || { value: 105, mealTag: 'fasting' };
+  const latestSymptom = state.symptoms[0];
 
   // --- RENDERING SUB-VIEWS ---
 
@@ -44,22 +48,50 @@ export const TrackersHubTab: React.FC = () => {
   if (subView === 'hub') {
     return (
       <ScrollView style={styles.container} contentContainerStyle={styles.scrollContent} showsVerticalScrollIndicator={false}>
-        <Text style={styles.title}>Health Trackers</Text>
-        <Text style={styles.subtitle}>Log parameters manually or check values synced from your wearable.</Text>
+        <View style={styles.hubHeaderRow}>
+          <View style={{ flex: 1 }}>
+            <Text style={styles.title}>Health Trackers</Text>
+            <Text style={styles.subtitle}>Log parameters manually or check values synced from your wearable.</Text>
+          </View>
+          <TouchableOpacity 
+            style={styles.manageBtn}
+            onPress={() => router.push('/(screens)/manage-trackers')}
+          >
+            <Text style={styles.manageBtnText}>⚙️ Edit</Text>
+          </TouchableOpacity>
+        </View>
+
+        {/* Health Dashboard Callout */}
+        <GlassCard style={styles.dashboardCard}>
+          <View style={styles.dashboardHeader}>
+            <Text style={styles.dashboardTitle}>📊 Health Metrics Dashboard</Text>
+            <TouchableOpacity 
+              style={styles.dashboardBtn}
+              onPress={() => router.push('/(screens)/health-metrics-dashboard')}
+            >
+              <Text style={styles.dashboardBtnText}>View Analytics ➔</Text>
+            </TouchableOpacity>
+          </View>
+          <Text style={styles.dashboardDesc}>
+            Analyze resting heart rate, steps consistency, sleep duration, and clinical blood work.
+          </Text>
+        </GlassCard>
 
         <View style={styles.grid}>
           {/* Water Logger Tile */}
-          <TouchableOpacity activeOpacity={0.8} style={styles.gridCard} onPress={() => setSubView('water')}>
-            <Text style={styles.gridIcon}>💧</Text>
-            <View style={styles.gridInfo}>
-              <Text style={styles.gridTitle}>Water Tracker</Text>
-              <Text style={styles.gridDesc}>{state.waterGlasses} of {state.waterGoal} glasses logged</Text>
-            </View>
-            <Text style={styles.gridArrow}>➔</Text>
-          </TouchableOpacity>
+          {state.activeTrackers.includes('water') && (
+            <TouchableOpacity activeOpacity={0.8} style={styles.gridCard} onPress={() => setSubView('water')}>
+              <Text style={styles.gridIcon}>💧</Text>
+              <View style={styles.gridInfo}>
+                <Text style={styles.gridTitle}>Water Tracker</Text>
+                <Text style={styles.gridDesc}>{state.waterGlasses} of {state.waterGoal} glasses logged</Text>
+              </View>
+              <Text style={styles.gridArrow}>➔</Text>
+            </TouchableOpacity>
+          )}
 
-          {/* Menstrual Cycle Tile (Only shows for female profiles) */}
-          {state.profile.gender === 'female' && (
+          {/* Menstrual Cycle Tile (Only shows for female profiles if active) */}
+          {state.profile.gender === 'female' && state.activeTrackers.includes('cycle') && (
             <TouchableOpacity activeOpacity={0.8} style={styles.gridCard} onPress={() => setSubView('cycle')}>
               <Text style={styles.gridIcon}>🌸</Text>
               <View style={styles.gridInfo}>
@@ -71,11 +103,47 @@ export const TrackersHubTab: React.FC = () => {
           )}
 
           {/* Blood Pressure Tile */}
-          <TouchableOpacity activeOpacity={0.8} style={styles.gridCard} onPress={() => setSubView('bp')}>
-            <Text style={styles.gridIcon}>❤️</Text>
+          {state.activeTrackers.includes('bp') && (
+            <TouchableOpacity activeOpacity={0.8} style={styles.gridCard} onPress={() => setSubView('bp')}>
+              <Text style={styles.gridIcon}>❤️</Text>
+              <View style={styles.gridInfo}>
+                <Text style={styles.gridTitle}>Blood Pressure</Text>
+                <Text style={styles.gridDesc}>Latest: {latestBP.systolic}/{latestBP.diastolic} mmHg</Text>
+              </View>
+              <Text style={styles.gridArrow}>➔</Text>
+            </TouchableOpacity>
+          )}
+
+          {/* Blood Glucose Tile */}
+          {state.activeTrackers.includes('glucose') && (
+            <TouchableOpacity 
+              activeOpacity={0.8} 
+              style={styles.gridCard} 
+              onPress={() => router.push('/(screens)/blood-glucose')}
+            >
+              <Text style={styles.gridIcon}>🩸</Text>
+              <View style={styles.gridInfo}>
+                <Text style={styles.gridTitle}>Blood Glucose</Text>
+                <Text style={styles.gridDesc}>Latest: {latestGlucose.value} mg/dL ({latestGlucose.mealTag})</Text>
+              </View>
+              <Text style={styles.gridArrow}>➔</Text>
+            </TouchableOpacity>
+          )}
+
+          {/* Symptom Tracker Tile */}
+          <TouchableOpacity 
+            activeOpacity={0.8} 
+            style={styles.gridCard} 
+            onPress={() => router.push('/(screens)/symptom-history')}
+          >
+            <Text style={styles.gridIcon}>⚠️</Text>
             <View style={styles.gridInfo}>
-              <Text style={styles.gridTitle}>Blood Pressure</Text>
-              <Text style={styles.gridDesc}>Latest: {latestBP.systolic}/{latestBP.diastolic} mmHg</Text>
+              <Text style={styles.gridTitle}>Symptom Tracker</Text>
+              <Text style={styles.gridDesc}>
+                {latestSymptom 
+                  ? `Last: ${latestSymptom.symptoms.join(', ')} (Sev: ${latestSymptom.severity}/10)` 
+                  : 'Log headache, fatigue, or recovery indicators'}
+              </Text>
             </View>
             <Text style={styles.gridArrow}>➔</Text>
           </TouchableOpacity>
@@ -94,6 +162,7 @@ export const TrackersHubTab: React.FC = () => {
       </ScrollView>
     );
   }
+
 
   // Water sub-view
   if (subView === 'water') {
@@ -590,5 +659,57 @@ const styles = StyleSheet.create({
   },
   topMargin: {
     marginTop: 24,
+  },
+  hubHeaderRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: 8,
+  },
+  manageBtn: {
+    paddingHorizontal: 12,
+    paddingVertical: 6,
+    borderRadius: 12,
+    backgroundColor: 'rgba(255, 255, 255, 0.5)',
+    borderWidth: 1,
+    borderColor: 'rgba(255, 255, 255, 0.8)',
+  },
+  manageBtnText: {
+    fontSize: 12,
+    fontFamily: 'Lexend-SemiBold',
+    color: '#954921',
+  },
+  dashboardCard: {
+    padding: 16,
+    marginBottom: 20,
+    borderWidth: 1,
+    borderColor: 'rgba(255, 255, 255, 0.8)',
+  },
+  dashboardHeader: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginBottom: 8,
+  },
+  dashboardTitle: {
+    fontSize: 14,
+    fontFamily: 'Lexend-SemiBold',
+    color: '#221a16',
+  },
+  dashboardBtn: {
+    paddingHorizontal: 10,
+    paddingVertical: 4,
+    borderRadius: 8,
+    backgroundColor: '#954921',
+  },
+  dashboardBtnText: {
+    fontSize: 10,
+    fontFamily: 'Lexend-SemiBold',
+    color: '#ffffff',
+  },
+  dashboardDesc: {
+    fontSize: 12,
+    fontFamily: 'Lexend',
+    color: '#87736a',
+    lineHeight: 16,
   },
 });

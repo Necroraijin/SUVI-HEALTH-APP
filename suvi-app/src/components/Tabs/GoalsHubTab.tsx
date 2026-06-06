@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import { StyleSheet, View, Text, ScrollView, TouchableOpacity } from 'react-native';
+import { useRouter } from 'expo-router';
 import { useSuvi } from '../../context/SuviStateContext';
 import { GlassCard } from '../ui/GlassCard';
 
 export const GoalsHubTab: React.FC = () => {
+  const router = useRouter();
   const { state } = useSuvi();
   
   // Local diet logs
@@ -49,6 +51,36 @@ export const GoalsHubTab: React.FC = () => {
     <ScrollView style={styles.container} contentContainerStyle={styles.scrollContent} showsVerticalScrollIndicator={false}>
       <Text style={styles.title}>Goals & Budgets</Text>
       <Text style={styles.subtitle}>Track your workouts, log calorie budgets, and build healthy habits.</Text>
+
+      {/* Goal Quick Links */}
+      <View style={styles.goalCardsRow}>
+        <TouchableOpacity 
+          style={styles.goalCardMini}
+          onPress={() => router.push('/(screens)/weight-goal-detail')}
+          activeOpacity={0.8}
+        >
+          <Text style={styles.goalCardIcon}>⚖️</Text>
+          <Text style={styles.goalCardLabel}>Weight Goal</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity 
+          style={styles.goalCardMini}
+          onPress={() => router.push('/(screens)/medical-goal-detail')}
+          activeOpacity={0.8}
+        >
+          <Text style={styles.goalCardIcon}>🩺</Text>
+          <Text style={styles.goalCardLabel}>Medical Goal</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity 
+          style={styles.goalCardMini}
+          onPress={() => router.push('/(screens)/fitness-goal-detail')}
+          activeOpacity={0.8}
+        >
+          <Text style={styles.goalCardIcon}>🏃</Text>
+          <Text style={styles.goalCardLabel}>Fitness Goal</Text>
+        </TouchableOpacity>
+      </View>
 
       {/* Calorie Progress Ring Mock */}
       <GlassCard style={styles.calCard}>
@@ -258,5 +290,29 @@ const styles = StyleSheet.create({
   checkedText: {
     textDecorationLine: 'line-through',
     color: '#87736a',
+  },
+  goalCardsRow: {
+    flexDirection: 'row',
+    gap: 12,
+    marginBottom: 24,
+  },
+  goalCardMini: {
+    flex: 1,
+    paddingVertical: 14,
+    borderRadius: 20,
+    backgroundColor: 'rgba(255, 255, 255, 0.42)',
+    borderWidth: 1,
+    borderColor: 'rgba(255, 255, 255, 0.55)',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: 6,
+  },
+  goalCardIcon: {
+    fontSize: 22,
+  },
+  goalCardLabel: {
+    fontSize: 11,
+    fontFamily: 'Lexend-SemiBold',
+    color: '#954921',
   },
 });

@@ -1,0 +1,429 @@
+# SUVI Health App — Gap Analysis & Implementation Plan
+
+## Summary
+
+Your app has **45 designed HTML screens** in `Suvi Health app Ui/` but only **~16 screens** are implemented in the React Native codebase (`suvi-app/src/`). This plan covers everything that's missing, organized by priority.
+
+---
+
+## What's Already Built ✅
+
+| Feature Area | Screens | Status |
+|---|---|---|
+| **Onboarding** | Welcome, Goals, Profile, Medical/Sync | ✅ Fully built (4 screens) |
+| **Daily Command Center** | Morning brief, metrics strip, suggestions | ✅ Built (TodayTab) |
+| **Suvi Companion Chat** | Chat UI, breathing orb, suggested prompts, mock AI | ✅ Built (SuviChatTab) |
+| **Trackers Hub** | Water tracker, BP monitor, menstrual cycle tracker | ✅ Built (TrackersHubTab) |
+| **Goals Hub** | Calorie budget, diet logger, workout checklist | ✅ Built (GoalsHubTab) |
+| **Profile Settings** | User profile, smartwatch toggle, reset state | ✅ Built (ProfileSettingsTab) |
+| **Core UI** | GlassCard, GradientBackground, BreathingOrb | ✅ Built |
+| **State Engine** | SuviStateContext with AsyncStorage persistence | ✅ Built |
+
+---
+
+## What's Missing ❌
+
+### 🔴 Critical (25+ screens not implemented)
+
+The following designed screens from `Suvi Health app Ui/` have **no corresponding React Native implementation**:
+
+---
+
+### 1. Document Scanner & AI Processing (3 screens)
+
+> Designed in: `4.1_document_scanner`, `4.2_ai_processing`, `4.3_report_analysis`
+
+**What exists**: A simulated "Upload & Scan" button on the onboarding medical screen that fakes extracting medications after a timeout.
+
+**What's missing**:
+- **Full document scanner screen** with camera viewfinder UI, scan button, document border detection overlay
+- **AI processing screen** with animated progress states ("Extracting text…", "Analyzing conditions…", "Building medication schedule…")
+- **Report analysis results screen** with structured output: extracted medications, conditions found, lab values, and AI-generated summary
+- No way to scan or review documents after onboarding
+
+#### Proposed Changes
+
+##### [NEW] `src/components/Screens/DocumentScannerScreen.tsx`
+- Full-screen scanner UI with mock camera overlay and capture button
+- Document preview with crop/rotate controls
+- "Send to Suvi AI" action button
+
+##### [NEW] `src/components/Screens/AIProcessingScreen.tsx`
+- Animated processing pipeline with step-by-step status indicators
+- Breathing orb in "thinking" state during analysis
+- Progress from "Reading document" → "Extracting data" → "Analysis complete"
+
+##### [NEW] `src/components/Screens/ReportAnalysisScreen.tsx`
+- Structured results view: extracted medications, conditions, lab values
+- AI summary card with Suvi's interpretation
+- "Add to Health Vault" action button
+
+##### [MODIFY] `src/context/SuviStateContext.tsx`
+- Add `scannedDocuments: ScannedDocument[]` to state
+- Add `addDocument()`, `removeDocument()` actions
+
+---
+
+### 2. Health Vault (1 screen)
+
+> Designed in: `5.1_health_vault`
+
+**What's missing entirely**:
+- Searchable, chronological medical document repository
+- Filter chips (All, Lab Reports, Prescriptions, Imaging, Visit Notes)
+- Document list items with icons, dates, and AI summaries
+- "Load Older Documents" pagination
+
+#### Proposed Changes
+
+##### [NEW] `src/components/Screens/HealthVaultScreen.tsx`
+- Search bar with glassmorphism styling
+- Horizontal filter chip scroll
+- Document card list with category icons, dates, summaries
+- Mock data for Lipid Panel, Prescriptions, X-Ray, CBC
+
+##### [MODIFY] `src/context/SuviStateContext.tsx`
+- Add `healthVault: VaultDocument[]` type and default mock data
+- Add filter state management
+
+---
+
+### 3. Medication Management (4 screens)
+
+> Designed in: `6.1_medication_today_view`, `6.2_medication_detail`, `6.3_add_medication`, `6.4_adherence_tracker`
+
+**What exists**: Basic medication toggle in TodayTab (only shows Metformin, no details).
+
+**What's missing**:
+- **Medication Today View** — Full daily schedule timeline with all medications, time slots, status badges (Taken/Missed/Upcoming)
+- **Medication Detail** — Dedicated screen per medication showing dosage, purpose, side effects, interaction warnings, refill countdown
+- **Add Medication** — Form to add new medications with name, dosage, frequency, time, reminders
+- **Adherence Tracker** — Visual calendar showing daily/weekly compliance, streak data, percentage stats
+
+#### Proposed Changes
+
+##### [NEW] `src/components/Screens/MedicationTodayScreen.tsx`
+- Timeline-style daily view with all medications
+- Time-slot grouping (Morning, Afternoon, Evening)
+- Tap-to-toggle taken/untaken with animated checkmarks
+
+##### [NEW] `src/components/Screens/MedicationDetailScreen.tsx`
+- Drug info card with dosage, purpose, side effects
+- Refill countdown timer
+- Interaction warnings (e.g., "Avoid grapefruit with Metformin")
+
+##### [NEW] `src/components/Screens/AddMedicationScreen.tsx`
+- Form with name, dosage, frequency picker, time picker
+- "Scan from prescription" shortcut linking to document scanner
+
+##### [NEW] `src/components/Screens/AdherenceTrackerScreen.tsx`
+- Calendar heatmap showing daily compliance
+- Streak counter and percentage stats
+- Weekly/monthly toggle
+
+##### [MODIFY] `src/context/SuviStateContext.tsx`
+- Expand `Medication` type with `purpose`, `sideEffects`, `interactions`, `refillDate`
+- Add `addMedication()`, `removeMedication()` actions
+- Add `adherenceHistory: Record<string, boolean[]>` for tracking
+
+---
+
+### 4. Goal Detail Screens (3 screens)
+
+> Designed in: `7.2_weight_goal_detail`, `7.3_medical_goal_detail`, `7.4_fitness_goal_detail`
+
+**What exists**: GoalsHubTab has a calorie budget card and meal/workout checklists. No dedicated detail screens.
+
+**What's missing**:
+- **Weight Goal Detail** — Target weight, progress chart, weekly weigh-in log, BMI calculation
+- **Medical Goal Detail** — Medication compliance scores, BP trend analysis, HbA1c targets
+- **Fitness Goal Detail** — Workout history, step trends, active minutes, personal records
+
+#### Proposed Changes
+
+##### [NEW] `src/components/Screens/WeightGoalDetailScreen.tsx`
+- Current vs. target weight card
+- Mock progress line chart
+- Weekly weigh-in log entries
+
+##### [NEW] `src/components/Screens/MedicalGoalDetailScreen.tsx`
+- Medication compliance percentage ring
+- BP trend graph using last 10 logged entries
+- HbA1c target card
+
+##### [NEW] `src/components/Screens/FitnessGoalDetailScreen.tsx`
+- Steps trend chart (7-day)
+- Workout history list
+- Personal records section
+
+---
+
+### 5. Symptom Logging & AI Assessment (3 screens)
+
+> Designed in: `9.1_log_symptoms_bottom_sheet`, `9.2_ai_assessment_response`, `9.3_symptom_history_patterns`
+
+**What's missing entirely**:
+- **Log Symptoms Bottom Sheet** — Searchable symptom picker grouped by category (Respiratory, Neurological, Digestive), severity slider (1-10), duration toggle (Started Today/Ongoing), energy level selector, free-text notes
+- **AI Assessment Response** — Suvi's triage analysis with urgency level, possible causes, recommended actions, "Talk to Doctor" escalation
+- **Symptom History & Patterns** — Timeline of logged symptoms, recurring pattern analysis, correlation with medications/cycle
+
+#### Proposed Changes
+
+##### [NEW] `src/components/Screens/LogSymptomsSheet.tsx`
+- Bottom sheet modal with symptom chip selector
+- Severity slider component
+- Duration toggle and energy level picker
+- "Submit to Suvi" action
+
+##### [NEW] `src/components/Screens/AIAssessmentScreen.tsx`
+- Urgency color-coded header (Green/Yellow/Red)
+- Possible causes list
+- Recommended actions checklist
+- "Contact Dr. Verma" escalation button
+
+##### [NEW] `src/components/Screens/SymptomHistoryScreen.tsx`
+- Chronological symptom log
+- Pattern analysis cards (e.g., "Headaches correlate with low sleep")
+- Filter by symptom type
+
+##### [MODIFY] `src/context/SuviStateContext.tsx`
+- Add `symptoms: SymptomLog[]` type
+- Add `logSymptom()`, `getSymptomPatterns()` actions
+
+---
+
+### 6. Health Metrics Dashboard & Additional Trackers (3 screens)
+
+> Designed in: `8.5_blood_glucose_monitor`, `8.6_health_metrics_dashboard`, `8.4_manage_trackers`
+
+**What exists**: TrackersHubTab has water, BP, and cycle sub-views.
+
+**What's missing**:
+- **Blood Glucose Monitor** — Log glucose readings, trend graph, target range visualization, meal-tagged readings
+- **Health Metrics Dashboard** — Unified overview of all tracked metrics with sparkline charts, daily/weekly/monthly toggle
+- **Manage Trackers** — Toggle which trackers are active/visible, reorder tracker cards
+
+#### Proposed Changes
+
+##### [NEW] `src/components/Screens/BloodGlucoseScreen.tsx`
+- Glucose logging form with value + meal tag (Fasting/Post-meal)
+- Target range visualization
+- Historical readings list with trend indicators
+
+##### [NEW] `src/components/Screens/HealthMetricsDashboard.tsx`
+- Grid of metric cards (Heart Rate, BP, Steps, Sleep, Weight, Glucose)
+- Sparkline mini-charts per metric
+- Daily/Weekly/Monthly period toggle
+
+##### [NEW] `src/components/Screens/ManageTrackersScreen.tsx`
+- Toggle switches for each tracker
+- Drag-to-reorder functionality
+- "Add New Tracker" button
+
+##### [MODIFY] `src/context/SuviStateContext.tsx`
+- Add `glucoseLogs: GlucoseLog[]` type
+- Add `activeTrackers: string[]` for manage screen
+- Add `logGlucose()`, `toggleTracker()` actions
+
+---
+
+### 7. Doctors & Appointments (3 screens)
+
+> Designed in: `10.1_my_doctors`, `10.2_appointments_schedule`, `10.3_pre_appointment_report`
+
+**What's missing entirely**:
+- **My Doctors** — Doctor cards with name, specialty, contact, next appointment date
+- **Appointments Schedule** — Calendar view with upcoming/past appointments, add appointment form
+- **Pre-Appointment Report** — AI-generated summary of recent vitals, medication changes, symptoms since last visit, formatted for sharing with doctor
+
+#### Proposed Changes
+
+##### [NEW] `src/components/Screens/MyDoctorsScreen.tsx`
+- Doctor card list with avatar, specialty, phone/email
+- "Add Doctor" form
+- Quick-call action buttons
+
+##### [NEW] `src/components/Screens/AppointmentsScreen.tsx`
+- Calendar strip with appointment dots
+- Upcoming/Past tab toggle
+- Appointment detail cards with time, doctor, location
+
+##### [NEW] `src/components/Screens/PreAppointmentReportScreen.tsx`
+- Auto-generated summary card with recent vitals, med changes, logged symptoms
+- "Share as PDF" mock button
+- "Questions for Doctor" editable checklist
+
+##### [MODIFY] `src/context/SuviStateContext.tsx`
+- Add `doctors: Doctor[]`, `appointments: Appointment[]` types
+- Add `addDoctor()`, `addAppointment()`, `generatePreAppointmentReport()` actions
+
+---
+
+### 8. Onboarding — Permissions & First Goal Setup (2 screens)
+
+> Designed in: `1.5_permissions`, `1.5_permissions_new_style`, `1.6_first_goal_setup`
+
+**What exists**: Onboarding goes Welcome → Goals → Profile → Medical. No permissions screen.
+
+**What's missing**:
+- **Permissions Screen** — Request notifications, health data access, camera access for document scanning, with explanation text for each
+- **First Goal Setup** — Detailed initial configuration of the selected primary goal (weight target input, medication list confirmation, fitness baseline)
+
+#### Proposed Changes
+
+##### [NEW] `src/components/Onboarding/OnboardingPermissions.tsx`
+- Permission cards with icon, title, explanation
+- Toggle/grant buttons per permission
+- "Skip for Now" option
+
+##### [NEW] `src/components/Onboarding/OnboardingFirstGoal.tsx`
+- Dynamic form based on selected focus goal
+- Weight target slider (for weight goals)
+- Medication confirmation list (for medication focus)
+- Fitness baseline questionnaire (for fitness focus)
+
+##### [MODIFY] `src/app/index.tsx`
+- Insert new steps 4 (permissions) and 5 (first goal) into onboarding flow
+- Update `onboardingStep` to support steps 0-5
+
+---
+
+### 9. Settings Screens (4 screens)
+
+> Designed in: `11.1_my_health_profile`, `11.2_connected_devices`, `11.3_notifications_timing`, `11.4_privacy_safety`
+
+**What exists**: ProfileSettingsTab has basic profile display and smartwatch toggle. Very minimal.
+
+**What's missing**:
+- **My Health Profile** — Editable profile with height, allergies, blood type, emergency contacts
+- **Connected Devices** — Multi-device management (Apple Watch, Fitbit, glucose monitor, BP cuff) with individual sync status
+- **Notifications & Timing** — Granular notification preferences: medication reminders, daily brief timing, symptom check-ins, appointment alerts
+- **Privacy & Safety** — Data sharing preferences, export data, delete account, app lock toggle
+
+#### Proposed Changes
+
+##### [NEW] `src/components/Screens/MyHealthProfileScreen.tsx`
+- Editable fields: height, allergies, blood type, emergency contacts
+- Medical conditions list
+
+##### [NEW] `src/components/Screens/ConnectedDevicesScreen.tsx`
+- Multi-device cards with individual sync status
+- "Pair New Device" button with device type selector
+
+##### [NEW] `src/components/Screens/NotificationsTimingScreen.tsx`
+- Toggle switches for each notification category
+- Time picker for daily brief, medication reminders
+- Quiet hours configuration
+
+##### [NEW] `src/components/Screens/PrivacySafetyScreen.tsx`
+- Data sharing toggles
+- "Export My Data" button
+- "Delete Account" with confirmation
+- Biometric lock toggle
+
+##### [MODIFY] `src/components/Tabs/ProfileSettingsTab.tsx`
+- Add navigation cards linking to each settings sub-screen
+
+---
+
+## Architectural Issues & Tech Debt
+
+> [!WARNING]
+> ### No Proper Routing
+> The entire app runs from a **single `index.tsx`** file using manual `useState` for tab switching and conditional rendering. There's no `expo-router` tab layout despite it being installed and mentioned in the plan. This means:
+> - No URL-based navigation, no deep linking
+> - No back button support on Android
+> - No screen transitions or animations
+> - All sub-screens are rendered via state toggling inside components
+
+**Recommendation**: Migrate to proper `expo-router` file-based routing with:
+- `src/app/(onboarding)/` group for onboarding flow
+- `src/app/(tabs)/` group for the main tab navigation
+- `src/app/(screens)/` group for detail screens (medications, goals, etc.)
+
+---
+
+> [!WARNING]
+> ### No Proper Typography
+> The HTML designs use `Bodoni Moda` (headlines) and `Lexend` (body) fonts. The React Native app uses system fonts only (`fontFamily: 'System'`). This significantly degrades the premium look.
+
+**Recommendation**: Install custom fonts via `expo-font` and load `Bodoni Moda` + `Lexend` from Google Fonts assets.
+
+---
+
+> [!IMPORTANT]
+> ### Leftover Expo Template Code
+> [explore.tsx](file:///c:/Users/DELL/Desktop/PROJECTS/SUVI%20Health%20App/suvi-app/src/app/explore.tsx) is the default Expo template "Explore" screen with documentation links. It's not used by the app and should be removed.
+
+---
+
+> [!IMPORTANT]
+> ### No `expo-router` Tab Layout
+> Despite `expo-router` being installed, there's no `(tabs)/_layout.tsx` file. The custom floating bottom bar in `index.tsx` handles all tab switching manually.
+
+---
+
+## Open Questions
+
+> [!IMPORTANT]
+> 1. **Routing migration priority**: Should we migrate to proper `expo-router` file-based routing first (which will touch every file), or build new screens first and migrate later?
+
+> [!IMPORTANT]
+> 2. **Which design style**: Your `Suvi Health app Ui/` folder has both original and `_new_style` variants for Welcome, Goals, Profile, and Permissions. Which style should we follow for the React Native implementation?
+
+> [!IMPORTANT]
+> 3. **AI integration**: The chat currently uses hardcoded keyword-matched responses. Do you want to integrate a real AI backend (e.g., Gemini API) for the chat, symptom assessment, and report analysis, or keep it as a polished mock/prototype?
+
+> [!IMPORTANT]
+> 4. **Data persistence scope**: Currently everything is stored in AsyncStorage. For features like Health Vault documents and appointment scheduling, should we plan for a backend (Firebase/Supabase) or keep everything local?
+
+---
+
+## Proposed Implementation Phases
+
+### Phase 1: Foundation & Architecture (High Priority)
+1. Migrate to `expo-router` file-based routing
+2. Install custom fonts (Bodoni Moda, Lexend)
+3. Clean up template code (`explore.tsx`, unused components)
+4. Create shared navigation header component
+
+### Phase 2: Missing Core Health Features
+5. Document Scanner + AI Processing + Report Analysis (3 screens)
+6. Health Vault (1 screen)
+7. Symptom Logger + AI Assessment + History (3 screens)
+
+### Phase 3: Medication & Goals Expansion
+8. Medication Today/Detail/Add/Adherence (4 screens)
+9. Goal Detail screens: Weight/Medical/Fitness (3 screens)
+
+### Phase 4: Trackers & Metrics
+10. Blood Glucose Monitor (1 screen)
+11. Health Metrics Dashboard (1 screen)
+12. Manage Trackers (1 screen)
+
+### Phase 5: Doctors & Appointments
+13. My Doctors + Appointments + Pre-Appointment Report (3 screens)
+
+### Phase 6: Settings & Onboarding Polish
+14. Permissions onboarding screen (1 screen)
+15. First Goal Setup onboarding screen (1 screen)
+16. Settings sub-screens: Health Profile, Devices, Notifications, Privacy (4 screens)
+
+---
+
+## Verification Plan
+
+### Automated Build Validation
+```bash
+cd suvi-app
+npx tsc --noEmit          # TypeScript type checking
+npx expo start            # Dev server starts without errors
+```
+
+### Manual Testing Flows
+1. **Complete onboarding** through all steps (including new permissions + first goal)
+2. **Navigate every tab** and every sub-screen, confirming state updates propagate
+3. **Document scan flow**: Scanner → AI Processing → Results → Health Vault
+4. **Symptom flow**: Log Symptoms → AI Assessment → Symptom History
+5. **Medication flow**: Today View → Detail → Add → Adherence calendar
+6. **Test both gender profiles** (Rahul vs. Sunidhi) to verify cycle-aware features
